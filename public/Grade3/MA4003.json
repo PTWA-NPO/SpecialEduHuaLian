@@ -19,20 +19,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "四公分"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公分"],
+                            "Number": 4
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "四十二毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫米",""],
+                            "Number": 42
                             }             
                         }
                     ]
@@ -42,20 +44,22 @@
             {
                "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "六公分"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公分"],
+                            "Number": 6
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "六十毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫米",""],
+                            "Number": 60
                             }             
                         }
                     ]
@@ -65,20 +69,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三公分"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公分"],
+                            "Number": 3
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "二十二毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫米",""],
+                            "Number": 22
                             }             
                         }
                     ]
@@ -88,20 +94,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "七公分"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公分"],
+                            "Number": 7
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "七十九毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫米",""],
+                            "Number": 79
                             }             
                         }
                     ]
@@ -111,20 +119,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "九公分"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公分"],
+                            "Number": 9
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "八十毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫米",""],
+                            "Number": 80
                             }             
                         }
                     ]
@@ -136,20 +146,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "九公分四毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公分","毫米"],
+                            "Number": 94
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "九十四毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫米",""],
+                            "Number": 94
                             }             
                         }
                     ]
@@ -159,20 +171,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "五公分七毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公分","毫米"],
+                            "Number": 57
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "六十七毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫米",""],
+                            "Number": 67
                             }             
                         }
                     ]
@@ -182,20 +196,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "六公分兩毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公分","毫米"],
+                            "Number": 62
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "五十九毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫米",""],
+                            "Number": 59
                             }             
                         }
                     ]
@@ -205,20 +221,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "四公分四毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公分","毫米"],
+                            "Number": 44
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "四十八毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫米",""],
+                            "Number": 48
                             }             
                         }
                     ]
@@ -228,20 +246,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "五公分六毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公分","毫米"],
+                            "Number": 56
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "五十五毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫米",""],
+                            "Number": 55
                             }             
                         }
                     ]
@@ -253,20 +273,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十四毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫米",""],
+                            "Number": 14
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十公分"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公分",""],
+                            "Number": 10
                             }             
                         }
                     ]
@@ -276,20 +298,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一百二十毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫米","",""],
+                            "Number": 120
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十二公分"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公分",""],
+                            "Number": 12
                             }             
                         }
                     ]
@@ -299,20 +323,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一百一十毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫米","",""],
+                            "Number": 110
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十五公分"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公分",""],
+                            "Number": 15
                             }             
                         }
                     ]
@@ -322,20 +348,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一百四十毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫米","",""],
+                            "Number": 140
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十公分"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公分",""],
+                            "Number": 10
                             }             
                         }
                     ]
@@ -345,20 +373,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十三毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫米",""],
+                            "Number": 13
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十三公分"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公分",""],
+                            "Number": 13
                             }             
                         }
                     ]
@@ -370,20 +400,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一百二十七毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫米","",""],
+                            "Number": 127
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十二公分一毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公分","毫米"],
+                            "Number": 121
                             }             
                         }
                     ]
@@ -393,20 +425,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一百三十七毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫米","",""],
+                            "Number": 137
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十三公分七毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公分","毫米"],
+                            "Number": 137
                             }             
                         }
                     ]
@@ -416,20 +450,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一百二十一毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫米","",""],
+                            "Number": 121
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十一公分九毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公分","毫米"],
+                            "Number": 119
                             }             
                         }
                     ]
@@ -439,20 +475,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一百二十三毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫米","",""],
+                            "Number": 123
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十公分三毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公分","毫米"],
+                            "Number": 103
                             }             
                         }
                     ]
@@ -462,20 +500,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一百三十四毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫米","",""],
+                            "Number": 134
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十四公分一毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公分","毫米"],
+                            "Number": 141
                             }             
                         }
                     ]
@@ -487,20 +527,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十一公分兩毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公分","毫米"],
+                            "Number": 112
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十二公分"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公分"],
+                            "Number": 12
                             }             
                         }
                     ]
@@ -510,20 +552,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十公分兩毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公分","毫米"],
+                            "Number": 102
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十一公分"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公分"],
+                            "Number": 11
                             }             
                         }
                     ]
@@ -533,20 +577,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十一公分六毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公分","毫米"],
+                            "Number": 116
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十一公分"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公分"],
+                            "Number": 11
                             }             
                         }
                     ]
@@ -556,20 +602,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十九公分兩毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公分","毫米"],
+                            "Number": 192
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十九公分"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公分"],
+                            "Number": 19
                             }             
                         }
                     ]
@@ -579,20 +627,22 @@
             {
                 "QuestionText": "公分毫米比大小",
                 "Description": "公分毫米比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十二公分九毫米"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公分","毫米"],
+                            "Number": 129
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十三公分"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公分"],
+                            "Number": 13
                             }             
                         }
                     ]

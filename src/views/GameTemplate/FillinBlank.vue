@@ -129,7 +129,7 @@ export default {
     components:{
         Numpad: defineAsyncComponent(()=>import('@/components/VirtualNumPadInput.vue')),
         Calculator: defineAsyncComponent(()=>import('@/components/calculator.vue')),
-        Clock: defineAsyncComponent(()=>import('@/components/clock.vue'))
+        Clock: defineAsyncComponent(()=>import('@/components/Clock.vue'))
     }
 }
 </script>

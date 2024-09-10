@@ -1,7 +1,6 @@
-// 在你的 get_components.js 文件中
+// 在你的 get-components.js 文件中
 import { defineAsyncComponent } from 'vue'
-
-const ComponentsMapping = {
+const componentsMapping = {
     ImageContainer: () => import('@/components/ImageContainer.vue'),
     ImageWithText: () => import('@/components/ImageWithText.vue'),
     TextOnly: () => import('@/components/TextOnly.vue'),
@@ -12,7 +11,7 @@ const ComponentsMapping = {
     NumberBoard: () => import('@/components/NumberBoard.vue'),
     Numpad: () => import('@/components/VirtualNumPadInput.vue'),
     Calculator: () => import('@/components/calculator.vue'),
-    Clock: () => import('@/components/clock.vue'),
+    Clock: () => import('@/components/Clock.vue'),
     VirtualNumPad: () => import('@/components/VirtualNumPad.vue'),
     Input: () => import('@/components/ReplyInput.vue'),
     Fractions: () => import('@/components/Fractions.vue'),
@@ -20,7 +19,12 @@ const ComponentsMapping = {
     NumberLine: () => import('@/components/NumberLineV2.vue'),
     Water: () => import('@/components/Water.vue'),
     MoneyGenerator: () => import('@/components/MoneyGenerator.vue'),
+    CardWithButton: () => import('@/components/CardWithButton.vue'),
 }
 export function GetComponents(name) {
-    return ComponentsMapping[name] ? defineAsyncComponent(ComponentsMapping[name]) : null
+    return componentsMapping[name] ? defineAsyncComponent(componentsMapping[name]) : null
+}
+
+export function getComponents(name) {
+    return componentsMapping[name] ? defineAsyncComponent(componentsMapping[name]) : null
 }

@@ -44,7 +44,7 @@ export default {
         ImageContainer: defineAsyncComponent(() => import('@/components/ImageContainer.vue')),
         ImageWithText: defineAsyncComponent(() => import('@/components/ImageWithText.vue')),
         TextOnly: defineAsyncComponent(() => import('@/components/TextOnly.vue')),
-        Clock: defineAsyncComponent(() => import('@/components/clock.vue')),
+        Clock: defineAsyncComponent(() => import('@/components/Clock.vue')),
         Water: defineAsyncComponent(() => import('@/components/Water.vue')),        
     },
     props: {

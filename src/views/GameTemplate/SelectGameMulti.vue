@@ -23,11 +23,12 @@
 </template>
 
 <script>
-import { defineAsyncComponent } from 'vue';
+import { getComponents } from '@/utilitys/get_components';
+
 export default {
     name: 'SelectGameMulti',
     components: {
-        TextOnly: defineAsyncComponent(() => import('@/components/TextOnly.vue')),
+        TextOnly: getComponents('TextOnly'),
     },
     props: {
         GameData: {

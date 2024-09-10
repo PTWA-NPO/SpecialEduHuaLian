@@ -19,9 +19,10 @@
     </div>
 </template>
 <script>
-import { GamesGetAssetsFile } from '@/utilitys/get_assets.js';
-import { defineAsyncComponent } from 'vue';
+import { getGameAssets } from '../../utilitys/get_assets'
+import { getComponents } from '@/utilitys/get-components.js';
 import Water from '../../components/Water.vue';
+import { get } from 'jquery';
 export default {
     name: 'TrueFalseGame',
     data(){
@@ -77,14 +78,14 @@ export default {
         },
     },
     created() {
-        this.imageUrl=GamesGetAssetsFile(this.id,this.GameData.img)
+        this.imageUrl=getGameAssets(this.id,this.GameData.img)
         this.SlotComponent = this.GameData.SlotComponents[0].Name;
         this.SlotData = this.GameData.SlotComponents[0].Data;
     },
     components: {
-        ImageContainer: defineAsyncComponent(() => import('@/components/ImageContainer.vue')),
-        Water: defineAsyncComponent(() => import('@/components/Water.vue')),
-        Clock: defineAsyncComponent(() => import('@/components/clock.vue'))
+        ImageContainer: getComponents('ImageContainer'),
+        Water: getComponents('Water'),
+        Clock: getComponents('Clock')
     }
 }
 </script>

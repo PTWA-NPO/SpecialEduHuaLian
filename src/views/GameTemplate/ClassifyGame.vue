@@ -35,15 +35,16 @@ import draggable from 'vuedraggable';
 import cardwithbutton from '@/components/cardwithbutton.vue'
 import { GamesGetAssetsFile } from '@/utilitys/get_assets.js';
 import { defineAsyncComponent } from 'vue';
+import { getComponents } from '@/utilitys/get_components';
 export default {
     name: 'ClassifyGame',
     components: {
         draggable,
         cardwithbutton,
-        TextOnly: defineAsyncComponent(() => import('@/components/TextOnly.vue')),
-        ImageContainer: defineAsyncComponent(() => import('@/components/ImageContainer.vue')),
-        Clock: defineAsyncComponent(() => import('@/components/clock.vue')),
-        Water: defineAsyncComponent(() => import('@/components/Water.vue')),
+        TextOnly: getComponents('TextOnly'),
+        ImageContainer: getComponents('ImageContainer'),
+        Clock: getComponents('Clock'),
+        Water: getComponents('Water'),
     },
     emits: ['play-effect','add-record','next-level'],
     props: {

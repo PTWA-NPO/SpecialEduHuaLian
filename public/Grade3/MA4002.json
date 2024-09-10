@@ -19,43 +19,47 @@
             {
                 "QuestionText": "公斤公克比大小",
                 "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
                 "Datas": [
                     [
                         {
                             "Name" : "NumberBoard",
-                            "Data" : {
-                                "Text": "四公斤"
-                            }             
+                            "Data": {
+                            "Unit": ["","公斤"],
+                            "Number": 4
+                            }         
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "四千零二公克"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                                "Unit": ["公斤","","","公克"],
+                                "Number": 4002
                             }             
                         }
                     ]
                 ],
-                "Answer": ["Big"]
+                "Answer": ["Small"]
             },
             {
                "QuestionText": "公斤公克比大小",
                 "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "兩千零五公克"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","","","公克"],
+                            "Number": 2005
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "兩公斤"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公斤"],
+                            "Number": 2
                             }             
                         }
                     ]
@@ -65,20 +69,22 @@
             {
                 "QuestionText": "公斤公克比大小",
                 "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三公斤"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公斤"],
+                            "Number": 3
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三千公克"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公克","","",""],
+                            "Number": 3000
                             }             
                         }
                     ]
@@ -88,20 +94,22 @@
             {
                 "QuestionText": "公斤公克比大小",
                 "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "五千零一十公克"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 5010
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "五公斤"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公斤"],
+                            "Number": 5
                             }             
                         }
                     ]
@@ -111,254 +119,22 @@
             {
                 "QuestionText": "公斤公克比大小",
                 "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
                 "Datas": [
-                    [
+                    [   
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "八公斤"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公斤"],
+                            "Number": 8
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "八千零六公克"
-                            }             
-                        }
-                    ]
-                ],
-                "Answer": ["Big"]
-            }
-        ],
-        [
-            {
-                "QuestionText": "公斤公克比大小",
-                "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
-                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
-                "Datas": [
-                    [
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一公斤一百公克"
-                            }             
-                        },
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一千零一十公克"
-                            }             
-                        }
-                    ]
-                ],
-                "Answer": ["Big"]
-            },
-            {
-                "QuestionText": "公斤公克比大小",
-                "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
-                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
-                "Datas": [
-                    [
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三公斤一百公克"
-                            }             
-                        },
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三千零一十公克"
-                            }             
-                        }
-                    ]
-                ],
-                "Answer": ["Big"]
-            },
-            {
-                "QuestionText": "公斤公克比大小",
-                "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
-                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
-                "Datas": [
-                    [
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "兩公斤五十公克"
-                            }             
-                        },
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "兩千零五公克"
-                            }             
-                        }
-                    ]
-                ],
-                "Answer": ["Big"]
-            },
-            {
-                "QuestionText": "公斤公克比大小",
-                "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
-                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
-                "Datas": [
-                    [
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "四千零五公克"
-                            }             
-                        },
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "四公斤五百公克"
-                            }             
-                        }
-                    ]
-                ],
-                "Answer": ["Small"]
-            },
-            {
-                "QuestionText": "公斤公克比大小",
-                "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
-                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
-                "Datas": [
-                    [
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "五千零一十公克"
-                            }             
-                        },
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "五公斤十公克"
-                            }             
-                        }
-                    ]
-                ],
-                "Answer": ["Equal"]
-            }
-        ],
-        [
-            {
-                "QuestionText": "公斤公克比大小",
-                "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
-                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
-                "Datas": [
-                    [
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "兩千零三公克"
-                            }             
-                        },
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "兩公斤三百公克"
-                            }             
-                        }
-                    ]
-                ],
-                "Answer": ["Small"]
-            },
-            {
-                "QuestionText": "公斤公克比大小",
-                "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
-                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
-                "Datas": [
-                    [
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三公斤三百公克"
-                            }             
-                        },
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三千零三公克"
-                            }             
-                        }
-                    ]
-                ],
-                "Answer": ["Big"]
-            },
-            {
-                "QuestionText": "公斤公克比大小",
-                "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
-                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
-                "Datas": [
-                    [
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "五公斤五百公克"
-                            }             
-                        },
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "五千五百公克"
-                            }             
-                        }
-                    ]
-                ],
-                "Answer": ["Equal"]
-            },
-            {
-                "QuestionText": "公斤公克比大小",
-                "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
-                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
-                "Datas": [
-                    [
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "六千零五公克"
-                            }             
-                        },
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "六公斤五百公克"
-                            }             
-                        }
-                    ]
-                ],
-                "Answer": ["Small"]
-            },
-            {
-                "QuestionText": "公斤公克比大小",
-                "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
-                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
-                "Datas": [
-                    [
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "八千零三十五公克"
-                            }             
-                        },
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "八公斤三百五十公克"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","","","公克"],
+                            "Number": 8006
                             }             
                         }
                     ]
@@ -370,43 +146,22 @@
             {
                 "QuestionText": "公斤公克比大小",
                 "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "六千七百公克"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 1100
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "六公斤七百公克"
-                            }             
-                        }
-                    ]
-                ],
-                "Answer": ["Equal"]
-            },
-            {
-                "QuestionText": "公斤公克比大小",
-                "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
-                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
-                "Datas": [
-                    [
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "兩千七百五十公克"
-                            }             
-                        },
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "兩公斤七十五公克"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 1010
                             }             
                         }
                     ]
@@ -416,20 +171,72 @@
             {
                 "QuestionText": "公斤公克比大小",
                 "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三千八百五十公克"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 3100
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三公斤八百六十公克"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 3010
+                            }             
+                        }
+                    ]
+                ],
+                "Answer": ["Big"]
+            },
+            {
+                "QuestionText": "公斤公克比大小",
+                "Description": "公斤公克比大小",
+                "SlotComponentVerifycation": false,
+                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
+                "Datas": [
+                    [
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 2050
+                            }             
+                        },
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","","","公克"],
+                            "Number": 2005
+                            }             
+                        }
+                    ]
+                ],
+                "Answer": ["Big"]
+            },
+            {
+                "QuestionText": "公斤公克比大小",
+                "Description": "公斤公克比大小",
+                "SlotComponentVerifycation": false,
+                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
+                "Datas": [
+                    [
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","","","公克"],
+                            "Number": 4005
+                            }             
+                        },
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 4500
                             }             
                         }
                     ]
@@ -439,20 +246,99 @@
             {
                 "QuestionText": "公斤公克比大小",
                 "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "八千八百八十公克"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 5010
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "八公斤八百八十公克"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 5010
+                            }             
+                        }
+                    ]
+                ],
+                "Answer": ["Equal"]
+            }
+        ],
+        [
+            {
+                "QuestionText": "公斤公克比大小",
+                "Description": "公斤公克比大小",
+                "SlotComponentVerifycation": false,
+                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
+                "Datas": [
+                    [
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","","","公克"],
+                            "Number": 2003
+                            }             
+                        },
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 2300
+                            }             
+                        }
+                    ]
+                ],
+                "Answer": ["Small"]
+            },
+            {
+                "QuestionText": "公斤公克比大小",
+                "Description": "公斤公克比大小",
+                "SlotComponentVerifycation": false,
+                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
+                "Datas": [
+                    [
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 3300
+                            }             
+                        },
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","","","公克"],
+                            "Number": 3003
+                            }             
+                        }
+                    ]
+                ],
+                "Answer": ["Big"]
+            },
+            {
+                "QuestionText": "公斤公克比大小",
+                "Description": "公斤公克比大小",
+                "SlotComponentVerifycation": false,
+                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
+                "Datas": [
+                    [
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 5500
+                            }             
+                        },
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 5500
                             }             
                         }
                     ]
@@ -462,20 +348,47 @@
             {
                 "QuestionText": "公斤公克比大小",
                 "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "七公斤二十二公克"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","","","公克"],
+                            "Number": 6005
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "七千兩百零二公克"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 6500
+                            }             
+                        }
+                    ]
+                ],
+                "Answer": ["Small"]
+            },
+            {
+                "QuestionText": "公斤公克比大小",
+                "Description": "公斤公克比大小",
+                "SlotComponentVerifycation": false,
+                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
+                "Datas": [
+                    [
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 8035
+                            }             
+                        },
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 8350
                             }             
                         }
                     ]
@@ -487,66 +400,22 @@
             {
                 "QuestionText": "公斤公克比大小",
                 "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三公斤九公克"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 6700
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三千零九十公克"
-                            }             
-                        }
-                    ]
-                ],
-                "Answer": ["Small"]
-            },
-            {
-                "QuestionText": "公斤公克比大小",
-                "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
-                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
-                "Datas": [
-                    [
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "五公斤九公克"
-                            }             
-                        },
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "五千九百公克"
-                            }             
-                        }
-                    ]
-                ],
-                "Answer": ["Small"]
-            },
-            {
-                "QuestionText": "公斤公克比大小",
-                "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
-                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
-                "Datas": [
-                    [
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "六公斤三公克"
-                            }             
-                        },
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "六千零三公克"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 6700
                             }             
                         }
                     ]
@@ -556,20 +425,22 @@
             {
                 "QuestionText": "公斤公克比大小",
                 "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一公斤兩百五十六公克"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 2750
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一千兩百零六公克"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 2075
                             }             
                         }
                     ]
@@ -579,20 +450,199 @@
             {
                 "QuestionText": "公斤公克比大小",
                 "Description": "公斤公克比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "四公斤八百九十公克"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 3850
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "四千零八十九公克"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 3860
+                            }             
+                        }
+                    ]
+                ],
+                "Answer": ["Small"]
+            },
+            {
+                "QuestionText": "公斤公克比大小",
+                "Description": "公斤公克比大小",
+                "SlotComponentVerifycation": false,
+                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
+                "Datas": [
+                    [
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 8880
+                            }             
+                        },
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 8880
+                            }             
+                        }
+                    ]
+                ],
+                "Answer": ["Equal"]
+            },
+            {
+                "QuestionText": "公斤公克比大小",
+                "Description": "公斤公克比大小",
+                "SlotComponentVerifycation": false,
+                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
+                "Datas": [
+                    [
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 7020
+                            }             
+                        },
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 7200
+                            }             
+                        }
+                    ]
+                ],
+                "Answer": ["Small"]
+            }
+        ],
+        [
+            {
+                "QuestionText": "公斤公克比大小",
+                "Description": "公斤公克比大小",
+                "SlotComponentVerifycation": false,
+                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
+                "Datas": [
+                    [
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","","","公克"],
+                            "Number": 3009
+                            }             
+                        },
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 3090
+                            }             
+                        }
+                    ]
+                ],
+                "Answer": ["Small"]
+            },
+            {
+                "QuestionText": "公斤公克比大小",
+                "Description": "公斤公克比大小",
+                "SlotComponentVerifycation": false,
+                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
+                "Datas": [
+                    [
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","","","公克"],
+                            "Number": 5009
+                            }             
+                        },
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 5900
+                            }             
+                        }
+                    ]
+                ],
+                "Answer": ["Small"]
+            },
+            {
+                "QuestionText": "公斤公克比大小",
+                "Description": "公斤公克比大小",
+                "SlotComponentVerifycation": false,
+                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
+                "Datas": [
+                    [
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","","","公克"],
+                            "Number": 6003
+                            }             
+                        },
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","","","公克"],
+                            "Number": 6003
+                            }             
+                        }
+                    ]
+                ],
+                "Answer": ["Equal"]
+            },
+            {
+                "QuestionText": "公斤公克比大小",
+                "Description": "公斤公克比大小",
+                "SlotComponentVerifycation": false,
+                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
+                "Datas": [
+                    [
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 1256
+                            }             
+                        },
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 1206
+                            }             
+                        }
+                    ]
+                ],
+                "Answer": ["Big"]
+            },
+            {
+                "QuestionText": "公斤公克比大小",
+                "Description": "公斤公克比大小",
+                "SlotComponentVerifycation": false,
+                "OptionBarTitle": "試試看，記得先換算成相同的單位喔! ",
+                "Datas": [
+                    [
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 4890
+                            }             
+                        },
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公斤","公克","",""],
+                            "Number": 4089
                             }             
                         }
                     ]

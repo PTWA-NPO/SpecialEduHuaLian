@@ -24,48 +24,43 @@
         <a  v-on:click="ChangeSubject('Technology');MakeReadText('' ,'',stop=true)"><img src="@/assets/button/technology.png" style="width: 40vh;"/></a>
       </div>
     </section>
-    <section class="GameSelectSection " style="overflow-y: hidden;" v-if="ShowContent">
-          <div class="row SelectIndex">
-              <div class="col-lg-2 col-md-3 col-5 SideBar">
+    <section class="GameSelectSection" style="overflow-y: hidden;" v-if="ShowContent">
+          <div class="select-index">
+              <div class="side-bar">
                 <div>
                   <p class="Title">現在科目</p>
-                  <button class="btn btn-primary" disabled>{{ Subjects[Subject] }}</button>
+                  <button class="">{{ Subjects[Subject] }}</button>
                   <p class="Title">章節</p>
                   <div class="ButtonContainer">
-                    <div class="list-group mt-2" v-for="(items,key) in this.ShowInfo" v-if="this.ShowInfo">
-                      <a class="list-group-item list-group-item-action" v-on:click="SelectChapter(key); MakeReadText('' ,'',stop=true)">{{ items.Title }}</a>
+                    <div v-for="(items,key) in this.ShowInfo" v-if="this.ShowInfo">
+                      <button class="list-group-item" @click="() => {SelectChapter(key); MakeReadText('' ,'',stop=true)}">{{ items.Title }}</button>
                     </div>
                   </div>
                 </div>                
               </div>
-
               <!-- 遊戲卡片區域 -->
-              <div class="col-7 col-md-9 col-lg-10 container ItemFrame mt-4" v-if="Show" :key="Refresh">
-                <div class="Charpter mb-4 px-0" v-for="items in this.ShowInfo[SelectedChapter].Section" v-if="this.ShowInfo">
-                <div>
-                    <h5 class="card-title mb-4">{{ items.Title }}</h5>
-                    <div class="row GameCardGroup p-1">
-                      <div class="row">
-                        <div v-for="item in items.Games" class="col-12 col-md-6 col-lg-4 d-flex align-self-stretch justify-content-md-center mb-3">
-                          <div class="card GameCard my-2 flex-grow-1" style="width: 18rem;">
-                            <div class="card-body d-flex flex-column justify-content-between">
-                              <img :src="item.Img" class="card-img-top" alt="...">
-                              <div class="content d-flex flex-column align-content-end justify-content-end">
-                                <a class="h5 card-title mt-2 d-flex flex-row justify-content-between">
-                                  <router-link :to="{ name: 'Game', params: { id: item.id, Grade: this.ShowGrade, Subject: this.Subject ,GameName: item.Name} }" @click="MakeReadText('' ,'',stop=true)" class="align-self-center">{{ item.Name }}</router-link><a @click="MakeReadText(item.Name, item.Description)" class="btn btn-primary mx-2"><i class="bi bi-volume-up-fill"></i></a></a>
-                                <p class="text-truncate">{{ item.Description }}</p>
-                              </div>
+              <div class="item-frame" v-if="Show" :key="Refresh">
+                <div class="Charpter" v-for="items in this.ShowInfo[SelectedChapter].Section" v-if="this.ShowInfo">
+                  <div>
+                      <p class="card-title">{{ items.Title }}</p>
+                      <div class="game-card__group">
+                        <div class="card game-card" v-for="item in items.Games" @click="switchRouter({ name: 'Game', params: { id: item.id, Grade: this.ShowGrade, Subject: this.Subject ,GameName: item.Name} })">
+                          <div class="card-body d-flex flex-column justify-content-between">
+                            <img :src="item.Img" alt="...">
+                            <div class="content d-flex flex-column align-content-end justify-content-end">
+                              <a class="h5 card-title d-flex flex-row justify-content-between">
+                                <router-link :to="{ name: 'Game', params: { id: item.id, Grade: this.ShowGrade, Subject: this.Subject ,GameName: item.Name} }" @click="MakeReadText('' ,'',stop=true)" class="align-self-center">{{ item.Name }}</router-link><a @click="MakeReadText(item.Name, item.Description)" class="btn btn-primary mx-2"><i class="bi bi-volume-up-fill"></i></a></a>
+                              <p class="text-truncate">{{ item.Description }}</p>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                </div>
+                  </div>
                 </div>
               </div>
           </div>
     </section>
-    <section class="Search_result d-flex container d-gap gap-3" v-if="ShowSearch!=false">
+    <section class="search_result" v-if="ShowSearch!=false">
       <div v-if="SearchResult==undefined" class="d-flex flex-column d-grid gap-2 align-items-center justify-content-center" style="width: 100vw; height: 90vh;">
         <div>
           <p class="h1">沒有搜尋結果</p>
@@ -73,10 +68,10 @@
           <button class="btn btn-primary btn-lg w-100" v-on:click="Return2Menu()" style="height: 3em; width: 10rem">返回目錄</button>
         </div>
       </div>
-      <div v-else style="width: 100vw; height: 90vh;" class="row mt-5 justify-content-md-center">
+      <div v-else class="search-result-cotainer">
         <p class="h1 mb-3">搜尋結果:</p>
-        <div v-for="item in SearchResult" class="col-12 col-md-6 col-lg-4 d-flex align-self-stretch justify-content-md-center mb-3">
-            <div class="card GameCard my-2 flex-grow-1" style="width: 18rem;">
+        <div class="game-card__group">
+            <div class="card game-card" style="width: 18rem;" v-for="item in SearchResult" @click="switchRouter({ name: 'Game', params: { id: item.id, Grade: this.ShowGrade, Subject: this.Subject ,GameName: item.Name} })">
               <div class="card-body d-flex flex-column justify-content-between">
                 <img :src="item.Img" class="card-img-top" alt="...">
                 <div class="content d-flex flex-column align-content-end justify-content-end">
@@ -268,17 +263,29 @@ methods: {
     this.ShowMenu = false;
     this.SearchInput = "";
   },
+  switchRouter(to){
+    this.$router.push(to);
+  }
 },
 }
 </script>
 
 <style lang="scss" scoped>
 header{
-  background-color: #F19C79;
+  background-color: $primary-color;
 }
 .navbar {
-  background-color: #F19C79; 
-  
+  background-color: $primary-color;
+  button{
+    background-color: $primary-btn-bg;
+    border: solid 1px $primary-btn-bg;
+    border-radius: $border-radius;
+    margin: 0 1rem;
+  }
+  button:hover{
+    background-color: $primary-btn-hover-bg;
+    transform: scale($transform-scale);
+  }
   @media (min-width: 768px){
     height: 10vh;
   }
@@ -304,91 +311,22 @@ header{
   transition: transform 0.3s ease; /* 平滑過渡效果 */
 }
 
-.ItemFrame {
-  height: 83dvh;
-  padding: 2vh 2vw;
-  overflow-y: scroll;
-  @media (pointer: fine) { 
-    -ms-overflow-style: none; /* IE/Edge */
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-}
-.SideBar {
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
-  display: grid;
-  gap: 1vh;
-  background-color: #FFEDDA;
-  height: 90vh;
-  border-right: 3px solid #aaa;
-  button{
-    width: 100%;
-  }
-  .Title{
-    font-size: 1.5em;
-    margin: 1vh 0;
-  }
-  .ButtonContainer{
-    display: grid;
-    gap: 0.5vh;
-    a{
-      transition: transform 0.3s ease; /* 平滑的過渡效果 */
-    }
-    a:hover{
-      transform: scale(1.1);
-    }
-
-  }
-  overflow-y: scroll;
-  padding: 2vh 2vw;
-  @media (pointer: fine) { 
-    -ms-overflow-style: none; /* IE/Edge */
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-}
-.GameSelectSection{
-  height: 89vh
-}
-
-
-.GameCardGroup{
-  @media (pointer: fine) { 
-    -ms-overflow-style: none; /* IE/Edge */
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-}
 section{
   height: 90vh;
   background-color: #FFFF;
 }
 
 .breadcrumb .breadcrumb-item {
-a {
-  color: #FFFFFF; /* 替換為你想要的顏色 */
-  font-size: 1.2em;
-}
-
-}
-
-.GameCard {
-  transition: transform 0.3s ease; /* 平滑過渡效果 */
-  height: auto;
-}
-
-.GameCard:hover {
-transform: scale(1.07); /* 當滑鼠懸停時放大 5% */
+  a {
+    color: #FFF;
+    font-size: 1.2em;
+  }
 }
 
 .nav-link{
-transition: transform 0.3s ease; /* 平滑過渡效果 */
+  transition: transform 0.3s ease; /* 平滑過渡效果 */
 }
+
 
 .Subject_container{
   img:hover{
@@ -397,5 +335,116 @@ transition: transform 0.3s ease; /* 平滑過渡效果 */
   img{
     transition: transform 0.3s ease; /* 平滑過渡效果 */
   }
+}
+
+// 當尺寸小於 768px 時
+@media (max-width: 768px) {
+  .game-card__group {
+    grid-template-columns: 1fr !important;
+  }
+  .select-index {
+    grid-template-columns: 1fr 2fr !important;
+  }
+}
+
+
+.select-index{
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+  .side-bar {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    background-color: $sub-color;
+    padding: $gap--small;
+    button{
+      width: 100%;
+      background-color: $info-btn-bg;
+      border: none;
+      border-radius: $border-radius;
+      color: $secondary-btn-text;
+      font-weight: 700;
+      font-size: 1.2rem;
+      height: 2.6rem;
+    }
+    .Title{
+      font-size: 1.5em;
+      margin-bottom: $gap--tiny;
+    }
+    .ButtonContainer{
+      display: grid;
+      gap: 1rem;
+      button{
+        transition: transform 0.3s ease; /* 平滑的過渡效果 */
+        font-size: 1rem;
+        font-weight: 800;
+        background-color: #FEECE9;
+        border-radius: $border-radius;
+        color: $secondary-btn-text;
+      }
+      button:hover{
+        transform: scale($transform-scale);
+        background-color: $secondary-btn-hover-bg;
+      }
+    }
+  }
+  .item-frame{
+    height: 90vh;
+    overflow-y: scroll;
+    padding: $gap--small;
+    @media (pointer: fine) { 
+      -ms-overflow-style: none; /* IE/Edge */
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    .Charpter{
+      margin-bottom: 2vh;
+    }
+    .card-title{
+      font-size: 1.5em;
+      margin-bottom: $gap--tiny;
+    }
+  }
+}
+.game-card__group{
+  display: grid;
+  padding: 0.5rem 0 rem;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 2rem;
+  .game-card {
+    border-radius: $border-radius;
+    border: solid 2px #aaa;
+    transition: transform 0.3s ease; /* 平滑過渡效果 */
+    min-height: 16rem;
+    .card-title{
+      font-size: 1.1rem;
+      margin-bottom: 1vh;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  .game-card:hover {
+    transform: scale(1.05); /* 當滑鼠懸停時放大 5% */
+  }
+  @media (pointer: fine) { 
+    -ms-overflow-style: none; /* IE/Edge */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+.search_result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  max-height: 90vh;
+  overflow-y: scroll;
 }
 </style>

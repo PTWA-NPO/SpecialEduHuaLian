@@ -96,7 +96,7 @@
 import { GamesGetAssetsFile } from "@/utilitys/get_assets.js";
 import draggable from "vuedraggable";
 import { defineAsyncComponent } from "vue";
-import { GetComponents } from "@/utilitys/get_components.js";
+import { GetComponents } from "@/utilitys/get-components.js";
 export default {
   name: "CompareGame",
   components: {

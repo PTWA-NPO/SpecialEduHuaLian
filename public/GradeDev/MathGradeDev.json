@@ -30,9 +30,9 @@
                         "Img": "MA3011.png"
                     },
                     {
-                        "id": "Dev0105",
-                        "Name": "輸送帶",
-                        "Description": "找找看現在幾點呢?",
+                        "id": "Dev01_CopyItemGame",
+                        "Name": "拖拉對應的物品",
+                        "Description": "數出對應的物品",
                         "Img": "MA3011.png"
                     }
                 ]
@@ -62,6 +62,22 @@
                         "Name": "迷宮遊戲",
                         "Description": "Make your choice.",
                         "Img": "MA3011.png"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "Title": "智鈺的工作區",
+        "Section": [
+            {
+                "Title": "智鈺的工作區",
+                "Games": [
+                    {
+                        "id": "Dev0301",
+                        "Name": "找找看",
+                        "Description": "依照聲音指示",
+                        "Img": "Dev0301.png"
                     }
                 ]
             }

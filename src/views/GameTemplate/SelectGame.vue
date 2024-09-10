@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="Container">
         <div class="index">
             <div class="Head">
                 <p class="h2" style="font-weight: bold;">{{ this.GameConfig.GlobalTitle }}</p>
@@ -10,7 +10,7 @@
                     <component class="GameImg" :is="this.SlotComponent" :ID="this.id" :Data="this.SlotData"></component>
                 </div>
                 <!-- 按鈕的列 -->
-                <div class="selection" v-if="this.GameData.SlotComponents != undefined">
+                <div class="selection" v-if="this.GameData.SlotComponents != undefined"> 
                     <div class="card">
                         <p class="h2">{{ this.GameData.Question_Text }}</p>
                     </div>
@@ -36,7 +36,7 @@
 </template>
 <script>
 import { GamesGetAssetsFile } from '@/utilitys/get_assets.js';
-import { defineAsyncComponent } from 'vue';
+import { getComponents } from '@/utilitys/get-components.js';
 export default {
     name: 'SelectGame',
     data(){
@@ -108,39 +108,42 @@ export default {
 
     },
     components: {
-        ImageContainer : defineAsyncComponent(() => import('@/components/ImageContainer.vue')),
+        ImageContainer : getComponents('ImageContainer'),
     }
 }
 </script>
-<style scoped>
+<style scoped lang="scss">
 .card {
     border-style: solid;
 }
-.container {
+.Container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
+    width: 100%;
+    max-height: 60vh !important;
     .index{
         .Head{
             padding: 1em;
             background-color: #bde0fe;
         }
-        width: 100%;
-        height: 100%;
-        min-height: 60vh;
         .Info{
             display: grid;
             margin-top: 2rem;
             grid-template-columns: repeat(8, 1fr);
             gap: 2rem;
-            height: 60vh;
+            align-items: center;
             .selection{
                 grid-column: 6/9;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
+                gap: 1rem;
+                .card{
+                    padding: 1rem;
+                }
                 .choese{
+                    margin-top: 1rem;
                     display: flex;
                     flex-direction: column;
                     gap: 1rem;
@@ -194,6 +197,7 @@ export default {
             .Component{
                 grid-column: 1/5;
                 border: solid 1px black;
+                height: 80%;
             }
         }
     }
@@ -202,9 +206,11 @@ export default {
     }
 }
 button {
-    height: 2em;
-    font-size: 2em;
+    height: 3rem;
+    font-size: xx-large;
     width: 100%;
+    border: solid 1px black;
+    color: #000;
     border-radius: 12px;
     background-color: #FFF;
 }

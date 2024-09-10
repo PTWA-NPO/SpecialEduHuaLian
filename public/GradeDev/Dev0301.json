@@ -1,0 +1,33 @@
+{
+    "id": "Dev0301",
+    "introvideo": "src",
+    "TotalLevel": 1,
+    "GameType": "NumberSearchGame",
+    "GameConfig":{
+        
+    },
+    "Questions": [
+        [
+            {
+                "Text": "找出躲在圖片中的數字吧！",
+                "Objs":[ 
+                    { "Name": "0", "xRange": [ 18, 43 ], "yRange": [ 20, 50 ] }, 
+                    { "Name": "1", "xRange": [ 451, 486 ], "yRange": [ 58, 88 ] }, 
+                    { "Name": "2", "xRange": [ 238, 265 ], "yRange": [ 28, 53 ] }, 
+                    { "Name": "3", "xRange": [ 560, 588 ], "yRange": [ 315, 353 ] }, 
+                    { "Name": "4", "xRange": [ 430, 453 ], "yRange": [ 187, 207 ] }, 
+                    { "Name": "5", "xRange": [ 512, 528 ], "yRange": [ 45, 60 ] }, 
+                    { "Name": "6", "xRange": [ 51, 76 ], "yRange": [ 109, 135 ] }, 
+                    { "Name": "7", "xRange": [ 257, 290 ], "yRange": [ 274, 308 ] }, 
+                    { "Name": "8", "xRange": [ 38, 56 ], "yRange": [ 290, 314 ] }, 
+                    { "Name": "9", "xRange": [ 515, 533 ], "yRange": [ 210, 238 ] }, 
+                    { "Name": "10", "xRange": [ 12, 39 ], "yRange": [ 230, 253 ] }
+                ],
+                "tolerance":8,
+                "ObjNum":11,
+                "img": "FindItemGameSample1.jpg",
+                "SpeakerIcon":"SpeakerIcon"
+            }
+        ]
+    ]
+}

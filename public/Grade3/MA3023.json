@@ -17,7 +17,7 @@
             "AssistiveComponent":["Numpad"],
             "SlotComponents":[
                 {
-                    "Name" : "clock",
+                    "Name" : "Clock",
                     "Data" : {
                         "hour": 3,
                         "min": 20,
@@ -38,7 +38,7 @@
             "AssistiveComponent":["Numpad"],
             "SlotComponents":[
                 {
-                    "Name" : "clock",
+                    "Name" : "Clock",
                     "Data" : {
                         "hour": 3,
                         "min": 20,

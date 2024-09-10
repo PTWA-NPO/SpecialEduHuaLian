@@ -397,12 +397,13 @@ import * as ImportUrl from "@/utilitys/get_assets.js";
 import axios from "axios";
 import { defineAsyncComponent } from "vue";
 import { useFullscreen } from "@vueuse/core";
-import CompareGame from "./GameTemplate/CompareGame.vue";
+// import CompareGame from "./GameTemplate/CompareGame.vue";
 import EffectWindow from "@/components/EffectWindow.vue";
-import PairingGame from "./GameTemplate/PairingGame.vue";
-import WhackaMole from "./GameTemplate/WhackaMole.vue";
-import SelectGameMulti from "./GameTemplate/SelectGameMulti.vue";
-import CopyItem from "./GameTemplate/CopyItem.vue";
+import { is } from "quasar";
+// import PairingGame from "./GameTemplate/PairingGame.vue";
+// import WhackaMole from "./GameTemplate/WhackaMole.vue";
+// import SelectGameMulti from "./GameTemplate/SelectGameMulti.vue";
+// import CopyItem from "./GameTemplate/CopyItem.vue";
 export default {
   data() {
     return {
@@ -447,6 +448,7 @@ export default {
       CorrectIncorrect: {
         Status: null,
       },
+      isPassLevel: []
       // SentData2ChildComponent: {},
     };
   },
@@ -503,6 +505,9 @@ export default {
           console.warn(
             "Radom Select Questions via level Fail, this could be the question is not a array (Format Error)"
           );
+        }
+        for(var x in this.GameData.Questions){
+          this.isPassLevel.push(false);
         }
       } catch (error) {
         console.error("Fetch Game Data Error: ", error);
@@ -599,10 +604,33 @@ export default {
       }
     },
     NextQuestion() {
+      this.isPassLevel[this.Nowlevel-1] = true;
       this.WrongTimes = 0;
-      if (this.Nowlevel < this.GameData.TotalLevel) {
-        this.Nowlevel++;
-      } else {
+      let isDone = true;
+      for(var i in this.isPassLevel){
+        if(this.isPassLevel[i] == false){
+          isDone = false;
+          break;
+        }
+      }
+      let notFound = true;
+      for (var i = this.Nowlevel; i < this.GameData.Questions.length; i++) {
+        if (this.isPassLevel[i] == false) {
+          this.Nowlevel = i + 1;
+          notFound = false;
+          break;
+        }
+      }
+      if (notFound) {
+        for (var i = 0; i < this.isPassLevel.length; i++) {
+          if (this.isPassLevel[i] == false) {
+            this.Nowlevel = i + 1;
+            isDone = false;
+            break;
+          }
+        }
+      }
+      if(isDone){
         this.GameStatus = "Done";
         this.EffectPlayer("FireWorkAnimation");
         this.finaltime = this.totaltime;

@@ -137,8 +137,8 @@
                     },
                     {
                         "id": "MA_Pub_11",
-                        "Name": "",
-                        "Description": "請選標出正確的時間",
+                        "Name": "拿東西",
+                        "Description": "請從在左邊的框框中放入正確數量的物品",
                         "Img": ""
                     }           
                 ]
@@ -173,7 +173,7 @@
                         "id": "MA_Pub_10",
                         "Name": "輸送帶",
                         "Description": "請數數看總共有多少錢吧?",
-                        "Img": ""
+                        "Img": "MA_Pub_10.png"
                     }
                 ]
             }

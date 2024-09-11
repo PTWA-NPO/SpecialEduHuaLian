@@ -3,9 +3,28 @@
         <p class="h1">{{ GameData.Question.text }}</p>        
         <div class="Index" ref="Index">
             <div class="Konva-container" ref="KonvaContainer">
-                <v-stage :config="configStage" class="Stage" @mousemove="MouseMove" @mouseup="MouseUpAtDot" >
+                <v-stage 
+                    :config="configStage" 
+                    class="Stage" 
+                    @mousemove="handleMove" 
+                    @touchmove="handleMove"
+                    @mouseup="handleEnd" 
+                    @touchend="handleEnd"
+                    ref="KonvaStage"
+                >
                     <v-layer>
-                        <v-circle @mousedown="(event) => { MouseDown(event,index) }"  v-for="(Object, index) in DotLocation" :key="index" :config="{ x: Object.X, y: Object.Y, radius: 5, fill: 'black' }"></v-circle>
+                        <v-circle 
+                            v-for="(Object, index) in DotLocation" 
+                            :key="index" 
+                            :config="{ 
+                                x: Object.X, 
+                                y: Object.Y, 
+                                radius: 5, 
+                                fill: 'black' 
+                            }"
+                            @mousedown="(event) => handleStart(event, index)"
+                            @touchstart="(event) => handleStart(event, index)"
+                        ></v-circle>
                     </v-layer>
                     <v-layer ref="LineLayer">
                         <v-line v-for="Line in Lines" :config="Line"></v-line>
@@ -15,15 +34,32 @@
                     </v-layer>
                 </v-stage>
             </div>
-            <div class="ObjectContainer" ref="ObjectContainer" v-for="(Object, index) in ComponentConfig" :style="{ position: 'absolute', top: Object.Y + 'px', left: Object.X + 'px', width: this.ComponentPositionConfig.ObjectWidth + 'px', height: this.ComponentPositionConfig.ObjectHeight + 'px' }">
-                <component :is="Object.Name" :Data="Object.Data" :ID="this.id" class="Component" :key="ComponentConfig"></component>
+            <div 
+                class="ObjectContainer" 
+                ref="ObjectContainer" 
+                v-for="(Object, index) in ComponentConfig" 
+                :style="{ 
+                    position: 'absolute', 
+                    top: Object.Y + 'px', 
+                    left: Object.X + 'px', 
+                    width: ComponentPositionConfig.ObjectWidth + 'px', 
+                    height: ComponentPositionConfig.ObjectHeight + 'px' 
+                }"
+            >
+                <component 
+                    :is="Object.Name" 
+                    :Data="Object.Data" 
+                    :ID="id" 
+                    class="Component" 
+                    :key="ComponentConfig"
+                ></component>
             </div>
         </div>
         <div class="Buttons">
             <h3 v-if="NotFinished">請連完所有的線段</h3>
-            <button @click="CheckAll" v-if="this.GameConfig.CheckingMode == 'OnSubmit'">檢查答案</button>
-            <button @click="ClearAllLine" v-if="this.GameConfig.CheckingMode == 'OnSubmit'">清除所有線</button>
-            <button @click="PopLastLine" v-if="this.GameConfig.CheckingMode == 'OnSubmit'">刪除最後一條線</button>
+            <button @click="CheckAll" v-if="GameConfig.CheckingMode == 'OnSubmit'">檢查答案</button>
+            <button @click="ClearAllLine" v-if="GameConfig.CheckingMode == 'OnSubmit'">清除所有線</button>
+            <button @click="PopLastLine" v-if="GameConfig.CheckingMode == 'OnSubmit'">刪除最後一條線</button>
         </div>
     </div>
 </template>
@@ -31,14 +67,14 @@
 <script>
 // import { Stage, Layer, Circle, Line } from 'vue-konva';
 import { defineAsyncComponent } from 'vue';
+import { getComponents } from '@/utilitys/get-components';
+
 export default {
     name: 'LinkGameV2',
     components: {
-        // 'v-stage': Stage,
-        // 'v-layer': Layer,
-        // 'v-circle': Circle,
-        // 'v-line': Line,
-        ImageContainer: defineAsyncComponent(() => import('@/components/ManualImageContainer.vue')),
+        ImageContainer: getComponents('ImageContainer'),
+        TextOnly: defineAsyncComponent(() => import('@/components/TextOnly.vue')),
+        NumberBoard: getComponents('NumberBoard')
     },
     props: {
         id: {
@@ -56,41 +92,6 @@ export default {
     },
     data() {
         return {
-            // id: "MA4008",
-            // GameData: {   
-            //     "Question": {
-            //         "text": "把一樣的數連起來",
-            //         "RowData": [
-            //             [
-            //                 { Name: 'ImageContainer', Data: { Src: '1261.png' } },
-            //                 { Name: 'ImageContainer', Data: { Src: '1324.png' } },
-            //                 { Name: 'ImageContainer', Data: { Src: '1456.png' } }
-            //             ],
-            //             [
-            //                 { Name: 'ImageContainer', Data: { Src: 'c-1456.png' } },
-            //                 { Name: 'ImageContainer', Data: { Src: 'c-1324.png' } },
-            //                 { Name: 'ImageContainer', Data: { Src: 'c-1261.png' } }
-            //             ],
-            //             [
-            //                 { Name: 'ImageContainer', Data: { Src: 'n-1324.png' } },
-            //                 { Name: 'ImageContainer', Data: { Src: 'n-1261.png' } },
-            //                 { Name: 'ImageContainer', Data: { Src: 'n-1456.png' } }
-            //             ]
-            //         ]
-            //     },
-            //     "Answer": [
-            //         [[0,0],[1,2]],
-            //         [[0,1],[1,1]],
-            //         [[0,2],[1,0]],
-            //         [[0,3],[1,4]],
-            //         [[0,4],[1,3]],
-            //         [[2,0],[3,2]],
-            //         [[2,1],[3,0]],
-            //         [[2,2],[3,1]],
-            //         [[2,3],[3,4]],
-            //         [[2,4],[3,3]]
-            //     ]
-            // },
             configStage: {
                 width: 610,
                 height: 100,
@@ -117,7 +118,7 @@ export default {
         window.addEventListener('resize', this.ReLinktheLine);
     },
     created() {
-        if (this.GameConfig.CheckingMode == undefined ){
+        if (this.GameConfig.CheckingMode == undefined) {
             this.GameConfig.CheckingMode = "OnSubmit";
         }
     },
@@ -126,6 +127,73 @@ export default {
         window.removeEventListener('resize', this.ReLinktheLine);
     },
     methods: {
+        handleStart(e, index) {
+            const pos = this.getPointerPosition(e);
+            let Lined = this.CheckLined(index);
+            if (Lined[0]) {
+                this.Lines.splice(Lined[1], 1);
+                this.LinkedPoints.splice(Lined[1], 1);
+                this.$refs.LineLayer.getNode().draw();
+            }
+            this.NotFinished = false;
+            this.OnDrawing = true;
+            this.MouseDownDotIndex = index;
+            this.OnDrawingLine = {
+                points: [pos.x, pos.y, pos.x, pos.y],
+                stroke: 'black',
+                strokeWidth: this.LineWidth,
+                lineCap: 'round',
+                lineJoin: 'round'
+            };
+        },
+        handleMove(e) {
+            if (this.OnDrawing) {
+                const pos = this.getPointerPosition(e);
+                this.OnDrawingLine.points.splice(2, 2, pos.x, pos.y);
+                this.$refs.OnDrawLineLayer.getNode().draw();
+            }
+        },
+        handleEnd(e) {
+            if (this.OnDrawing) {
+                const pos = this.getPointerPosition(e);
+                this.OnDrawingLine.points.splice(2, 2, pos.x, pos.y);
+                let DotIndex = this.CheckMouseAtTheDot(pos.x, pos.y);
+                if (DotIndex !== false) {
+                    let LinkAble = this.CheckLinkAble(this.MouseDownDotIndex, DotIndex);
+                    if (LinkAble) {
+                        let AnswerCorrect = null;
+                        if (this.GameConfig.CheckingMode == "OnAnswered") {
+                            AnswerCorrect = this.CheckAnswerisCorrect(this.MouseDownDotIndex, DotIndex);
+                        } else {
+                            AnswerCorrect = true;
+                        }
+                        if (AnswerCorrect) {
+                            this.OnDrawingLine.points.splice(2, 2, this.DotLocation[DotIndex].X, this.DotLocation[DotIndex].Y);
+                            this.Lines.push({ ...this.OnDrawingLine });
+                            this.OnDrawing = false;
+                            this.OnDrawingLine = { points: [], stroke: 'black', strokeWidth: 2, lineCap: 'round', lineJoin: 'round' };
+                            this.$refs.LineLayer.getNode().draw();
+                            this.$refs.OnDrawLineLayer.getNode().draw();
+                            this.LinkedPoints.push([this.MouseDownDotIndex, DotIndex]);
+                            if (this.GameConfig.CheckingMode == "OnAnswered") {
+                                this.CheckAllAnswered();
+                            }
+                            return;
+                        }
+                    }
+                }
+                this.OnDrawing = false;
+                this.OnDrawingLine = { points: [], stroke: 'black', strokeWidth: 2, lineCap: 'round', lineJoin: 'round' };
+                this.$refs.OnDrawLineLayer.getNode().draw();
+            }
+        },
+        getPointerPosition(e) {
+            const stage = this.$refs.KonvaStage.getNode();
+            if (e.type.startsWith('touch')) {
+                return stage.getPointerPosition(e.changedTouches[0]);
+            }
+            return stage.getPointerPosition();
+        },
         MouseDown(e,index) { // e is the event object, index is the index of the dot
             let Lined = this.CheckLined(index); // 確認該點是否已經連線，有則刪除
             if ( Lined[0] ){

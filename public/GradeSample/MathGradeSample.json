@@ -92,5 +92,85 @@
                 ]
             }
         ]
+    },
+    {
+        "Title": "一年級",
+        "Section": [
+            {
+                "Title": "認識 0~10",
+                "Games": [
+                    {
+                        "id": "MA_Pub_01",
+                        "Name": "數數看",
+                        "Description": "請數數看有多少小動物躲在圖片中吧",
+                        "Img": ""
+                    },
+                    {
+                        "id": "MA_Pub_02",
+                        "Name": "找找看",
+                        "Description": "找出朵在圖片中的數字吧",
+                        "Img": ""
+                    },
+                    {
+                        "id": "MA_Pub_03",
+                        "Name": "找找看(語音版)",
+                        "Description": "先聽聽看看音檔唸出的數字是多少，再找出對應的數字吧",
+                        "Img": ""
+                    },
+                    {
+                        "id": "MA_Pub_04",
+                        "Name" : "連連看",
+                        "Description": "將手勢與數字進行配對",
+                        "Img": ""
+                    },
+                    {
+                        "id": "MA_Pub_05",
+                        "Name": "輸送帶",
+                        "Description": "東西會從左邊飄移進來，請選出正確的答案",
+                        "Img": ""
+                    },
+                    {
+                        "id": "MA_Pub_06",
+                        "Name": "賽車遊戲",
+                        "Description": "請控制賽車找到正確的選項吧",
+                        "Img": ""
+                    }                    
+                ]
+            }
+        ]
+    },
+    {
+        "Title": "三、四年級",
+        "Section": [
+            {
+                "Title": "一萬以內的數",
+                "Games": [
+                    {
+                        "id": "MA_Pub_07",
+                        "Name": "比比看",
+                        "Description": "比較兩個數字的大小",
+                        "Img": "MA_Pub_07.png"
+                    },
+                    {
+                        "id": "MA_Pub_08",
+                        "Name": "計算版",
+                        "Description": "請將數字進行加總吧",
+                        "Img": "MA_Pub_08.png"
+                    },
+                    {
+                        "id": "MA_Pub_09",
+                        "Name": "連連看",
+                        "Description": "將對應的數字與百格版、定位版進行匹配吧",
+                        "Img": "MA_Pub_09.png"
+                    },
+                    {
+                        "id": "MA_Pub_10",
+                        "Name": "輸送帶",
+                        "Description": "請數數看總共有多少錢吧?",
+                        "Img": ""
+                    }
+                ]
+            }
+        ]
     }
 ]

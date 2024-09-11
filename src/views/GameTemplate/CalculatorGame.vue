@@ -164,7 +164,7 @@ export default {
         };
     },
     created(){
-        // this.Data = this.GameData;
+        this.Data = this.GameData;
         this.NumberAmount = this.Data.NumberAmount;
         this.DotPosition = this.Data.decimalPoint;
         if (this.Data.CustomeUnit != undefined){

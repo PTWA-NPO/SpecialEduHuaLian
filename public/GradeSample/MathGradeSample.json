@@ -109,13 +109,13 @@
                         "id": "MA_Pub_02",
                         "Name": "找找看",
                         "Description": "找出朵在圖片中的數字吧",
-                        "Img": ""
+                        "Img": "MA_Pub_02.png"
                     },
                     {
                         "id": "MA_Pub_03",
                         "Name": "找找看(語音版)",
                         "Description": "先聽聽看看音檔唸出的數字是多少，再找出對應的數字吧",
-                        "Img": ""
+                        "Img": "MA_Pub_03.png"
                     },
                     {
                         "id": "MA_Pub_04",
@@ -134,7 +134,13 @@
                         "Name": "賽車遊戲",
                         "Description": "請控制賽車找到正確的選項吧",
                         "Img": ""
-                    }                    
+                    },
+                    {
+                        "id": "MA_Pub_11",
+                        "Name": "",
+                        "Description": "請選標出正確的時間",
+                        "Img": ""
+                    }           
                 ]
             }
         ]

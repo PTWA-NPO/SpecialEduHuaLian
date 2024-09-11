@@ -3,6 +3,10 @@
     "introvideo": "src",
     "TotalLevel": 5,
     "GameType": "LinkGame",
+    "IntroText": {
+        "Type": "PlainText",
+        "Content": "連連看，把一樣的數連起來"
+    },
     "GameConfig":{
         "CheckingMode": "OnSubmit",
         "_THE_OTHER_IS_OnSubmit":"OnAnswered"
@@ -21,19 +25,18 @@
                             { "Name": "ImageContainer", "Data": { "Src": "1535.png" } }
                         ],
                         [
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 1324 } },
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 1261 } },
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 1456 } },
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 1342 } },
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 1535 } }
+                        ],
+                        [
                             { "Name": "TextOnly", "Data": { "Text": "一千四百五十六", "Zhuyin": true, "Size": "Tiny" } },
                             { "Name": "TextOnly", "Data": { "Text": "一千三百二十四", "Zhuyin": true, "Size": "Tiny" } },
                             { "Name": "TextOnly", "Data": { "Text": "一千兩百六十一", "Zhuyin": true, "Size": "Tiny" } },
                             { "Name": "TextOnly", "Data": { "Text": "一千五百三十五", "Zhuyin": true, "Size": "Tiny" } },
                             { "Name": "TextOnly", "Data": { "Text": "一千三百四十二", "Zhuyin": true ,"Size": "Tiny" } }
-                        ],
-                        [
-                            { "Name": "NumberBoard", "Data": { "Src": "n-1324.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-1324.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-1261.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-1456.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-1342.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-1535.png" } }
                         ]
                     ]
                 },
@@ -56,18 +59,18 @@
                             { "Name": "ImageContainer", "Data": { "Src": "2512.png" } }
                         ],
                         [
-                            { "Name": "ImageContainer", "Data": { "Src": "c-3123.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "c-2345.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "c-2512.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "c-2352.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "c-3642.png" } }
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 2352 } },
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 3123 } },
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 3642 } },
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 2345 } },
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 2512 } }
                         ],
                         [
-                            { "Name": "ImageContainer", "Data": { "Src": "n-2352.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-3123.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-3642.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-2345.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-2512.png" } }
+                            { "Name": "TextOnly", "Data": { "Text": "三千一百二十三", "Zhuyin": true, "Size": "Tiny" } },
+                            { "Name": "TextOnly", "Data": { "Text": "二千三百四十五", "Zhuyin": true, "Size": "Tiny" } },
+                            { "Name": "TextOnly", "Data": { "Text": "二千五百一十二", "Zhuyin": true, "Size": "Tiny" } },
+                            { "Name": "TextOnly", "Data": { "Text": "二千三百五十二", "Zhuyin": true, "Size": "Tiny" } },
+                            { "Name": "TextOnly", "Data": { "Text": "三千六百四十二", "Zhuyin": true ,"Size": "Tiny" } }
                         ]
                     ]
                 },
@@ -98,18 +101,18 @@
                             { "Name": "ImageContainer", "Data": { "Src": "5300.png" } }
                         ],
                         [
-                            { "Name": "ImageContainer", "Data": { "Src": "c-5200.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "c-4230.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "c-5300.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "c-4120.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "c-4620.png" } }
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 5200 } },
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 4230 } },
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 5300 } },
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 4120 } },
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 4620 } }
                         ],
                         [
-                            { "Name": "ImageContainer", "Data": { "Src": "n-5200.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-4230.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-5300.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-4120.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-4620.png" } }
+                            { "Name": "TextOnly", "Data": { "Text": "五千二百", "Zhuyin": true, "Size": "Tiny" } },
+                            { "Name": "TextOnly", "Data": { "Text": "四千二百三十", "Zhuyin": true, "Size": "Tiny" } },
+                            { "Name": "TextOnly", "Data": { "Text": "五千三百", "Zhuyin": true ,"Size": "Tiny" } },
+                            { "Name": "TextOnly", "Data": { "Text": "四千一百二十", "Zhuyin": true, "Size": "Tiny" } },
+                            { "Name": "TextOnly", "Data": { "Text": "四千六百二十", "Zhuyin": true, "Size": "Tiny" } }
                         ]
                     ]
                 },
@@ -140,18 +143,18 @@
                             { "Name": "ImageContainer", "Data": { "Src": "6085.png" } }
                         ],
                         [
-                            { "Name": "ImageContainer", "Data": { "Src": "c-6085.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "c-6025.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "c-7059.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "c-7703.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "c-6201.png" } }
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 6025 } },
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 7059 } },
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 7703 } },
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 6201 } },
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 6085 } }
                         ],
                         [
-                            { "Name": "ImageContainer", "Data": { "Src": "n-6025.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-7059.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-7703.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-6201.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-6085.png" } }
+                            { "Name": "TextOnly", "Data": { "Text": "六千零八十五", "Zhuyin": true, "Size": "Tiny" } },
+                            { "Name": "TextOnly", "Data": { "Text": "六千零二十五", "Zhuyin": true, "Size": "Tiny" } },
+                            { "Name": "TextOnly", "Data": { "Text": "七千零五十九", "Zhuyin": true, "Size": "Tiny" } },
+                            { "Name": "TextOnly", "Data": { "Text": "七千七百零三", "Zhuyin": true, "Size": "Tiny" } },
+                            { "Name": "TextOnly", "Data": { "Text": "六千二百零一", "Zhuyin": true, "Size": "Tiny" } }
                         ]
                     ]
                 },
@@ -182,18 +185,18 @@
                             { "Name": "ImageContainer", "Data": { "Src": "8103.png" } }
                         ],
                         [
-                            { "Name": "ImageContainer", "Data": { "Src": "c-6200.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "c-6020.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "c-8103.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "c-1005.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "c-5040.png" } }
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 6020 } },
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 1005 } },
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 5040 } },
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 8103 } },
+                            { "Name": "NumberBoard", "Data": { "Unit": ["千位", "百位","十位", "個位"], "Number": 6200 } }
                         ],
                         [
-                            { "Name": "ImageContainer", "Data": { "Src": "n-6020.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-1005.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-5040.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-8103.png" } },
-                            { "Name": "ImageContainer", "Data": { "Src": "n-6200.png" } }
+                            { "Name":"TextOnly", "Data": { "Text": "六千二百", "Zhuyin": true, "Size": "Tiny" } },
+                            { "Name":"TextOnly", "Data": { "Text": "六千零二十", "Zhuyin": true, "Size": "Tiny" } },
+                            { "Name":"TextOnly", "Data": { "Text": "八千一百零三", "Zhuyin": true, "Size": "Tiny" } },
+                            { "Name":"TextOnly", "Data": { "Text": "一千零五", "Zhuyin": true, "Size": "Tiny" } },
+                            { "Name":"TextOnly", "Data": { "Text": "五千零四十", "Zhuyin": true, "Size": "Tiny" } }
                         ]
                     ]
                 },

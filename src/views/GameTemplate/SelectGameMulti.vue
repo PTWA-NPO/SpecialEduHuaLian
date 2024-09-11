@@ -29,6 +29,7 @@ export default {
     name: 'SelectGameMulti',
     components: {
         TextOnly: getComponents('TextOnly'),
+        ImageContainer: getComponents('ImageContainer'),
     },
     props: {
         GameData: {
@@ -46,7 +47,6 @@ export default {
     },
     data() {
         return {
-            id: "0123",
             SelectionRecord: []
         }
     },
@@ -119,7 +119,7 @@ export default {
 }
 .Container {
     display: grid;
-    grid-template-columns: 3fr 7fr;    
+    grid-template-columns: 5fr 5fr;
     .Rect{
         border: solid 1px;
         margin: 0 1rem;

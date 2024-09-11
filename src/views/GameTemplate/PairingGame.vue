@@ -6,7 +6,7 @@
             <div class="DragElement">
                 <draggable :list="Selections" item-key="Tag" group="Answer" class="InnerComponent">
                     <template #item="{ element }">
-                        <div class=" dragable">
+                        <div class="dragable">
                             <component :is="element.Name" :Data="element.Data" :ID="this.id"></component>
                         </div>
                     </template>
@@ -134,6 +134,9 @@ export default {
 <style scoped>
 .dragable {
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .False{
     border: solid 3px red !important;
@@ -177,6 +180,8 @@ export default {
         border-radius: 15px;
         .DragElement{
             display: flex;
+            flex-direction: column;
+            align-items: center;
             .InnerComponent{
                 display: grid;
                 grid-template-rows: 1fr;

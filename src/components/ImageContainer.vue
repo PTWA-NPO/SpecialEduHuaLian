@@ -63,6 +63,7 @@ export default {
     },
     mounted() {
         this.imageUrl = GamesGetAssetsFile(this.ID, this.Data.Src);
+        console.log(this.imageUrl, this.Data.Alt, this.ID, this.Data.Src);
         // let data = document.getElementById('ImageContainer');
         // let ApplyImage = document.getElementById('Img');
         // data = data.getBoundingClientRect();

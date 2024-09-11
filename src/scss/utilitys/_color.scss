@@ -1,5 +1,6 @@
 $primary-color: #c4cfc5;
-$sub-color: #f0f4ef;
+// $sub-color: #f0f4ef;
+$sub-color: #DCE0D8;
 $accent-color: #0077b6; // 藍色點綴色
 $dark-color: #1D1D1D;
 $light-color: #ffffff;
@@ -9,11 +10,13 @@ $error-color: #dc3545;
 $highlight-color: #198754;
 $warning-color: #ffb703;
 $alert-color: #ff6f61;
+$info-color: $success-color;
 
 
-$primary-btn-bg: darken($primary-color,25%);
+$primary-btn-bg: #91929B;
+// $primary-btn-bg: darken($primary-color,25%);
 $primary-btn-hover-bg: darken($primary-color, 20%);
-$primary-btn-text: #ffffff;
+// $primary-btn-text: #ffffff;
 
 $secondary-btn-bg: lighten($accent-color, 20%);
 $secondary-btn-hover-bg: lighten($accent-color, 10%);
@@ -34,8 +37,10 @@ $error-btn-text: #ffffff;
 $disabled-btn-bg: lighten($dark-color, 40%);
 $disabled-btn-text: lighten($dark-color, 60%);
 
-$info-btn-bg: darken(#6c757d, 0%); // 按鈕顏色稍微加深
-$info-btn-hover-bg: darken(#6c757d, 2%); // 懸停時按鈕顏色稍微加深
-$info-btn-text: #ffffff; // 白色文字顏色
+// $info-btn-bg: darken(#6c757d, 0%); // 按鈕顏色稍微加深
+// $info-btn-hover-bg: darken(#6c757d, 2%); // 懸停時按鈕顏色稍微加深
+// $info-btn-text: #ffffff; // 白色文字顏色
+
+$info-btn-bg: #A9B6AD;
 
 $hightlight-color: #198754;

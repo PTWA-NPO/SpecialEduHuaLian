@@ -1,6 +1,6 @@
 <template>
 <div class="word">
-    <p>{{ this.Data.Text }}</p>
+    <p ref="font">{{ this.Data.Text }}</p>
 </div>
 </template>
 <script>
@@ -22,7 +22,25 @@ export default {
         };
     },
     mounted() {
-        
+        if (this.Data.Size != undefined) {
+            switch (this.Data.Size) {
+                case 'Tiny':
+                    this.$refs.font.style.fontSize = '1rem';
+                    break;  
+                case 'Small':
+                    this.$refs.font.style.fontSize = '1.5rem';
+                    break;
+                case 'Medium':
+                    this.$refs.font.style.fontSize = '2rem';
+                    break;
+                case 'Large':
+                    this.$refs.font.style.fontSize = '3rem';
+                    break;
+            }
+        }
+        if (this.Data.Zhuyin == true) {
+            this.$refs.font.style.fontFamily = 'YuanQuan';
+        }
     }
 }
 </script>

@@ -1,11 +1,19 @@
 @import '../variables';
-
-
 .button-basic {
     border: solid;
     border-radius: $border-radius;
     transform: scale(1);
+    transition: $transition-time;
     cursor: pointer;
+    color: black;
+    background-color: white;
 }
 
+button {
+    border: solid;
+    border-radius: $border-radius;
+    transform: scale(1);
+    transition: $transition-time;
+    color: black;
+}
 

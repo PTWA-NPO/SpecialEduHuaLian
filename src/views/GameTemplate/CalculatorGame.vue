@@ -1,6 +1,5 @@
 <template>
 <div class="outter">
-    {{ Num_list }} 
     <div class="calculator">
         <div class="unit btn-group" style="flex-direction: row-reverse;">
             <div class="units" v-for="item in Title">
@@ -165,7 +164,7 @@ export default {
         };
     },
     created(){
-        // this.Data = this.GameData;
+        this.Data = this.GameData;
         this.NumberAmount = this.Data.NumberAmount;
         this.DotPosition = this.Data.decimalPoint;
         if (this.Data.CustomeUnit != undefined){
@@ -233,7 +232,7 @@ export default {
                 this.Carry[Row][index] = "";
             }
             else if (num == '/'){
-                this.CarryLine[Row][index] = !this.CarryLine[index];
+                this.CarryLine[Row][index] = !this.CarryLine[Row][index];
             }
             else{
                 this.Carry[Row][index] = num;
@@ -353,7 +352,7 @@ export default {
                 this.$emit('next-question');
             }
             else{
-                this.$emit('play-effect', 'WrongSound',)
+                this.$emit('play-effect', 'WrongSound');
                 this.$emit('add-record', [this.Data.Answer, this.Answer, "錯誤"]);
             }
         },
@@ -407,7 +406,8 @@ export default {
         gap: 12px;
         margin: 5px 0;
         .btn--line{
-            background: linear-gradient( 60deg, transparent 49.5%, black 45.5%, black 51.5%, transparent 50%);
+            background: linear-gradient( 120deg, transparent 49.5%, black 45.5%, black 51.5%, transparent 50%);
+            background-color: $sub-color;
         }
     }
     .number-area button{

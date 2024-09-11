@@ -22,6 +22,7 @@ const componentsMapping = {
     CardWithButton: () => import('@/components/CardWithButton.vue'),
 }
 export function GetComponents(name) {
+    console.warn('GetComponents is deprecated, please use getComponents instead.')
     return componentsMapping[name] ? defineAsyncComponent(componentsMapping[name]) : null
 }
 

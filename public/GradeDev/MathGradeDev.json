@@ -28,6 +28,12 @@
                         "Name": "計算機遊戲",
                         "Description": "找找看現在幾點呢?",
                         "Img": "MA3011.png"
+                    },
+                    {
+                        "id": "Dev01_CopyItemGame",
+                        "Name": "拖拉對應的物品",
+                        "Description": "數出對應的物品",
+                        "Img": "MA3011.png"
                     }
                 ]
             }

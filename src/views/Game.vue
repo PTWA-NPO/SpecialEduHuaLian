@@ -927,6 +927,9 @@ export default {
     SideBar: defineAsyncComponent(() =>
       import("@/components/GameSystem/SideBar.vue")
     ),
+    Track: defineAsyncComponent(() =>
+      import("@/views/GameTemplate/Track.vue")
+    )
   },
 };
 </script>

@@ -33,11 +33,8 @@
 <script>
 import { getGameAssets } from '@/utilitys/get_assets.js';
 import { getSystemAssets } from '@/utilitys/get_assets.js';
-
-import * as speech from '@/utilitys/readtext.js';
-
 export default {
-  name: 'FindTheItem',
+  name: 'NumberSerchGame',
   data() {
     return {
       questionNum: 0,
@@ -100,7 +97,9 @@ export default {
       if (this.checkAnswer(questionNum, mousePos.x, mousePos.y)) {
         this.addCircle(questionNum);
         this.answerCorrectly();
-        this.nextQuestion();
+        setTimeout(() => {
+          this.nextQuestion();
+        }, 500);
       } else {
         this.$emit('play-effect', 'WrongSound');
       }
@@ -143,7 +142,9 @@ export default {
     nextQuestion() {
       this.questionNum++;
       if (this.gameOver()) {
-        this.$emit('next-question', true);
+        setTimeout(() => {
+          this.$emit('next-question', true);
+        }, 500);
       } else {
         this.skipAnsweredQuestions();
         this.playNumberSound();
@@ -152,14 +153,18 @@ export default {
     previousQuestion() {
       this.questionNum--;
       if (this.questionNum < 0) {
-        this.questionNum = 10;
+        this.questionNum = this.GameData.ObjNum - 1;
       }
       this.playNumberSound();
     },
     skipAnsweredQuestions() {
       const totalQuestions = this.GameData.ObjNum;
-      while (this.correctlyAnsweredQuestions[this.questionNum] && this.questionNum < totalQuestions - 1) {
-        this.questionNum++;
+      if (this.correctlyAnsweredQuestions[this.questionNum] || this.questionNum >= totalQuestions) {
+        for (let i = 0; i < totalQuestions; i++) {
+          if (!this.correctlyAnsweredQuestions[i]) {
+            this.questionNum = i;
+          }
+        }
       }
     },
     gameOver() {
@@ -191,14 +196,13 @@ export default {
   flex-direction: row;
   justify-content: center;
   gap: 2rem;
-  margin-top: 3rem;
 }
 
 .game__controls {
   display: flex;
   flex-direction: column;
-  padding: 1em;
-  margin-top: 3rem;
+  // padding: 1em;
+  margin-top: 1rem;
   align-items: flex-start;
 }
 
@@ -215,7 +219,7 @@ export default {
 }
 
 .game__sound {
-  flex: 1;
+  width: 50%;
 }
 
 .game__sound-btn {
@@ -230,15 +234,9 @@ export default {
 
 .game__navigation {
   display: flex;
+  width: 50%;
   flex-direction: column;
-  gap: 1rem;
-  button {
-    scale: 1;
-  }
-  button:hover {
-    scale: 1.05;
-    transition: $transition-time;
-  }
+  gap: 0.5rem;
 }
 
 .game__actions button {
@@ -262,11 +260,11 @@ export default {
 }
 
 .game button {
-  font-size: 2rem;
+  font-size: 1.3rem;
   border: 2px solid #606c38;
   background-color: transparent;
   border-radius: 10px;
-
+  font-weight: bold;
 }
 
 .progress-bar {

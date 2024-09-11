@@ -10,7 +10,6 @@ import { RouterView } from 'vue-router'
   </router-view>
   <!-- <router-view /> -->
 </template>
-
 <script>
 import fetchJson from '@/utilitys/fetch-json.js';
 export default {
@@ -21,6 +20,9 @@ export default {
 @font-face {
   font-family: 'YuanQuan';
   src: url('@/assets/fonts/YuanQuan/BpmfGenSenRounded-M.ttf') format('truetype');
+}
+button, input, select, textarea, a, p, h1, h2, h3, h4, h5, h6 , div, span {
+  font-family: 'YuanQuan', sans-serif;
 }
 .navbar {
   background-color: #57B9D9; 

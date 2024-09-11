@@ -220,7 +220,7 @@ methods: {
     for(var i in Flist){
       for(var z in Flist[i].Section){
         for(var x in Flist[i].Section[z].Games){
-          if(Flist[i].Section[z].Games[x].id.includes(tar)){
+          if(Flist[i].Section[z].Games[x].id.includes(tar)){     
             if(!(finded_id.includes(Flist[i].Section[z].Games[x].id))){
               finded_id.push(Flist[i].Section[z].Games[x].id);
               let temp = Flist[i].Section[z].Games[x];

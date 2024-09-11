@@ -11,6 +11,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
     "@quasar/extras": "^1.16.12",
     "@rollup/plugin-inject": "^5.0.3",
     "@vueuse/core": "^10.9.0",

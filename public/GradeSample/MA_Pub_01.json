@@ -1,0 +1,50 @@
+{
+    "id": "MA_Pub_01",
+    "introvideo": "hint1.mp4",
+    "IntroText": {
+        "Type": "PlainText",
+        "Content": "數數看，有多少小動物在圖片中，並且圈出正確的答案吧！"
+    },
+    "TotalLevel": 1,
+    "GameType": "SelectGameMulti",
+    "GameConfig": {        
+    },
+    "Hint":{
+
+    },
+    "Questions": [
+        {
+            "SelectionType": "TextOnly",
+            "TopContainer": {
+                "Name": "TextOnly",
+                "Data": {
+                    "Text": "請點擊正確的數字"
+                }
+            },
+            "SlotComponent":{
+                "Name": "ImageContainer",
+                "Data": {
+                    "Src": "1-1.png",
+                    "Alt": "動物照片"
+                }
+            },
+            "Questions": [
+                {
+                    "Question": "老鼠有?$question$隻",
+                    "Selection": [{"Text": "7", "Size": "Small"},{"Text": "6", "Size": "Small"},{"Text": "9", "Size": "Small"}],
+                    "Answer": 0      
+                },
+                {
+                    "Question": "河馬有?$question$隻",
+                    "Selection": [{"Text": "5", "Size": "Small"},{"Text": "6", "Size": "Small"},{"Text": "7", "Size": "Small"}],
+                    "Answer": 1
+                },
+                {
+                    "Question": "小貓有?$question$隻",
+                    "Selection": [{"Text": "5", "Size": "Small"},{"Text": "7", "Size": "Small"},{"Text": "8", "Size": "Small"}],
+                    "Answer": 2
+                }
+            ]
+        }
+    ]
+}      

@@ -16,8 +16,8 @@
             </button>
           </div>
           <div class="game__navigation">
-            <button @click="previousQuestion">上一題</button>
-            <button @click="nextQuestion">下一題</button>
+            <button class="button-pre" @click="previousQuestion">上一題</button>
+            <button class="button-nxt" @click="nextQuestion">下一題</button>
           </div>
         </div>
         <p class="game__remaining">剩餘題數：{{ remainingQuestions }}</p>
@@ -180,7 +180,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .game-container {
   display: flex;
   justify-content: center;
@@ -232,6 +232,13 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  button {
+    scale: 1;
+  }
+  button:hover {
+    scale: 1.05;
+    transition: $transition-time;
+  }
 }
 
 .game__actions button {

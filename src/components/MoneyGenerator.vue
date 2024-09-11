@@ -32,7 +32,16 @@ const props = defineProps({
 const UpContainer = ref([]);
 const MiddleContainer = ref([]);
 const DownContainer = ref([]);
-const Data = ref(props.Data);
+// const Data = ref(props.Data);
+const Data = ref({
+    "Thousands": 1,
+    "FiveHundreds": 0,
+    "Hundreds": 4,
+    "Fifties": 0,
+    "Tens": 2,
+    "Fives": 0,
+    "Ones": 4
+});
 const containerSize = ref(false);
 const containerRef = ref(0);
 const Container = ref(null);
@@ -139,11 +148,12 @@ export default {
   name: 'MyComponent'
 }
 </script>
-<style scoped>
+<style scoped lang="scss">
 /* Your component styles here */
 .Container {
     width: 100%;
     height: 100%;
+    padding: 1rem;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4,1fr);
@@ -164,7 +174,7 @@ img {
     display: flex;
     flex-direction: row;
     width: 100%;
-    max-height: 40px;
+    max-height: 70px;
     .PerCoin {
         display: flex;
         justify-content: end;

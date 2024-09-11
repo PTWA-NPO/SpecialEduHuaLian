@@ -1,7 +1,7 @@
 {
     "id":"MA3022",
     "introvideo": "src",
-    "TotalLevel": 4,
+    "TotalLevel": 5,
     "GameType" : "CompareGame",
     "IntroText": {
         "Type": "PlainText",

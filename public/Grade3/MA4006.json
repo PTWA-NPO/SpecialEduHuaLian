@@ -19,20 +19,22 @@
             {
                 "QuestionText": "毫升公升比大小",
                 "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "四公升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公升"],
+                            "Number": 4
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "四千毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫升","","",""],
+                            "Number": 4000
                             }             
                         }
                     ]
@@ -42,20 +44,22 @@
             {
                "QuestionText": "毫升公升比大小",
                 "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三公升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公升"],
+                            "Number": 3
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三千毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫升","","",""],
+                            "Number": 3000
                             }             
                         }
                     ]
@@ -65,20 +69,22 @@
             {
                 "QuestionText": "毫升公升比大小",
                 "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "五公升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公升"],
+                            "Number": 5
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "五千毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫升","","",""],
+                            "Number": 5000
                             }             
                         }
                     ]
@@ -88,20 +94,22 @@
             {
                 "QuestionText": "毫升公升比大小",
                 "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "九公升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公升"],
+                            "Number": 9
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "九千毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫升","","",""],
+                            "Number": 9000
                             }             
                         }
                     ]
@@ -111,137 +119,22 @@
             {
                 "QuestionText": "毫升公升比大小",
                 "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十公升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公升",""],
+                            "Number": 10
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一萬毫升"
-                            }             
-                        }
-                    ]
-                ],
-                "Answer": ["Equal"]
-            }
-        ],
-        [
-            {
-                "QuestionText": "毫升公升比大小",
-                "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
-                "OptionBarTitle": "在口裡填入>、<或= ",
-                "Datas": [
-                    [
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一公升"
-                            }             
-                        },
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一百毫升"
-                            }             
-                        }
-                    ]
-                ],
-                "Answer": ["Big"]
-            },
-            {
-                "QuestionText": "毫升公升比大小",
-                "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
-                "OptionBarTitle": "在口裡填入>、<或= ",
-                "Datas": [
-                    [
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "兩百毫升"
-                            }             
-                        },
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "兩公升"
-                            }             
-                        }
-                    ]
-                ],
-                "Answer": ["Small"]
-            },
-            {
-                "QuestionText": "毫升公升比大小",
-                "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
-                "OptionBarTitle": "在口裡填入>、<或= ",
-                "Datas": [
-                    [
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一公升"
-                            }             
-                        },
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一千毫升"
-                            }             
-                        }
-                    ]
-                ],
-                "Answer": ["Equal"]
-            },
-            {
-                "QuestionText": "毫升公升比大小",
-                "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
-                "OptionBarTitle": "在口裡填入>、<或= ",
-                "Datas": [
-                    [
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三百毫升"
-                            }             
-                        },
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三公升"
-                            }             
-                        }
-                    ]
-                ],
-                "Answer": ["Small"]
-            },
-            {
-                "QuestionText": "毫升公升比大小",
-                "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
-                "OptionBarTitle": "在口裡填入>、<或= ",
-                "Datas": [
-                    [
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "兩公升"
-                            }             
-                        },
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "兩千毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫升","","","",""],
+                            "Number": 10000
                             }             
                         }
                     ]
@@ -253,66 +146,22 @@
             {
                 "QuestionText": "毫升公升比大小",
                 "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十七毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公升"],
+                            "Number": 1
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "十七公升"
-                            }             
-                        }
-                    ]
-                ],
-                "Answer": ["Small"]
-            },
-            {
-                "QuestionText": "毫升公升比大小",
-                "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
-                "OptionBarTitle": "在口裡填入>、<或= ",
-                "Datas": [
-                    [
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "二十毫升"
-                            }             
-                        },
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "二十公升"
-                            }             
-                        }
-                    ]
-                ],
-                "Answer": ["Small"]
-            },
-            {
-                "QuestionText": "毫升公升比大小",
-                "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
-                "OptionBarTitle": "在口裡填入>、<或= ",
-                "Datas": [
-                    [
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "五十公升"
-                            }             
-                        },
-                        {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "五十毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫升","",""],
+                            "Number": 100
                             }             
                         }
                     ]
@@ -322,20 +171,22 @@
             {
                 "QuestionText": "毫升公升比大小",
                 "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "五毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫升","",""],
+                            "Number": 200
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "五公升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公升"],
+                            "Number": 2
                             }             
                         }
                     ]
@@ -345,20 +196,199 @@
             {
                 "QuestionText": "毫升公升比大小",
                 "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一公升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公升"],
+                            "Number": 1
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫升","","",""],
+                            "Number": 1000
+                            }             
+                        }
+                    ]
+                ],
+                "Answer": ["Equal"]
+            },
+            {
+                "QuestionText": "毫升公升比大小",
+                "Description": "毫升公升比大小",
+                "SlotComponentVerifycation": false,
+                "OptionBarTitle": "在口裡填入>、<或= ",
+                "Datas": [
+                    [
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫升","",""],
+                            "Number": 300
+                            }             
+                        },
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公升"],
+                            "Number": 3
+                            }             
+                        }
+                    ]
+                ],
+                "Answer": ["Small"]
+            },
+            {
+                "QuestionText": "毫升公升比大小",
+                "Description": "毫升公升比大小",
+                "SlotComponentVerifycation": false,
+                "OptionBarTitle": "在口裡填入>、<或= ",
+                "Datas": [
+                    [
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公升"],
+                            "Number": 2
+                            }             
+                        },
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫升","","",""],
+                            "Number": 2000
+                            }             
+                        }
+                    ]
+                ],
+                "Answer": ["Equal"]
+            }
+        ],
+        [
+            {
+                "QuestionText": "毫升公升比大小",
+                "Description": "毫升公升比大小",
+                "SlotComponentVerifycation": false,
+                "OptionBarTitle": "在口裡填入>、<或= ",
+                "Datas": [
+                    [
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫升",""],
+                            "Number": 17
+                            }             
+                        },
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公升",""],
+                            "Number": 17
+                            }             
+                        }
+                    ]
+                ],
+                "Answer": ["Small"]
+            },
+            {
+                "QuestionText": "毫升公升比大小",
+                "Description": "毫升公升比大小",
+                "SlotComponentVerifycation": false,
+                "OptionBarTitle": "在口裡填入>、<或= ",
+                "Datas": [
+                    [
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫升",""],
+                            "Number": 20
+                            }             
+                        },
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公升",""],
+                            "Number": 20
+                            }             
+                        }
+                    ]
+                ],
+                "Answer": ["Small"]
+            },
+            {
+                "QuestionText": "毫升公升比大小",
+                "Description": "毫升公升比大小",
+                "SlotComponentVerifycation": false,
+                "OptionBarTitle": "在口裡填入>、<或= ",
+                "Datas": [
+                    [
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公升",""],
+                            "Number": 50
+                            }             
+                        },
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫升",""],
+                            "Number": 50
+                            }             
+                        }
+                    ]
+                ],
+                "Answer": ["Big"]
+            },
+            {
+                "QuestionText": "毫升公升比大小",
+                "Description": "毫升公升比大小",
+                "SlotComponentVerifycation": false,
+                "OptionBarTitle": "在口裡填入>、<或= ",
+                "Datas": [
+                    [
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","毫升"],
+                            "Number": 5
+                            }             
+                        },
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公升"],
+                            "Number": 5
+                            }             
+                        }
+                    ]
+                ],
+                "Answer": ["Small"]
+            },
+            {
+                "QuestionText": "毫升公升比大小",
+                "Description": "毫升公升比大小",
+                "SlotComponentVerifycation": false,
+                "OptionBarTitle": "在口裡填入>、<或= ",
+                "Datas": [
+                    [
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","公升"],
+                            "Number": 1
+                            }             
+                        },
+                        {
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["","毫升"],
+                            "Number": 1
                             }             
                         }
                     ]
@@ -370,20 +400,22 @@
             {
                 "QuestionText": "毫升公升比大小",
                 "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一千六百毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫升","","",""],
+                            "Number": 1600
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一公升六百毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公升","毫升","",""],
+                            "Number": 1600
                             }             
                         }
                     ]
@@ -393,20 +425,22 @@
             {
                 "QuestionText": "毫升公升比大小",
                 "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一千一百毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公升","毫升","",""],
+                            "Number": 1100
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一公升六十毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公升","毫升","",""],
+                            "Number": 1060
                             }             
                         }
                     ]
@@ -416,20 +450,22 @@
             {
                 "QuestionText": "毫升公升比大小",
                 "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "兩公升二十毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公升","毫升","",""],
+                            "Number": 2020
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "兩千零二十毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公升","毫升","",""],
+                            "Number": 2020
                             }             
                         }
                     ]
@@ -439,20 +475,22 @@
             {
                 "QuestionText": "毫升公升比大小",
                 "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三千五百毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫升","","",""],
+                            "Number": 3500
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三公升五十毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公升","毫升","",""],
+                            "Number": 3050
                             }             
                         }
                     ]
@@ -462,20 +500,22 @@
             {
                 "QuestionText": "毫升公升比大小",
                 "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "兩千四百五十毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公升","毫升","",""],
+                            "Number": 2450
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "兩公升四十五毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公升","毫升","",""],
+                            "Number": 2045
                             }             
                         }
                     ]
@@ -487,20 +527,22 @@
             {
                 "QuestionText": "毫升公升比大小",
                 "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三千零二十毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公升","毫升","",""],
+                            "Number": 3020
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三公升兩百毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公升","毫升","",""],
+                            "Number": 3200
                             }             
                         }
                     ]
@@ -510,20 +552,22 @@
             {
                 "QuestionText": "毫升公升比大小",
                 "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一千零一十毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫升","","",""],
+                            "Number": 1010
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一公升一百毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公升","毫升","",""],
+                            "Number": 1100
                             }             
                         }
                     ]
@@ -533,20 +577,22 @@
             {
                 "QuestionText": "毫升公升比大小",
                 "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "兩千兩百毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫升","","",""],
+                            "Number": 2200
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "兩公升兩百毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公升","毫升","",""],
+                            "Number": 2200
                             }             
                         }
                     ]
@@ -556,20 +602,22 @@
             {
                 "QuestionText": "毫升公升比大小",
                 "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一千五百二十毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫升","","",""],
+                            "Number": 1520
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "一公升五百二十毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公升","毫升","",""],
+                            "Number": 1520
                             }             
                         }
                     ]
@@ -579,20 +627,22 @@
             {
                 "QuestionText": "毫升公升比大小",
                 "Description": "毫升公升比大小",
-                "SlotComponentVerifycation": true,
+                "SlotComponentVerifycation": false,
                 "OptionBarTitle": "在口裡填入>、<或= ",
                 "Datas": [
                     [
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三千兩百一十毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["毫升","","",""],
+                            "Number": 3210
                             }             
                         },
                         {
-                            "Name" : "TextOnly",
-                            "Data" : {
-                                "Text": "三公升二十一毫升"
+                            "Name" : "NumberBoard",
+                            "Data": {
+                            "Unit": ["公升","毫升","",""],
+                            "Number": 3021
                             }             
                         }
                     ]

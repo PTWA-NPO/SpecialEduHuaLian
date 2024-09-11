@@ -103,7 +103,7 @@
                         "id": "MA_Pub_01",
                         "Name": "數數看",
                         "Description": "請數數看有多少小動物躲在圖片中吧",
-                        "Img": ""
+                        "Img": "MA_Pub_01.png"
                     },
                     {
                         "id": "MA_Pub_02",
@@ -127,12 +127,6 @@
                         "id": "MA_Pub_05",
                         "Name": "輸送帶",
                         "Description": "東西會從左邊飄移進來，請選出正確的答案",
-                        "Img": ""
-                    },
-                    {
-                        "id": "MA_Pub_06",
-                        "Name": "賽車遊戲",
-                        "Description": "請控制賽車找到正確的選項吧",
                         "Img": ""
                     },
                     {

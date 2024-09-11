@@ -40,17 +40,17 @@
         </div>
       </nav>
     </header>
-  <!-- /**
-           * Renders a selection of grade buttons.
-           * Each grade button is a router link that navigates to the GameSelect view with a specific grade ID.
-           * The grade buttons are displayed as images.
-           * 
-           * @component
-           * @example
-           * <GradeSelection></GradeSelection>
-           */ -->
+<!-- /**
+  * Renders a selection of grade buttons.
+  * Each grade button is a router link that navigates to the GameSelect view with a specific grade ID.
+  * The grade buttons are displayed as images.
+  * 
+  * @component
+  * @example
+  * <GradeSelection></GradeSelection>
+  */ -->
   <header class="header container d-flex align-items-center flex-wrap">
-      <p class="text-center text-white h1 mb-0">請選擇年級</p>
+      <p class="text-center h1 mb-0">請選擇年級</p>
     <div class="row GradeSelectMenu flex-nowrap d-flex justify-content-center">
         <div class="col-2">
           <router-link :to="{ name: 'GameSelect', params: { id: 1 } }" class="submenu-link-block">
@@ -84,7 +84,6 @@
         </div>
       </div>
   </header>
-
   <!-- NF 頁尾設定 -->
   <!-- <section class="">
     <footer class="text-center text-white" style="background-color: #0a4275;">
@@ -94,9 +93,9 @@
       </div>
     </footer>
   </section> -->
-  <footer class="mt-auto text-center text-white" style="background-color: #0a4275;">
+  <footer class="mt-auto text-center text-white" style="background-color: #F19C79;">
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2023 版權所有:
+      © 2024 版權所有:
       <a class="text-white" href="https://programtheworld.tw/">programtheworld.tw</a>
     </div>
   </footer>
@@ -141,11 +140,11 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url(../assets/images/pics/cover_info.jpeg);
+  background-image: url(../assets/images/pics/cover_info.PNG);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  filter: brightness(50%);
+  filter: brightness(90%);
   z-index: -1; /* 確保背景圖片位於內容之後 */
 }
 .content {

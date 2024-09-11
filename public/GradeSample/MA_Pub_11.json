@@ -29,6 +29,38 @@
                     }
                 }
             ]
+        },
+        {
+            "Title": "請將正確數量的糖果拖曳到左邊的框框中",
+            "Questions": [
+                "請放入五個糖果"
+            ],
+            "Items": [
+                {
+                    "Name": "ImageContainer",
+                    "Amount": 5,
+                    "Data": {
+                        "Src": "sugar.png",
+                        "Alt": "糖果照片"
+                    }
+                }
+            ]
+        },
+        {
+            "Title": "請將正確數量的糖果拖曳到左邊的框框中",
+            "Questions": [
+                "請放入五個糖果"
+            ],
+            "Items": [
+                {
+                    "Name": "ImageContainer",
+                    "Amount": 5,
+                    "Data": {
+                        "Src": "sugar.png",
+                        "Alt": "糖果照片"
+                    }
+                }
+            ]
         }
     ]
 }

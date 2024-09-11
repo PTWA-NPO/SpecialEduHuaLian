@@ -19,12 +19,14 @@
         <div class="btn-title">筆刷大小</div>
         <div class="brush-size-option">
           <!--&#9679-->
-          <button @click="changeLineWidth(5)" style="font-size: 10px">o</button>
+          <button @click="changeLineWidth(5)" style="font-size: 10px">
+            &#9679
+          </button>
           <button @click="changeLineWidth(10)" style="font-size: 20px">
-            o
+            &#9679
           </button>
           <button @click="changeLineWidth(15)" style="font-size: 30px">
-            o
+            &#9679
           </button>
         </div>
       </div>
@@ -275,6 +277,7 @@ canvas {
   margin: 10px;
 }
 .brush-size-option button {
+  text-align: center;
   width: 30%;
   background-color: #687174;
   height: 50px;

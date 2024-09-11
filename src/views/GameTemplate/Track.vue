@@ -145,42 +145,40 @@ export default {
       return {
         width: `${widthPercentage}%`,
         transform: `translateX(-${translateX}%)`,
-        transition: 'transform 2s linear',
+        transition: 'transform 1.5s linear',
         whiteSpace: 'nowrap'
       };
     }
   },
   methods: {
     startQuiz() {
-      // this.playBackgroundMusic()
-      // this.playSound(this.clickSound, this.clickSoundVolume);
+      this.playBackgroundMusic()
+      this.playSound(this.clickSound, this.clickSoundVolume);
       this.currentQuestionIndex = 0;
       this.isPaused = false;
       this.wrongAnswerIndex = null;
       this.currentQuestions = this.generateRandomOrder(this.GameData.Question.length);
-      console.log(this.currentQuestions,this.currentQuestionIndex)
       setTimeout(() => {
         this.pauseConveyor();
         this.showHomePage = false;
       },);
     },
     handleAnswer(selectedIndex) {
-      console.log("I am here")
-      // this.playSound(this.clickSound, this.clickSoundVolume);
       this.isPaused = false;
       if (selectedIndex === this.GameData.Question[this.currentQuestions[this.currentQuestionIndex]].AnswerIndex) {
-        console.log("正確");
         this.currentQuestionIndex += 1;
         if (this.currentQuestionIndex === this.GameData.Question.length) {
           this.$emit('next-question', true);
+        }else{
+          this.$emit('play-effect', 'CorrectSound')
         }
         this.wrongAnswerIndex = null;
         // this.currentQuestionIndex = (this.currentQuestionIndex + 1) % this.currentQuestions.length;
       } else {
-        console.log("jersiogji");
         this.remainingLives -= 1;
         this.wrongAnswerIndex = selectedIndex;
-        // this.playSound(this.wrongSound, this.wrongSoundVolume); //可能可以刪掉
+        this.$emit('play-effect', 'WrongSound',)
+        // this.playSound(this.wrongSound, this.wrongSoundVolume); 
       }
       setTimeout(() => {
         this.pauseConveyor();
@@ -231,6 +229,7 @@ export default {
   },
   components: {
     TextOnly: getComponents('TextOnly'),
+    ImageContainer: getComponents('ImageContainer')
   }
 };
 </script>
@@ -303,7 +302,9 @@ export default {
 }
 
 .question-container {
-  padding: 100px;
+  height: 90%;
+  width: 90%;
+  padding: 0;
   background-color: transparent;
   border-radius: 10px;
   z-index: 10;
@@ -388,5 +389,11 @@ export default {
 
 .volume-slider {
   width: 100px;
+}
+
+@media(min-height:600px){
+  .question-container {
+    height: 80%;
+  }
 }
 </style>

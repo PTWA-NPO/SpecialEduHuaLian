@@ -1,6 +1,10 @@
 {
     "id": "MA_Pub_03",
     "introvideo": "src",
+    "IntroText": {
+        "Type": "PlainText",
+        "Content": "請打開平板的聲音，聽聽看音檔唸出的數字是多少，再找出對應的數字吧！"
+    },
     "TotalLevel": 2,
     "GameType": "NumberSearchGame",
     "GameConfig":{
@@ -26,28 +30,6 @@
                 "tolerance":8,
                 "ObjNum":11,
                 "img": "FindItemGameSample1.jpg",
-                "SpeakerIcon":"SpeakerIcon"
-            }
-        ],
-        [
-            {
-                "Text": "找出躲在圖片中的數字吧！",
-                "Objs":[ 
-                    { "Name": "0", "xRange": [ 538, 587 ], "yRange": [ 11, 38 ] }, 
-                    { "Name": "1", "xRange": [ 65, 89 ], "yRange": [ 105, 148 ] }, 
-                    { "Name": "2", "xRange": [ 534, 584 ], "yRange": [ 229, 256 ] }, 
-                    { "Name": "3", "xRange": [ 402, 443 ], "yRange": [ 22, 71 ] }, 
-                    { "Name": "4", "xRange": [ 369, 412 ], "yRange": [ 294, 327 ] }, 
-                    { "Name": "5", "xRange": [ 293, 321 ], "yRange": [ 230, 253 ] }, 
-                    { "Name": "6", "xRange": [ 158, 180 ], "yRange": [ 73, 105 ] }, 
-                    { "Name": "7", "xRange": [ 359, 398 ], "yRange": [ 154, 210 ] }, 
-                    { "Name": "8", "xRange": [ 485, 510 ], "yRange": [ 134, 168 ] }, 
-                    { "Name": "9", "xRange": [ 95, 115 ], "yRange": [ 258, 288 ] }, 
-                    { "Name": "10", "xRange": [ 165, 210 ], "yRange": [ 187, 240 ] }
-                ],
-                "tolerance":8,
-                "ObjNum":11,
-                "img": "FindItemGameSample2.png",
                 "SpeakerIcon":"SpeakerIcon"
             }
         ]

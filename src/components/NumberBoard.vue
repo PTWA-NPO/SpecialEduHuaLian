@@ -87,7 +87,7 @@ export default {
     justify-content: center;
     align-items: center;
     font-size: 2em;
-    width: 70px;
+    /* width: 70px; */
     text-align: center;
 }
 .UnitEachBlanket{
@@ -95,7 +95,7 @@ export default {
     width: 100%;
     height: 100%;
     /* Font Size */
-    width: 70px;
+    /* width: 70px; */
     display: flex;
     font-size: 1.5em;
     justify-content: center;

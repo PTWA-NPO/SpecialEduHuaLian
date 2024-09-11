@@ -161,6 +161,11 @@ const router = createRouter({
       path: '/CopyItem',
       name: 'CopyItem',
       component: () => import('@/views/GameTemplate/CopyItem.vue'),
+    },
+    {
+      path: '/FindItemGameMaker',
+      name: 'FindItemGameMaker',
+      component: () => import('@/components/FindItemGameMaker.vue'),
     }
   ]
 });

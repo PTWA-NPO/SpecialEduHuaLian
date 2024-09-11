@@ -497,4 +497,18 @@ button {
     border-radius: 15px;
     background-color: #4CAF50; 
 }
+
+/* Link Game RWD */
+:deep(.NumberBoard) {
+    font-size: 0.6rem !important;
+}
+:deep(.EachBlanket) {
+    font-size: 0.8rem !important;
+}
+:deep(.EachRow) {
+    min-height: 10px !important;
+    max-height: 60px !important;
+}
+
+
 </style>

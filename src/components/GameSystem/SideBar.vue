@@ -125,7 +125,7 @@
           <div class="mx-auto">下載</div>
         </div>
       </button>
-      <button
+      <!-- <button
         class="btn btn-primary text-nowrap img-hover-zoom"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
@@ -147,7 +147,7 @@
           </div>
           <div class="mx-auto">教學</div>
         </div>
-      </button>
+      </button> -->
       <button
         class="btn btn-primary text-nowrap img-hover-zoom"
         data-bs-toggle="modal"

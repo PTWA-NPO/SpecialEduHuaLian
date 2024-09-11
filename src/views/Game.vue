@@ -357,7 +357,7 @@ import fetchJson from "@/utilitys/fetch-json.js";
 import * as Arr2CSV from "@/utilitys/array2csv.js";
 import loading from "@/components/loading.vue";
 import GameStartandOver from "@/components/GameStartandOver.vue";
-import scratchSheet from "@/components/scratchSheet.vue";
+import scratchSheet from "@/components/ScratchSheet.vue";
 import hintbutton from "@/components/hintbutton.vue";
 import * as ImportUrl from "@/utilitys/get_assets.js";
 import axios from "axios";

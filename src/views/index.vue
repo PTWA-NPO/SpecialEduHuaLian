@@ -49,40 +49,8 @@
   * @example
   * <GradeSelection></GradeSelection>
   */ -->
-  <header class="header container d-flex align-items-center flex-wrap">
-      <p class="text-center h1 mb-0">請選擇年級</p>
-    <div class="row GradeSelectMenu flex-nowrap d-flex justify-content-center">
-        <div class="col-2">
-          <router-link :to="{ name: 'GameSelect', params: { id: 1 } }" class="submenu-link-block">
-            <img src="@/assets/images/grade_btn/g1_hover.png" class="img-fluid" alt="一年遊戲">
-          </router-link>
-        </div>
-        <div class="col-2">
-          <router-link :to="{ name: 'GameSelect', params: { id: 2 } }" alt="二年遊戲" class="submenu-link-block">
-            <img src="@/assets/images/grade_btn/g2_hover.png" class="img-fluid" >
-          </router-link>
-        </div>
-        <div class="col-2">
-          <router-link :to="{ name: 'GameSelect', params: { id: 3 } }" alt="三年遊戲" class="submenu-link-block">
-            <img src="@/assets/images/grade_btn/g3_hover.png" class="img-fluid" >
-          </router-link>
-        </div>
-        <div class="col-2">
-          <router-link :to="{ name: 'GameSelect', params: { id: 4 } }" alt="四年遊戲" class="submenu-link-block">
-            <img src="@/assets/images/grade_btn/g4_hover.png" class="img-fluid" >
-          </router-link>
-        </div>
-        <div class="col-2">
-          <router-link :to="{ name: 'GameSelect', params: { id: 5 } }" alt="五年遊戲" class="submenu-link-block">
-            <img src="@/assets/images/grade_btn/g5_hover.png" class="img-fluid" >
-          </router-link>
-        </div>
-        <div class="col-2">
-          <router-link :to="{ name: 'GameSelect', params: { id: 6 } }" alt="六年遊戲" class="submenu-link-block">
-            <img src="@/assets/images/grade_btn/g6_hover.png" class="img-fluid" >
-          </router-link>
-        </div>
-      </div>
+  <header class="header">
+        <button class="start-the-game" @click="goToGame()">開始遊戲</button>
   </header>
   <!-- NF 頁尾設定 -->
   <!-- <section class="">
@@ -105,7 +73,16 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      grade: 0,
+    };
+  },
+  methods: {
+    goToGame() {
+      this.$router.push({ name: 'GameSelect', params: { id: 'Sample' } });
+    },
+  },
 };
 </script>
 
@@ -131,6 +108,9 @@ export default {
   // display: flex;
   height: 78vh; 
   // position: relative; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header::before {
@@ -144,7 +124,7 @@ export default {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  filter: brightness(90%);
+  filter: brightness(60%);
   z-index: -1; /* 確保背景圖片位於內容之後 */
 }
 .content {
@@ -171,6 +151,14 @@ footer {
   top: auto;
 }
 
-
+.start-the-game {
+  width: 50vw;
+  height: 40vh;
+  font-size: 5rem;
+  background-color: $primary-color;
+}
+.start-the-game:hover {
+  transform: scale(1.07);
+}
 
 </style>

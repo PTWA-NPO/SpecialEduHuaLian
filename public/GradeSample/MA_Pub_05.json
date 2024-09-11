@@ -1,0 +1,57 @@
+{
+    "id": "MA_Pub_10",
+    "introvideo": "hint1.mp4",
+    "IntroText": {
+        "Type": "PlainText",
+        "Content": "數數看圖片裡面有多少隻動物?"
+    },
+    "TotalLevel": 1,
+    "GameType": "Track",
+    "GameConfig": {},
+    "Hint": {},
+    "Questions": [
+        {
+            "Question": [
+                {
+                    "name": "ImageContainer",
+                    "Data": {
+                        "Src": "2-1.png",
+                        "Alt": "ddd"
+                    },
+                    "Selections": [
+                        "3",
+                        "8",
+                        "4"
+                    ],
+                    "AnswerIndex": 2
+                },
+                {
+                    "name": "ImageContainer",
+                    "Data": {
+                        "Src": "2-2.png",
+                        "Alt": "ddd"
+                    },
+                    "Selections": [
+                        "5",
+                        "7",
+                        "9"
+                    ],
+                    "AnswerIndex": 1
+                },
+                {
+                    "name": "ImageContainer",
+                    "Data": {
+                        "Src": "2-3.png",
+                        "Alt": "ddd"
+                    },
+                    "Selections": [
+                        "10",
+                        "5",
+                        "18"
+                    ],
+                    "AnswerIndex": 0
+                }
+            ]
+        }
+    ]
+}

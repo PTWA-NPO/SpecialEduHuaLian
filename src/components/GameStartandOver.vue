@@ -10,7 +10,7 @@
         <div class="buttons">
             <button class="btn btn-primary" v-on:click="StartGame();MakeReadText('','',stop=true)">開始遊戲</button>
             <button class="btn btn-primary" v-on:click="MakeReadText(GameName,ShowContent)">朗讀</button>
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">教學影片</button>
+            <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">教學影片</button> -->
         </div>
         
     </div>

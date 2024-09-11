@@ -7,8 +7,8 @@
         </a>
         <form class="mx-auto">
           <button class="btn btn-primary m-1" @click="ChangeSubject('Math')">{{ Subjects['Math'] }}</button>
-          <button class="btn btn-primary m-1" @click="ChangeSubject('Chinese')" >{{ Subjects['Chinese'] }}</button>
-          <button class="btn btn-primary m-1" @click="ChangeSubject('Technology')" >{{ Subjects['Technology'] }}</button>
+          <!-- <button class="btn btn-primary m-1" @click="ChangeSubject('Chinese')" >{{ Subjects['Chinese'] }}</button>
+          <button class="btn btn-primary m-1" @click="ChangeSubject('Technology')" >{{ Subjects['Technology'] }}</button> -->
         </form>
         <div class="SearchGroup d-flex">
           <input class="form-control" :placeholder=" this.ShowSearch?'按下esc可以返回':'輸入ID或者標題' " v-model="SearchInput" @keyup.enter="SearchGame()" @keyup.esc="Return2Menu()">
@@ -20,8 +20,8 @@
       <div class="d-flex flex-column align-items-center d-grid gap-5 justify-content-center Subject_container"  style="width: 100%; height: 90vh;">
         <p class="h1">請選科目</p>
         <a  v-on:click="ChangeSubject('Math');MakeReadText('' ,'',stop=true)"><img src="@/assets/button/math.png" style="width: 40vh;" /></a>
-        <a  v-on:click="ChangeSubject('Chinese');MakeReadText('' ,'',stop=true)"><img src="@/assets/button/chinese.png" style="width: 40vh;" /></a>
-        <a  v-on:click="ChangeSubject('Technology');MakeReadText('' ,'',stop=true)"><img src="@/assets/button/technology.png" style="width: 40vh;"/></a>
+        <!-- <a  v-on:click="ChangeSubject('Chinese');MakeReadText('' ,'',stop=true)"><img src="@/assets/button/chinese.png" style="width: 40vh;" /></a> -->
+        <!-- <a  v-on:click="ChangeSubject('Technology');MakeReadText('' ,'',stop=true)"><img src="@/assets/button/technology.png" style="width: 40vh;"/></a> -->
       </div>
     </section>
     <section class="GameSelectSection" style="overflow-y: hidden;" v-if="ShowContent">

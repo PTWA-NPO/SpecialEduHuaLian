@@ -30,6 +30,7 @@
 <script>
 import { defineAsyncComponent } from 'vue';
 import { GamesGetAssetsFile } from '@/utilitys/get_assets.js';
+import { getComponents } from '@/utilitys/get-components';
 export default {
     name: 'FillinBlank',
     data(){
@@ -129,7 +130,7 @@ export default {
     components:{
         Numpad: defineAsyncComponent(()=>import('@/components/VirtualNumPadInput.vue')),
         Calculator: defineAsyncComponent(()=>import('@/components/calculator.vue')),
-        Clock: defineAsyncComponent(()=>import('@/components/Clock.vue'))
+        Clock: getComponents('Clock'),
     }
 }
 </script>

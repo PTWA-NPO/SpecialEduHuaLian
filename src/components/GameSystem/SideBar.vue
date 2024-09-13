@@ -225,7 +225,7 @@ export default {
       this.$emit("provide-hint");
     },
     scratchSheet() {
-      this.$emit("scratchSheet");
+      this.$emit("scratch-sheet");
     },
   },
 };

@@ -154,7 +154,7 @@ footer {
 .start-the-game {
   width: 50vw;
   height: 40vh;
-  font-size: 4rem;
+  font-size: 3rem;
   background-color: $primary-color;
 }
 .start-the-game:hover {

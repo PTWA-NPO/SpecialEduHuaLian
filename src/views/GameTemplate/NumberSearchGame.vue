@@ -202,7 +202,7 @@ export default {
   display: flex;
   flex-direction: column;
   // padding: 1em;
-  margin-top: 1rem;
+  margin-top: 0;
   align-items: flex-start;
 }
 
@@ -234,7 +234,7 @@ export default {
 
 .game__navigation {
   display: flex;
-  width: 50%;
+  width: 60%;
   flex-direction: column;
   gap: 0.5rem;
 }
@@ -260,7 +260,7 @@ export default {
 }
 
 .game button {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   border: 2px solid #606c38;
   background-color: transparent;
   border-radius: 10px;

@@ -2,13 +2,16 @@
     <div class="Container">
         <p class="h1">{{ GameData.Question.text }}</p>        
         <div class="Index" ref="Index">
+            <!-- @mousedown="(event) => handleStart(event, index)" -->
+            <!-- @mouseup="handleEnd"  -->
+            <!-- @mousemove="handleMove"  -->
             <div class="Konva-container" ref="KonvaContainer">
                 <v-stage 
                     :config="configStage" 
                     class="Stage" 
-                    @mousemove="handleMove" 
+                    
                     @touchmove="handleMove"
-                    @mouseup="handleEnd" 
+                    
                     @touchend="handleEnd"
                     ref="KonvaStage"
                 >
@@ -22,7 +25,7 @@
                                 radius: 5, 
                                 fill: 'black' 
                             }"
-                            @mousedown="(event) => handleStart(event, index)"
+                            
                             @touchstart="(event) => handleStart(event, index)"
                         ></v-circle>
                     </v-layer>
@@ -458,13 +461,30 @@ export default {
     max-height: 65vh;
     display: inline-block;
     position: relative;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
+
 .Index {
     position: relative; /* 設置相對定位作為子元素的參考 */
     width: 100%;
     height: 90%;
 }
-
+.Konva-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    touch-action: none; /* Prevents default touch actions */
+    user-select: none; /* Prevents text selection during drag */
+    -webkit-user-select: none; /* For Safari */
+    -moz-user-select: none; /* For Firefox */
+    -ms-user-select: none; /* For IE10+/Edge */
+}
 .Konva-container, .ObjectContainer {
     position: absolute; /* 設置絕對定位 */
     top: 0;

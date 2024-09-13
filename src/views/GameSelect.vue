@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="outter">
     <header>
       <nav class="container navbar navbar-expand-md sticky-top" style="width: 100%;">
         <a class="navbar-brand mt-2 mb-2 " href="#" alt="Home">
@@ -271,6 +271,14 @@ methods: {
 </script>
 
 <style lang="scss" scoped>
+.outter .navbar .GameSelectSection .side-bar .ButtonContainer button{
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
 header{
   background-color: $primary-color;
 }

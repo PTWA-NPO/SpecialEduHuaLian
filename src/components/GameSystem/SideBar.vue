@@ -242,7 +242,7 @@ export default {
   align-items: center;
   padding-top: 1rem;
   .Buttons {
-    padding: 1vw;
+    padding: 0;
     width: 100%;
     height: 100%;
     display: flex;
@@ -251,10 +251,11 @@ export default {
     justify-content: stretch;
     button {
       align-self: center;
-      width: 90%;
-      font-size: x-large;
+      width: 93%;
+      font-size: 1.2rem;
       border-radius: 12px;
       height: 4rem;
+      padding: 0.4rem;
     }
   }
   .Title {

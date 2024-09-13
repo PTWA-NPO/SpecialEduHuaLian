@@ -32,7 +32,7 @@
 </template>
 <script>
 import draggable from 'vuedraggable';
-import cardwithbutton from '@/components/cardwithbutton.vue'
+import CardWithButton from '@/components/CardWithButton.vue'
 import { GamesGetAssetsFile } from '@/utilitys/get_assets.js';
 import { defineAsyncComponent } from 'vue';
 import { getComponents } from '@/utilitys/get_components';
@@ -40,7 +40,7 @@ export default {
     name: 'ClassifyGame',
     components: {
         draggable,
-        cardwithbutton,
+        CardWithButton,
         TextOnly: getComponents('TextOnly'),
         ImageContainer: getComponents('ImageContainer'),
         Clock: getComponents('Clock'),

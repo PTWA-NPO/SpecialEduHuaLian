@@ -96,7 +96,6 @@
 	  }
 	},
 	mounted() {
-        let a = 0; //FIXME: remove this line
 	  this.drawClock();
 	  window.addEventListener('resize', this.drawClock);
 	},

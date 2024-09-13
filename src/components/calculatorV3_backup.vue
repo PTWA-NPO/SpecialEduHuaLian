@@ -140,7 +140,7 @@
             name: "calculator",
             components: {
                 draggable,
-                clock: defineAsyncComponent(() => import('@/components/clock.vue')),
+                clock: defineAsyncComponent(() => import('@/components/Clock.vue')),
             },
             // props: {
             //     GameData: {

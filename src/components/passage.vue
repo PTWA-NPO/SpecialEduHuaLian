@@ -6,7 +6,7 @@
 <script>
 import { GamesGetAssetsFile } from "@/utilitys/get_assets.js";
 const passageImg = document.createElement("img");
-passageImg.src = GamesGetAssetsFile("MA3029", "Passage.png");
+passageImg.src = GamesGetAssetsFile("MA_Pub_12", "Passage.png");//需要改成變數
 
 export default {
   data() {

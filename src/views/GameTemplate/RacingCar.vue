@@ -1,7 +1,15 @@
 <template>
+  <div class="quetion-container">
+      <div>
+        <!-- <component :is="this.GameData.Question[currentQuestions[index]].name" :Data="this.GameData.Question[currentQuestions[index]].Data" :ID="this.id"></component> -->
+      </div>
+      <div>
+        <h2>{{ GameData.Question }}</h2>
+      </div>
+    </div>
   <div class="gameContainer">
     <div id="canvasContainer">
-      <h2>{{ GameData.Question }}</h2>
+
       <v-stage :config="configKonva">
         <v-layer>
           <v-rect :config="configLane"></v-rect>
@@ -12,16 +20,8 @@
         </v-layer>
 
         <v-layer>
-          <passage
-            v-for="i in map"
-            :Y="i[1]"
-            :w="laneWidth"
-            :l="configKonva.width"
-            :option="GameData.Options[i[0]]"
-            :speed="speed"
-            @end="end"
-            @onClick="moveOnClick"
-          >
+          <passage v-for="i in map" :Y="i[1]" :w="laneWidth" :l="configKonva.width" :option="GameData.Options[i[0]]"
+            :speed="speed" @end="end" @onClick="moveOnClick">
           </passage>
         </v-layer>
       </v-stage>
@@ -42,7 +42,7 @@ import { Container } from "konva/lib/Container";
 import { defineAsyncComponent } from "vue";
 
 const carImg = document.createElement("img");
-carImg.src = GamesGetAssetsFile("MA3029", "RacingCar.png");
+carImg.src = GamesGetAssetsFile("MA_Pub_12", "RacingCar.png");
 
 export default {
   components: {
@@ -85,9 +85,9 @@ export default {
 
       speed: 1,
 
-      upBtn: GamesGetAssetsFile("MA3029", "arrowUp.jpg"),
-      rightBtn: GamesGetAssetsFile("MA3029", "arrowRight.jpg"),
-      downBtn: GamesGetAssetsFile("MA3029", "arrowDown.jpg"),
+      upBtn: GamesGetAssetsFile(this.id, "arrowUp.jpg"),
+      rightBtn: GamesGetAssetsFile(this.id, "arrowRight.jpg"),
+      downBtn: GamesGetAssetsFile(this.id, "arrowDown.jpg"),
     };
   },
 
@@ -100,6 +100,10 @@ export default {
       type: Object,
       required: true,
     },
+    id: {
+      type: String,
+      required: true
+    }
   },
 
   beforeMount() {

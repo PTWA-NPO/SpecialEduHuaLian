@@ -260,11 +260,12 @@ export default {
 }
 
 .game button {
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   border: 2px solid #606c38;
   background-color: transparent;
   border-radius: 10px;
   font-weight: bold;
+  padding: 0;
 }
 
 .progress-bar {

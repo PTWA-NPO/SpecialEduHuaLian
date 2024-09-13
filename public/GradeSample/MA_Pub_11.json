@@ -1,9 +1,9 @@
 {
-    "id": "MA3029",
+    "id": "MA_Pub_11",
     "introvideo": "hint1.mp4",
     "IntroText": {
         "Type": "PlainText",
-        "Content": "[Insert question.]"
+        "Content": "請拿出正確數量的東西"
     },
     "TotalLevel": 1,
     "GameType": "CopyItem",
@@ -17,50 +17,82 @@
         {
             "Title": "請將正確數量的糖果拖曳到左邊的框框中",
             "Questions": [
-                "請放入五個糖果"
+                "請放入五顆糖果"
             ],
             "Items": [
                 {
                     "Name": "ImageContainer",
                     "Amount": 5,
                     "Data": {
-                        "Src": "sugar.png",
+                        "Src": "candy.png",
                         "Alt": "糖果照片"
                     }
                 }
             ]
         },
         {
-            "Title": "請將正確數量的糖果拖曳到左邊的框框中",
+            "Title": "請將正確數量的鯊魚拖曳到左邊的框框中",
             "Questions": [
-                "請放入五個糖果"
+                "請放入十隻鯊魚"
             ],
             "Items": [
                 {
                     "Name": "ImageContainer",
-                    "Amount": 5,
+                    "Amount": 10,
                     "Data": {
-                        "Src": "sugar.png",
-                        "Alt": "糖果照片"
+                        "Src": "shark.png",
+                        "Alt": "鯊魚"
                     }
                 }
             ]
         },
         {
-            "Title": "請將正確數量的糖果拖曳到左邊的框框中",
+            "Title": "請將正確數量的蜜蜂拖曳到左邊的框框中",
             "Questions": [
-                "請放入五個糖果"
+                "請放入兩隻蜜蜂"
             ],
             "Items": [
                 {
                     "Name": "ImageContainer",
-                    "Amount": 5,
+                    "Amount": 2,
                     "Data": {
-                        "Src": "sugar.png",
-                        "Alt": "糖果照片"
+                        "Src": "bee.png",
+                        "Alt": "蜜蜂"
+                    }
+                }
+            ]
+        },
+        {
+            "Title": "請將正確數量的企鵝拖曳到左邊的框框中",
+            "Questions": [
+                "請放入八隻企鵝"
+            ],
+            "Items": [
+                {
+                    "Name": "ImageContainer",
+                    "Amount": 8,
+                    "Data": {
+                        "Src": "penguin.png",
+                        "Alt": "企鵝"
+                    }
+                }
+            ]
+        },{
+            "Title": "請將正確數量的大象拖曳到左邊的框框中",
+            "Questions": [
+                "請放入九隻大象"
+            ],
+            "Items": [
+                {
+                    "Name": "ImageContainer",
+                    "Amount": 9,
+                    "Data": {
+                        "Src": "elephant.png",
+                        "Alt": "大象"
                     }
                 }
             ]
         }
+
     ]
 }

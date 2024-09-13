@@ -87,7 +87,7 @@ export default {
     data() {
         return {
             // Your data properties go here
-            id: 'Dev0105',
+            // id: 'Dev0105',
             // GameData: {
             //     Title: "123456",
             //     Questions: [

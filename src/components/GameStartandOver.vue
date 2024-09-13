@@ -21,7 +21,7 @@
         <img src="@/assets/Effects/Firework.gif" id="Effects">
         <div class="d-flex justify-content-center d-grid gap-3 mt-3">
             <button class="btn btn-primary flex-grow-1" v-on:click="EndGame_WithoutDownload">結束遊戲</button>
-            <button class="btn btn-primary flex-grow-1" v-on:click="EndGame">結束遊戲(下載紀錄)</button>
+            <!-- <button class="btn btn-primary flex-grow-1" v-on:click="EndGame">結束遊戲(下載紀錄)</button> -->
             <button class="btn btn-primary flex-grow-1" v-on:click="Restart">重新開始</button>
         </div>
     </div>

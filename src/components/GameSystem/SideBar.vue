@@ -104,7 +104,7 @@
         @click="toCSV()"
         v-if="GameStatus == 'Done'"
       >
-        <div class="d-flex align-items-center">
+        <!-- <div class="d-flex align-items-center">
           <div class="">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +123,7 @@
             </svg>
           </div>
           <div class="mx-auto">下載</div>
-        </div>
+        </div> -->
       </button>
       <!-- <button
         class="btn btn-primary text-nowrap img-hover-zoom"

@@ -451,7 +451,7 @@ export default {
     margin-top: 20px;
     button{
         height: 3rem;
-        width: 10rem;
+        width: 13rem;
         background-color: $accent-color;
     }
 }

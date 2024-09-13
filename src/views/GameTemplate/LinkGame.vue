@@ -33,6 +33,7 @@
 // import { Stage, Layer, Circle, Line } from 'vue-konva';
 import { Tab } from 'bootstrap';
 import { defineAsyncComponent } from 'vue';
+import { getComponents } from '@/utilitys/get-components.js'
 
 export default {
     name: 'LinkGameV2',
@@ -41,7 +42,8 @@ export default {
         // 'v-layer': Layer,
         // 'v-circle': Circle,
         // 'v-line': Line,
-        ImageContainer: defineAsyncComponent(() => import('@/components/ManualImageContainer.vue')),
+        // ImageContainer: defineAsyncComponent(() => import('@/components/ManualImageContainer.vue')),
+        ImageContainer: getComponents('ImageContainer'),
         NumberBoard: defineAsyncComponent(() => import('@/components/NumberBoard.vue')),
         TextOnly: defineAsyncComponent(() => import('@/components/TextOnly.vue')),
     },

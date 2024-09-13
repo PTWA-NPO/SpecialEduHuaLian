@@ -1,6 +1,5 @@
 <template>
   <div id="GameView" ref="GameView">
-    {{ scratchSheetVisible }}
     <header>
       <nav
         class="container-fluid navbar navbar-expand-md navbar-light sticky-top justify-content-around justify-content-md-center"

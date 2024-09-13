@@ -81,14 +81,16 @@
       <div class="operation-option">
         <button @click="clearCanvas" @touchend="clearCanvas">清空</button>
       </div>
-      <button
-        class="exit-btn"
-        @click="closeCanvas"
-        @touchend="closeCanvas"
-        data-bs-dismiss="modal"
-      >
-        關閉
-      </button>
+      <div class="operation-option">
+        <button
+          class="exit-btn"
+          @click="closeCanvas"
+          data-bs-dismiss="modal"
+        >
+        <!-- @touchend="closeCanvas" -->
+          關閉
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -116,7 +118,7 @@ export default {
     observer.observe(this.$refs.con);
   },
   updated() {
-    this.resizeCanvas();
+    // this.resizeCanvas();
   },
   methods: {
     resizeCanvas() {
@@ -361,13 +363,14 @@ canvas {
 .exit-btn {
   width: 5%;
   height: 50px;
-  background-color: #a5adb1;
-  position: absolute;
+  background-color:#dc3545 !important;
+  margin-top: 1rem;
+  /*position: absolute;
   bottom: 20px;
-  right: 20px;
+  right: 20px;*/
 }
 .exit-btn:hover {
-  background-color: #687174;
+  background-color: #dc3545 !important;
 }
 
 button {

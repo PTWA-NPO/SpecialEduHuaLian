@@ -177,7 +177,7 @@
             @next-question="NextQuestion"
             @start-game="StartGame"
             @reload-page="reloadPage"
-            @scratchSheet="scratchSheetVisible = true"
+            @scratch-sheet="() => {scratchSheetVisible = true}"
           >
             <template #hint>
               <hintbutton
@@ -210,7 +210,7 @@
               >
                 <scratchSheet
                   v-if="scratchSheetVisible == true"
-                  @closeSheet="scratchSheetVisible = false"
+                  @closeSheet="() => { closeSratSheet() }"
                 ></scratchSheet>
               </div>
             </div>
@@ -556,6 +556,10 @@ export default {
       this.totaltime = 0;
       this.finaltime = 0;
       this.download_data = [[]];
+      this.isPassLevel = [];
+      for(var x in this.GameData.Questions){
+        this.isPassLevel.push(false);
+      }
     },
     changelevel(change2level) {
       this.WrongTimes = 0;
@@ -849,6 +853,12 @@ export default {
     PreviousPage() {
       this.ExitFullScreen();
       this.$router.go(-1);
+    },
+    closeSratSheet() {
+      this.scratchSheetVisible = false;
+      var modal = document.getElementById("Calculator");
+      modal.classList.remove("show");
+      modal.style.display = "none";
     },
   },
   components: {

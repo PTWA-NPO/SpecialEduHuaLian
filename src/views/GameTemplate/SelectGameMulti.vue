@@ -100,7 +100,7 @@ export default {
     display: flex;
     flex-direction: column;
     .SubmitAnswer {
-        width: 10rem;
+        width: 13rem;
         height: 4rem;
         border-radius: 15px;
         background-color: #FFBE0B;
@@ -108,7 +108,7 @@ export default {
         transition: 0.5s;
         font-size: 1.5rem;
         align-self: flex-end;
-        margin: 1rem;
+        margin: 3rem;
     }
     .TopContainer {
         display: flex;
@@ -119,7 +119,8 @@ export default {
 }
 .Container {
     display: grid;
-    grid-template-columns: 5fr 5fr;
+    grid-template-columns: 5fr 6fr;
+    max-height: 300px;
     .Rect{
         border: solid 1px;
         margin: 0 1rem;

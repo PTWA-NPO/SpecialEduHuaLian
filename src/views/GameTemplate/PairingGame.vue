@@ -36,6 +36,7 @@
 </template>
 <script>
 import { defineAsyncComponent } from 'vue';
+import { getComponents } from '@/utilitys/get-components';
 import draggable from 'vuedraggable';
 export default {
     name: 'PairingGame',
@@ -44,7 +45,7 @@ export default {
         ImageContainer: defineAsyncComponent(() => import('@/components/ImageContainer.vue')),
         ImageWithText: defineAsyncComponent(() => import('@/components/ImageWithText.vue')),
         TextOnly: defineAsyncComponent(() => import('@/components/TextOnly.vue')),
-        Clock: defineAsyncComponent(() => import('@/components/Clock.vue')),
+        Clock: getComponents('Clock'),
         Water: defineAsyncComponent(() => import('@/components/Water.vue')),        
     },
     props: {

@@ -40,7 +40,13 @@
                         "Name": "拿東西",
                         "Description": "請從在左邊的框框中放入正確數量的物品",
                         "Img": "MA_Pub_11.png"
-                    }     
+                    },
+                    {
+                        "id": "MA_Pub_12",
+                        "Name": "賽車遊戲",
+                        "Description": "請數數看總共有多少錢吧?",
+                        "Img": "MA_Pub_10.png"
+                    }       
                 ]
             }
         ]

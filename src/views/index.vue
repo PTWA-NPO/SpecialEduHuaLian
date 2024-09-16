@@ -1,6 +1,7 @@
 <template>
   <div class="d-flex flex-column min-vh-100">
-    <header>
+    <NavBar></NavBar>
+    <!-- <header>
       <nav class="navbar navbar-expand-md navbar-dark sticky-top">
         <div class="container-fluid" style="width: 100%;">
           <a class="navbar-brand" href="#" alt="Home">
@@ -39,7 +40,7 @@
           </div>
         </div>
       </nav>
-    </header>
+    </header> -->
 <!-- /**
   * Renders a selection of grade buttons.
   * Each grade button is a router link that navigates to the GameSelect view with a specific grade ID.
@@ -72,6 +73,7 @@
 </template>
 
 <script>
+import NavBar from "./NavBar.vue";
 export default {
   data() {
     return {
@@ -83,6 +85,9 @@ export default {
       this.$router.push({ name: 'GameSelect', params: { id: 'Sample' } });
     },
   },
+  components: {
+    NavBar,
+  }
 };
 </script>
 

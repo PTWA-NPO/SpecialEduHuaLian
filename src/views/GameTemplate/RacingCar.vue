@@ -1,12 +1,12 @@
 <template>
-  <div class="quetion-container">
-      <div>
-        <!-- <component :is="this.GameData.Question[currentQuestions[index]].name" :Data="this.GameData.Question[currentQuestions[index]].Data" :ID="this.id"></component> -->
-      </div>
-      <div>
-        <h2>{{ GameData.Question }}</h2>
-      </div>
+  <div class="quetioncontainer">
+    <div class="quation__picture">
+      <component :is="this.GameData.name" :Data="this.GameData.Data" :ID="this.id"></component>
     </div>
+    <div class="quation__text">
+      <h2>{{ GameData.Question }}</h2>
+    </div>
+  </div>
   <div class="gameContainer">
     <div id="canvasContainer">
 
@@ -40,6 +40,8 @@
 import { GamesGetAssetsFile } from "@/utilitys/get_assets.js";
 import { Container } from "konva/lib/Container";
 import { defineAsyncComponent } from "vue";
+import { getComponents } from '@/utilitys/get-components.js';
+
 
 const carImg = document.createElement("img");
 carImg.src = GamesGetAssetsFile("MA_Pub_12", "RacingCar.png");
@@ -48,12 +50,13 @@ export default {
   components: {
     //lane: defineAsyncComponent(() => import("@/components/lane.vue")),
     passage: defineAsyncComponent(() => import("@/components/passage.vue")),
+    ImageContainer: getComponents('ImageContainer')
   },
   data() {
     return {
       configKonva: {
-        width: 1000,
-        height: 500,
+        width: 800,
+        height: 400,
       },
 
       configCar: {
@@ -68,8 +71,8 @@ export default {
       configLane: {
         x: 0,
         y: 0,
-        width: 1000,
-        height: 500,
+        width: 800,
+        height: 400,
         fill: "gray",
         stroke: "gray",
       },
@@ -93,10 +96,6 @@ export default {
 
   props: {
     GameData: {
-      type: Object,
-      required: true,
-    },
-    GameConfig: {
       type: Object,
       required: true,
     },
@@ -235,5 +234,26 @@ export default {
   aspect-ratio: 1/1;
   margin: 5%;
   border: 5px solid black;
+  border-radius: 15px;
+}
+
+.quetioncontainer {
+  display: flex;
+  height: 20vh;
+  border: 2px solid #121212;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  text-align: center;
+  align-items: center;
+}
+
+.quation__text{
+  align-items: center;
+  align-self: center;
+}
+
+.quation__picture {
+  height: 100%;
 }
 </style>

@@ -11,9 +11,9 @@
         [
             {
                 "Unit": "Number",
-                "CarryAmount": 2,
+                "CarryAmount": 1,
                 "CustomeUnit": null,
-                "NumberAmount": 5,
+                "NumberAmount": 4,
                 "Preset": {
                     "Number": ["456", "289"],
                     "Symbol": "+"
@@ -27,8 +27,8 @@
             },
             {
                 "Unit": "Number",
-                "CarryAmount": 2,
-                "NumberAmount": 5,
+                "CarryAmount": 1,
+                "NumberAmount": 4,
                 "CustomeUnit": null,
                 "Preset": {
                     "Number": ["609", "199"],
@@ -43,8 +43,8 @@
             },
             {
                 "Unit": "Number",
-                "CarryAmount": 2,
-                "NumberAmount": 5,
+                "CarryAmount": 1,
+                "NumberAmount": 4,
                 "CustomeUnit": null,
                 "Preset": {
                     "Number": ["149", "254"],
@@ -59,8 +59,8 @@
             },
             {
                 "Unit": "Number",
-                "CarryAmount": 2,
-                "NumberAmount": 5,
+                "CarryAmount": 1,
+                "NumberAmount": 4,
                 "CustomeUnit": null,
                 "Preset": {
                     "Number": ["364", "456"],
@@ -75,8 +75,8 @@
             },
             {
                 "Unit": "Number",
-                "CarryAmount": 2,
-                "NumberAmount": 5,
+                "CarryAmount": 1,
+                "NumberAmount": 4,
                 "CustomeUnit": null,
                 "Preset": {
                     "Number": ["584", "358"],

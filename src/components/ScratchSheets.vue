@@ -241,13 +241,18 @@ export default {
 
 <style lang="scss" scoped>
 .sheet-container {
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   height: 100vh;
   width: 100vw;
   display: flex;
 }
 .canvas-container {
   width: 85%;
-  height: 90%;
+  height: 100%;
   align-self: end;
 }
 canvas {
@@ -258,7 +263,7 @@ canvas {
 
 .option-menu {
   background-color: #d5dfe4;
-  height: 90%;
+  height: 100%;
   align-self: end;
   width: 15%;
   margin-top: 5%;

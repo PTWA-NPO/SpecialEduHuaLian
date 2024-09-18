@@ -118,18 +118,23 @@ export default {
     }
 }
 .Container {
-    display: grid;
-    grid-template-columns: 5fr 6fr;
-    max-height: 300px;
+    display: flex;
     .Rect{
         border: solid 1px;
         margin: 0 1rem;
         border-radius: 15px;
     }
+    .ComponentArea {
+        width: 40%;
+        display: flex;
+    }
+    .Questions {
+        width: 60%;
+    }
 }
-.Container .single-column {
+/* .Container .single-column {
     grid-template-columns: 1fr;
-}
+} */
 
 .Questions {
     display: flex;

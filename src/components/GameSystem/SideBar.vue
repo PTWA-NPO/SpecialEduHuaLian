@@ -186,7 +186,7 @@
           <div class="mx-auto">重現代碼</div>
         </div>
       </button>
-      <button class="btn btn-primary text-nowrap img-hover-zoom" v-if="GameStatus == 'Done'" data-bs-toggle="modal" data-bs-target="#reappear" >
+      <button class="btn btn-primary text-nowrap img-hover-zoom" v-if="GameStatus == 'Done'">
         <div class="d-flex align-items-center">
           <div class="">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
@@ -252,6 +252,10 @@ export default {
       type: Number,
       default: 0,
     },
+    reAppeareCode: {
+      type: String,
+      default: "",
+    },
   },
   computed: {
     gameStore() {
@@ -300,7 +304,11 @@ export default {
       this.$emit("reappear-code",this.code);
     },
     copyReappearCode() {
-      this.$emit("copy-reappear-code");
+      navigator.clipboard.writeText(this.reAppeareCode).then(function() {
+          alert('文字已成功複製');
+      }).catch(function(err) {
+          alert('無法複製文字', err);
+      });
     }
   },
 };

@@ -172,6 +172,7 @@
             :Hint="Hint"
             :download_data="download_data"
             :levelAmount="this.GameData.Questions.length"
+            :reAppeareCode="questionOrder"
             @to-csv="ToCSV"
             @provide-hint="ProvideHint"
             @previous-question="PreviousQuestion"

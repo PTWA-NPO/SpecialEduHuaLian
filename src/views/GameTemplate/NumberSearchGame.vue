@@ -216,7 +216,7 @@ export default {
 
 .game__question {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.7rem;
   width: 100%;
 }
 
@@ -256,7 +256,7 @@ export default {
 }
 
 .game__remaining {
-  font-size: 1.1rem;
+  font-size: 1.7rem;
   margin-top: 1rem;
 }
 
@@ -268,7 +268,7 @@ export default {
 }
 
 .game button {
-  font-size: 1.1srem;
+  font-size: 1.7rem;
   border: 2px solid #606c38;
   background-color: transparent;
   border-radius: 10px;

@@ -27,7 +27,7 @@ export function DownloadCSV (csv_array,GameName="") {
     a.click();
 }
 
-export function MadeCsvFile(id,name,grade,subject,recoders,totaltime,header=["編號","正確答案","學生作答答案","是否正確","作答秒數(單題)","總耗時時間(秒)"]){
+export function MadeCsvFile(id,name,grade,subject,recoders,totaltime,header=["編號","正確答案","學生作答答案","是否正確","作答秒數(單題)","總耗時時間(秒)"],questionRecord){
     const today = new Date();
     var csv_array = [];
     csv_array.push(["學生姓名"])
@@ -52,6 +52,7 @@ export function MadeCsvFile(id,name,grade,subject,recoders,totaltime,header=["�
         }
         count++;
     }
+    csv_array.push(["題目重現代碼",questionRecord])
     return csv_array;
 }
 

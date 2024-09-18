@@ -42,13 +42,13 @@
                         <button v-if="this.Num_list[0][col] == '.'">.</button>
                         <button :class="{ 'btn--line': this.ButtonLine[Row][Col]}" v-else>
                             {{ item }}
-                            <q-menu anchor="top left" self="bottom left" class="q-menu" v-if="this.NumberEditable[Row][Col]">
+                            <q-menu anchor="top left" self="bottom left" class="q-menu" >
                                 <div class="btns">
-                                    <button @click="NumInput(Row,Col,0)">0</button>
-                                    <button v-for="index in 5" @click="NumInput(Row,Col,index)">{{index}}</button>
-                                    <button v-for="index in 4" @click="NumInput(Row,Col,index+5)">{{index+5}}</button>
+                                    <button @click="NumInput(Row,Col,0)" v-if="this.NumberEditable[Row][Col]">0</button>
+                                    <button v-for="index in 5" @click="NumInput(Row,Col,index)" v-if="this.NumberEditable[Row][Col]">{{index}}</button>
+                                    <button v-for="index in 4" @click="NumInput(Row,Col,index+5)" v-if="this.NumberEditable[Row][Col]">{{index+5}}</button>
                                     <button @click="NumInput(Row,Col,'/')">/</button>
-                                    <button @click="NumInput(Row,Col,'delete')"><q-icon name="bi-trash"></q-icon></button>
+                                    <button @click="NumInput(Row,Col,'delete')" v-if="this.NumberEditable[Row][Col]"><q-icon name="bi-trash"></q-icon></button>
                                 </div>
                             </q-menu>
                         </button>
@@ -413,8 +413,9 @@ export default {
     .number-area button{
         background-color: $primary-color;
     }
-    .carry button{
-        background-color: $sub-color;
+    .carrys button{
+        border: dashed 3px;
+        background-color: white;
         color: $hightlight-color;
     }
     .answer {

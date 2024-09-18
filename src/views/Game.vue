@@ -205,7 +205,7 @@
                 style="
                   height: 100vh;
                   width: 100vw;
-                  background-color: transparent;
+                  background-color: rgba(0, 0, 0, 0.5);
                 "
               >
                 <scratchSheet
@@ -362,10 +362,8 @@ import hintbutton from "@/components/hintbutton.vue";
 import * as ImportUrl from "@/utilitys/get_assets.js";
 import axios from "axios";
 import { defineAsyncComponent } from "vue";
-import { useFullscreen } from "@vueuse/core";
 // import CompareGame from "./GameTemplate/CompareGame.vue";
 import EffectWindow from "@/components/EffectWindow.vue";
-import { is } from "quasar";
 // import PairingGame from "./GameTemplate/PairingGame.vue";
 // import WhackaMole from "./GameTemplate/WhackaMole.vue";
 // import SelectGameMulti from "./GameTemplate/SelectGameMulti.vue";
@@ -414,7 +412,8 @@ export default {
       CorrectIncorrect: {
         Status: null,
       },
-      isPassLevel: []
+      isPassLevel: [],
+      questionOrder : [],
       // SentData2ChildComponent: {},
     };
   },
@@ -447,31 +446,7 @@ export default {
         this.InitHint();
         this.InitIntroVideo();
         this.Dataloaded = true;
-
-        //Radom Select Questions via level
-        let question = [];
-        var temp = [];
-        var checkcorrect = true;
-        for (var i in this.GameData.Questions) {
-          if (this.GameData.Questions[i].length != undefined) {
-            var num = this.GameData.Questions[i].length;
-            console.log("Num", num);
-            var rand = Math.floor(Math.random() * (num - 0 + 0));
-            console.log("Rand", rand);
-            question.push(this.GameData.Questions[i][rand]);
-          } else {
-            checkcorrect = false;
-            break;
-          }
-        }
-        if (checkcorrect) {
-          console.log(question);
-          this.GameData.Questions = question;
-        } else {
-          console.warn(
-            "Radom Select Questions via level Fail, this could be the question is not a array (Format Error)"
-          );
-        }
+        this.RamdonChoice();
         for(var x in this.GameData.Questions){
           this.isPassLevel.push(false);
         }
@@ -484,6 +459,32 @@ export default {
     this.FullScreen();
   },
   methods: {
+    RamdonChoice() {
+      //Radom Select Questions via level
+      let question = [];
+      var temp = [];
+      var checkcorrect = true;
+      this.questionOrder = [];
+      for (var i in this.GameData.Questions) {
+        if (this.GameData.Questions[i].length != undefined) {
+          var num = this.GameData.Questions[i].length;
+          var rand = Math.floor(Math.random() * (num - 0 + 0));
+          question.push(this.GameData.Questions[i][rand]);
+          this.questionOrder.push(rand);
+        } else {
+          checkcorrect = false;
+          break;
+        }
+      }
+      if (checkcorrect) {
+        console.log(question);
+        this.GameData.Questions = question;
+      } else {
+        console.warn(
+          "Radom Select Questions via level Fail, this could be the question is not a array (Format Error)"
+        );
+      }
+    },
     PauseIntroVideo() {
       try {
         let video = document.getElementById("introvideo");
@@ -530,7 +531,8 @@ export default {
           this.Grade,
           this.Subject,
           data,
-          this.finaltime
+          this.finaltime,
+          this.questionOrder
         );
         Arr2CSV.DownloadCSV(download, this.Name);
       } else {
@@ -541,7 +543,8 @@ export default {
           this.Subject,
           data,
           this.finaltime,
-          this.header
+          this.header,
+          this.questionOrder
         );
         Arr2CSV.DownloadCSV(download, this.Name);
       }

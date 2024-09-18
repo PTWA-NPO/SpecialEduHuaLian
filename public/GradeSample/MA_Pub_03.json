@@ -54,6 +54,50 @@
                 "img": "FindItemGameSample2.png",
                 "SpeakerIcon":"SpeakerIcon"
             }
+        ],
+        [
+            {
+                "Text": "找出躲在圖片中的數字吧！",
+                "Objs":[ 
+                    { "Name": "0", "xRange": [ 219, 300 ], "yRange": [ 229, 292 ] }, 
+                    { "Name": "1", "xRange": [ 541, 570 ], "yRange": [ 319, 354] }, 
+                    { "Name": "2", "xRange": [ 236, 282 ], "yRange": [ 60, 120 ] },  
+                    { "Name": "3", "xRange": [ 139, 170 ], "yRange": [ 0, 41 ] }, 
+                    { "Name": "4", "xRange": [ 193, 220 ], "yRange": [ 312, 340 ] }, 
+                    { "Name": "5", "xRange": [ 97, 155 ], "yRange": [ 226, 318 ] }, 
+                    { "Name": "6", "xRange": [ 441, 466 ], "yRange": [ 182, 218 ] }, 
+                    { "Name": "7", "xRange": [ 102, 167 ], "yRange": [ 58, 154 ] }, 
+                    { "Name": "8", "xRange": [ 34, 65 ], "yRange": [ 337, 365 ] }, 
+                    { "Name": "9", "xRange": [ 490, 522 ], "yRange": [ 116, 154 ] }, 
+                    { "Name": "10", "xRange": [ 511, 547 ], "yRange": [ 214, 254 ] }
+                ],
+                "tolerance":8,
+                "ObjNum":11,
+                "img": "FindItemGameSample3.png",
+                "SpeakerIcon":"SpeakerIcon"
+            }
+        ],
+        [
+            {
+                "Text": "找出躲在圖片中的數字吧！",
+                "Objs":[ 
+                    { "Name": "0", "xRange": [ 392, 424 ], "yRange": [ 220, 257 ] }, 
+                    { "Name": "1", "xRange": [ 432, 452 ], "yRange": [ 336, 391 ] }, 
+                    { "Name": "2", "xRange": [ 120, 150 ], "yRange": [ 147, 182 ] }, 
+                    { "Name": "3", "xRange": [ 322, 350 ], "yRange": [ 29, 66 ] }, 
+                    { "Name": "4", "xRange": [ 193, 224 ], "yRange": [ 79, 116 ] }, 
+                    { "Name": "5", "xRange": [ 35, 90 ], "yRange": [ 100, 191 ] }, 
+                    { "Name": "6", "xRange": [ 192, 220 ], "yRange": [ 125, 165 ] }, 
+                    { "Name": "7", "xRange": [ 284, 328 ], "yRange": [ 199, 243 ] }, 
+                    { "Name": "8", "xRange": [ 6, 53 ], "yRange": [ 279, 326 ] }, 
+                    { "Name": "9", "xRange": [ 396, 456 ], "yRange": [ 16, 62 ] }, 
+                    { "Name": "10", "xRange": [ 131, 171 ], "yRange": [ 193, 241 ] }
+                ],
+                "tolerance":8,
+                "ObjNum":11,
+                "img": "FindItemGameSample4.png",
+                "SpeakerIcon":"SpeakerIcon"
+            }
         ]
     ]
 }

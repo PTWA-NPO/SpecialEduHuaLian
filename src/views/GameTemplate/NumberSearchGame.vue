@@ -74,8 +74,15 @@ export default {
     image.src = getGameAssets(this.id, this.GameData.img);
     image.onload = () => {
       const aspectRatio = image.width / image.height;
-      this.imageConfig.width = this.stageSize.width;
-      this.imageConfig.height = this.stageSize.width / aspectRatio;
+      if (this.stageSize.width / this.stageSize.height > aspectRatio) {
+        // 如果外框寬高比比圖片的寬高比大，調整圖片高度
+        this.imageConfig.height = this.stageSize.height;
+        this.imageConfig.width = this.stageSize.height * aspectRatio;
+      } else {
+        // 如果外框寬高比比圖片的寬高比小，調整圖片寬度
+        this.imageConfig.width = this.stageSize.width;
+        this.imageConfig.height = this.stageSize.width / aspectRatio;
+      } 
       this.imageConfig.image = image;
     };
 
@@ -94,6 +101,7 @@ export default {
     handleMouseClick() {
       const mousePos = this.$refs.stage.getNode().getPointerPosition();
       const questionNum = this.randomQuestionOrder[this.questionNum];
+      console.log(mousePos.x, mousePos.y)
       if (this.checkAnswer(questionNum, mousePos.x, mousePos.y)) {
         this.addCircle(questionNum);
         this.answerCorrectly();
@@ -195,20 +203,20 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 2rem;
+  gap: 0.5rem;
 }
 
 .game__controls {
   display: flex;
   flex-direction: column;
   // padding: 1em;
-  margin-top: 0;
+  margin-top: 1rem;
   align-items: flex-start;
 }
 
 .game__question {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.2rem;
   width: 100%;
 }
 
@@ -248,7 +256,7 @@ export default {
 }
 
 .game__remaining {
-  font-size: 1.7rem;
+  font-size: 1.1rem;
   margin-top: 1rem;
 }
 
@@ -260,7 +268,7 @@ export default {
 }
 
 .game button {
-  font-size: 1.4rem;
+  font-size: 1.1srem;
   border: 2px solid #606c38;
   background-color: transparent;
   border-radius: 10px;

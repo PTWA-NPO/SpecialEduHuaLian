@@ -203,7 +203,7 @@
 
   
     <!-- 重現代碼 -->
-    <div class="modal fade" id="reappear" tabindex="-1" aria-labelledby="reappearLabel" aria-hidden="true">
+    <div class="modal fade bd-example-modal-lg" id="reappear" tabindex="-1" aria-labelledby="reappearLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -227,7 +227,8 @@
   </div>
 </template>
 <script>
-import { usegameStore } from '@/store/game';
+import gameStore from '@/stores/game';
+import { mapState, mapWritableState } from 'pinia';
 
 export default {
   name: "SideBar",
@@ -252,15 +253,9 @@ export default {
       type: Number,
       default: 0,
     },
-    reAppeareCode: {
-      type: String,
-      default: "",
-    },
   },
   computed: {
-    gameStore() {
-      return usegameStore();
-    },
+    ...mapWritableState(gameStore, ['gameCode']),
     checkformat() {
       if (this.code == 'origin') return true;
       if (this.code.split('-').length == this.levelAmount) {
@@ -301,7 +296,8 @@ export default {
       this.$emit("scratch-sheet");
     },
     reappearCode() {
-      this.$emit("reappear-code",this.code);
+      this.gameCode = this.code;
+      this.$emit("reappear-code");
     },
     copyReappearCode() {
       navigator.clipboard.writeText(this.reAppeareCode).then(function() {
@@ -349,5 +345,10 @@ export default {
     width: 2vw;
     height: 2vw;
   }
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 </style>

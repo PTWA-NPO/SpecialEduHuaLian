@@ -371,7 +371,8 @@ import EffectWindow from "@/components/EffectWindow.vue";
 // import WhackaMole from "./GameTemplate/WhackaMole.vue";
 // import SelectGameMulti from "./GameTemplate/SelectGameMulti.vue";
 // import CopyItem from "./GameTemplate/CopyItem.vue";
-import { usegameStore } from '@/store/game';
+import gameStore from '@/stores/game';
+import { mapWritableState } from "pinia";
 
 export default {
   data() {
@@ -424,6 +425,7 @@ export default {
     };
   },
   computed: {
+    ...mapWritableState(gameStore, ['gameCode']),
     selfdefinetemplate() {
       return defineAsyncComponent(() =>
         import(
@@ -436,9 +438,6 @@ export default {
         WrongTimes: this.WrongTimes,
         MaxWrongTimes: this.MaxWrongTimes,
       };
-    },
-    gameStore() {
-      return usegameStore();
     },
   },
   created() {
@@ -464,8 +463,7 @@ export default {
         console.error("Fetch Game Data Error: ", error);
       }
     })();
-    
-    console.log(this.gameStore.reappearCode);
+      console.log(this.gameCode);
   },
   mounted() {
     this.FullScreen();
@@ -489,26 +487,26 @@ export default {
           break;
         }
       }
-      this.questionOrder = record.toString().replaceAll(',','-');
+      this.gameCode = record.toString().replaceAll(',','-');
       if (checkcorrect) {
         console.log(question);
         this.GameData.Questions = question;
       } else {
-        this.questionOrder = 'origin'
+        this.gameCode = 'origin'
         console.warn(
           "Radom Select Questions via level Fail, this could be the question is not a array (Format Error)"
         );
       }
     },
-    reappearCode(code) {
-      if (code == 'origin') return;
-      let reappear = code.split('-');
+    reappearCode() {
+      if (this.gameCode == 'origin') return;
+      let reappear = this.gameCode.split('-');
       let question = [];
       reappear.forEach((element,index) => {
         question.push(this.questionCopy[index][element]);
       });
       this.GameData.Questions = question;
-      this.questionOrder = code;
+      this.questionOrder = this.gameCode;
     },
     PauseIntroVideo() {
       try {
@@ -970,6 +968,11 @@ export default {
 header {
   background-color: #f19c79;
   height: 10vh !important;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 .navbar {
   background-color: #f19c79;
@@ -1061,12 +1064,20 @@ header {
 
 .Game_Component {
   width: 84vw !important;
+  max-height: 79vh;
+  // border: solid 1px #000;
   height: 79vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   align-self: center;
   overflow-x: auto;
+  overflow-y: scroll;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .content {

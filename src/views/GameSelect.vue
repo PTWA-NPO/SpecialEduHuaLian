@@ -271,16 +271,14 @@ methods: {
 </script>
 
 <style lang="scss" scoped>
-.outter .navbar .GameSelectSection .side-bar .ButtonContainer button{
-  touch-action: none;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
 
 header{
   background-color: $primary-color;
+  touch-action: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
 }
 .navbar {
   background-color: $primary-color;
@@ -360,6 +358,11 @@ section{
   display: grid;
   grid-template-columns: 2fr 10fr;
   .side-bar {
+    touch-action: none !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
     display: flex;
     flex-direction: column;
     height: 90vh;

@@ -1,10 +1,19 @@
 <template>
   <div class="game-container">
     <div class="game">
-      <v-stage ref="stage" :config="stageSize" @click="handleMouseClick" @touchstart="handleMouseClick">
+      <v-stage
+        ref="stage"
+        :config="stageSize"
+        @click="handleMouseClick"
+        @touchstart="handleMouseClick"
+      >
         <v-layer ref="layer">
           <v-image :config="imageConfig" />
-          <v-circle v-for="(circle, index) in circles" :key="index" :config="circle" />
+          <v-circle
+            v-for="(circle, index) in circles"
+            :key="index"
+            :config="circle"
+          />
         </v-layer>
       </v-stage>
       <div class="game__controls">
@@ -22,8 +31,14 @@
         </div>
         <p class="game__remaining">剩餘題數：{{ remainingQuestions }}</p>
         <div class="progress">
-          <div class="progress-bar" role="progressbar" :style="{ width: progressBarWidth }"
-            aria-valuenow="progressPercentage" aria-valuemin="0" aria-valuemax="100"></div>
+          <div
+            class="progress-bar"
+            role="progressbar"
+            :style="{ width: progressBarWidth }"
+            aria-valuenow="progressPercentage"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
         </div>
       </div>
     </div>
@@ -31,10 +46,10 @@
 </template>
 
 <script>
-import { getGameAssets } from '@/utilitys/get_assets.js';
-import { getSystemAssets } from '@/utilitys/get_assets.js';
+import { getGameAssets } from "@/utilitys/get_assets.js";
+import { getSystemAssets } from "@/utilitys/get_assets.js";
 export default {
-  name: 'NumberSerchGame',
+  name: "NumberSerchGame",
   data() {
     return {
       questionNum: 0,
@@ -43,31 +58,31 @@ export default {
       randomQuestionOrder: [],
       stageSize: {
         width: 600,
-        height: 400
+        height: 400,
       },
       imageConfig: {
         x: 0,
         y: 0,
         width: 600,
         height: 400,
-        image: null
+        image: null,
       },
-      circles: []
+      circles: [],
     };
   },
   props: {
     GameData: {
       type: Object,
-      required: true
+      required: true,
     },
     GameConfig: {
       type: Object,
-      required: true
+      required: true,
     },
     id: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   created() {
     const image = new window.Image();
@@ -82,18 +97,18 @@ export default {
         // 如果外框寬高比比圖片的寬高比小，調整圖片寬度
         this.imageConfig.width = this.stageSize.width;
         this.imageConfig.height = this.stageSize.width / aspectRatio;
-      } 
+      }
       this.imageConfig.image = image;
     };
 
     this.randomQuestionOrder = this.generateRandomOrder(this.GameData.ObjNum);
-    this.playNumberSound()
+    this.playNumberSound();
   },
   methods: {
     playNumberSound() {
       const number = this.randomQuestionOrder[this.questionNum];
       var numSound = new Audio();
-      numSound.src = getSystemAssets(`${number}.mp3`, 'read-numbers');
+      numSound.src = getSystemAssets(`${number}.mp3`, "read-numbers");
       numSound.oncanplaythrough = function () {
         numSound.play();
       };
@@ -101,15 +116,19 @@ export default {
     handleMouseClick() {
       const mousePos = this.$refs.stage.getNode().getPointerPosition();
       const questionNum = this.randomQuestionOrder[this.questionNum];
-      console.log(mousePos.x, mousePos.y)
       if (this.checkAnswer(questionNum, mousePos.x, mousePos.y)) {
         this.addCircle(questionNum);
-        this.answerCorrectly();
+        this.answerCorrectly(questionNum);
         setTimeout(() => {
           this.nextQuestion();
         }, 500);
       } else {
-        this.$emit('play-effect', 'WrongSound');
+        this.$emit("play-effect", "WrongSound");
+        this.$emit("add-record", [
+          questionNum,
+          this.getWrongAnswer(mousePos.x, mousePos.y),
+          "錯誤",
+        ]);
       }
     },
     generateRandomOrder(total) {
@@ -126,32 +145,52 @@ export default {
       const obj = this.GameData.Objs[questionNum];
       const tolerance = this.GameData.tolerance;
       return (
-        posX >= obj.xRange[0] - tolerance && posX <= obj.xRange[1] + tolerance &&
-        posY >= obj.yRange[0] - tolerance && posY <= obj.yRange[1] + tolerance
+        posX >= obj.xRange[0] - tolerance &&
+        posX <= obj.xRange[1] + tolerance &&
+        posY >= obj.yRange[0] - tolerance &&
+        posY <= obj.yRange[1] + tolerance
       );
     },
-    answerCorrectly() {
+    answerCorrectly(questionNum) {
       this.rightAnswerCount++;
       this.correctlyAnsweredQuestions[this.questionNum] = 1;
-      this.$emit('play-effect', 'CorrectSound');
+      this.$emit("play-effect", "CorrectSound");
+      this.$emit("add-record", [questionNum, questionNum, "正確"]);
     },
     addCircle(questionNum) {
       const obj = this.GameData.Objs[questionNum];
-      const radius = Math.sqrt(((obj.xRange[1] - obj.xRange[0]) ** 2) + ((obj.yRange[1] - obj.yRange[0]) ** 2)) / 2;
+      const radius =
+        Math.sqrt(
+          (obj.xRange[1] - obj.xRange[0]) ** 2 +
+            (obj.yRange[1] - obj.yRange[0]) ** 2
+        ) / 2;
 
       this.circles.push({
         x: (obj.xRange[0] + obj.xRange[1]) / 2,
         y: (obj.yRange[0] + obj.yRange[1]) / 2,
         radius: radius,
-        stroke: 'red',
-        strokeWidth: 2
+        stroke: "red",
+        strokeWidth: 2,
       });
+    },
+    getWrongAnswer(x, y) {
+      const tolerance = this.GameData.tolerance;
+      for (var i = 0; i < this.GameData.ObjNum; ++i) {
+        if (
+          x >= this.GameData.Objs[i].xRange[0] - tolerance &&
+          x <= this.GameData.Objs[i].xRange[1] + tolerance &&
+          y >= this.GameData.Objs[i].yRange[0] - tolerance &&
+          y <= this.GameData.Objs[i].yRange[1] + tolerance
+        )
+          return this.GameData.Objs[i].Name;
+      }
+      return "空白處";
     },
     nextQuestion() {
       this.questionNum++;
       if (this.gameOver()) {
         setTimeout(() => {
-          this.$emit('next-question', true);
+          this.$emit("next-question", true);
         }, 500);
       } else {
         this.skipAnsweredQuestions();
@@ -167,7 +206,10 @@ export default {
     },
     skipAnsweredQuestions() {
       const totalQuestions = this.GameData.ObjNum;
-      if (this.correctlyAnsweredQuestions[this.questionNum] || this.questionNum >= totalQuestions) {
+      if (
+        this.correctlyAnsweredQuestions[this.questionNum] ||
+        this.questionNum >= totalQuestions
+      ) {
         for (let i = 0; i < totalQuestions; i++) {
           if (!this.correctlyAnsweredQuestions[i]) {
             this.questionNum = i;
@@ -177,7 +219,7 @@ export default {
     },
     gameOver() {
       return this.rightAnswerCount >= this.GameData.ObjNum;
-    }
+    },
   },
   computed: {
     progressPercentage() {
@@ -188,8 +230,8 @@ export default {
     },
     remainingQuestions() {
       return this.GameData.ObjNum - this.rightAnswerCount;
-    }
-  }
+    },
+  },
 };
 </script>
 

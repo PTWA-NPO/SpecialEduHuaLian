@@ -207,7 +207,7 @@
                 {
                     "Question": "刺蝟有?$question$隻",
                     "Selection": [{"Text": "2", "Size": "Small"},{"Text": "1", "Size": "Small"},{"Text": "3", "Size": "Small"}],
-                    "Answer": 2
+                    "Answer": 0
                 }                
             ]
         },
@@ -234,8 +234,8 @@
                 },
                 {
                     "Question": "蝴蝶有?$question$隻",
-                    "Selection": [{"Text": "5", "Size": "Small"},{"Text": "6", "Size": "Small"},{"Text": "3", "Size": "Small"}],
-                    "Answer": 1
+                    "Selection": [{"Text": "5", "Size": "Small"},{"Text": "6", "Size": "Small"},{"Text": "7", "Size": "Small"}],
+                    "Answer": 2
                 },
                 {
                     "Question": "小雞有?$question$隻",

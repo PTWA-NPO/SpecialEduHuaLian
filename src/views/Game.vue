@@ -171,6 +171,8 @@
             :HintInfo="HintInfo"
             :Hint="Hint"
             :download_data="download_data"
+            :levelAmount="this.GameData.Questions.length"
+            :reAppeareCode="questionOrder"
             @to-csv="ToCSV"
             @provide-hint="ProvideHint"
             @previous-question="PreviousQuestion"
@@ -178,6 +180,7 @@
             @start-game="StartGame"
             @reload-page="reloadPage"
             @scratch-sheet="() => {scratchSheetVisible = true}"
+            @reappear-code="reappearCode"
           >
             <template #hint>
               <hintbutton
@@ -368,6 +371,8 @@ import EffectWindow from "@/components/EffectWindow.vue";
 // import WhackaMole from "./GameTemplate/WhackaMole.vue";
 // import SelectGameMulti from "./GameTemplate/SelectGameMulti.vue";
 // import CopyItem from "./GameTemplate/CopyItem.vue";
+import { usegameStore } from '@/store/game';
+
 export default {
   data() {
     return {
@@ -414,6 +419,7 @@ export default {
       },
       isPassLevel: [],
       questionOrder : [],
+      questionCopy: [],
       // SentData2ChildComponent: {},
     };
   },
@@ -431,6 +437,9 @@ export default {
         MaxWrongTimes: this.MaxWrongTimes,
       };
     },
+    gameStore() {
+      return usegameStore();
+    },
   },
   created() {
     this.GameID = this.$route.params.id;
@@ -443,6 +452,7 @@ export default {
         this.GameData = res.data;
         this.GameType = this.GameData.GameType;
         this.GameConfig = this.GameData.GameConfig;
+        this.questionCopy = this.GameData.Questions;
         this.InitHint();
         this.InitIntroVideo();
         this.Dataloaded = true;
@@ -454,6 +464,8 @@ export default {
         console.error("Fetch Game Data Error: ", error);
       }
     })();
+    
+    console.log(this.gameStore.reappearCode);
   },
   mounted() {
     this.FullScreen();
@@ -464,26 +476,39 @@ export default {
       let question = [];
       var temp = [];
       var checkcorrect = true;
-      this.questionOrder = [];
+      let record = [];
       for (var i in this.GameData.Questions) {
         if (this.GameData.Questions[i].length != undefined) {
           var num = this.GameData.Questions[i].length;
           var rand = Math.floor(Math.random() * (num - 0 + 0));
+          console.log('rand',rand);
           question.push(this.GameData.Questions[i][rand]);
-          this.questionOrder.push(rand);
+          record.push(rand);
         } else {
           checkcorrect = false;
           break;
         }
       }
+      this.questionOrder = record.toString().replaceAll(',','-');
       if (checkcorrect) {
         console.log(question);
         this.GameData.Questions = question;
       } else {
+        this.questionOrder = 'origin'
         console.warn(
           "Radom Select Questions via level Fail, this could be the question is not a array (Format Error)"
         );
       }
+    },
+    reappearCode(code) {
+      if (code == 'origin') return;
+      let reappear = code.split('-');
+      let question = [];
+      reappear.forEach((element,index) => {
+        question.push(this.questionCopy[index][element]);
+      });
+      this.GameData.Questions = question;
+      this.questionOrder = code;
     },
     PauseIntroVideo() {
       try {
@@ -532,7 +557,7 @@ export default {
           this.Subject,
           data,
           this.finaltime,
-          this.questionOrder
+          this.questionOrder,
         );
         Arr2CSV.DownloadCSV(download, this.Name);
       } else {
@@ -543,8 +568,8 @@ export default {
           this.Subject,
           data,
           this.finaltime,
+          this.questionOrder,
           this.header,
-          this.questionOrder
         );
         Arr2CSV.DownloadCSV(download, this.Name);
       }
@@ -855,7 +880,7 @@ export default {
     },
     PreviousPage() {
       this.ExitFullScreen();
-      this.$router.go(-1);
+      this.$router.replace({ path: `/GameSelect/${this.$route.params.Grade}`})
     },
     closeSratSheet() {
       this.scratchSheetVisible = false;

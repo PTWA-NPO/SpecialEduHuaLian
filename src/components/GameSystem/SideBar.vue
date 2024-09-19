@@ -99,7 +99,7 @@
           <div class="mx-auto">重新開始</div>
         </div>
       </button>
-      <!-- <button
+      <button
         class="btn btn-primary text-nowrap img-hover-zoom"
         @click="toCSV()"
         v-if="GameStatus == 'Done'"
@@ -124,7 +124,7 @@
           </div>
           <div class="mx-auto">下載</div>
         </div>
-      </button> -->
+      </button>
       <!-- <button
         class="btn btn-primary text-nowrap img-hover-zoom"
         data-bs-toggle="modal"
@@ -175,22 +175,52 @@
           <div class="mx-auto">計算紙</div>
         </div>
       </button>
-      <button class="btn btn-primary text-nowrap img-hover-zoom" v-if="GameStatus == 'NotStart'" data-bs-toggle="modal" data-bs-target="#reappear" >
+      <button
+        class="btn btn-primary text-nowrap img-hover-zoom"
+        v-if="GameStatus == 'NotStart'"
+        data-bs-toggle="modal"
+        data-bs-target="#reappear"
+      >
         <div class="d-flex align-items-center">
           <div class="">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
-              <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9"/>
-              <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"/>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-repeat"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"
+              />
             </svg>
           </div>
           <div class="mx-auto">重現代碼</div>
         </div>
       </button>
-      <button class="btn btn-primary text-nowrap img-hover-zoom" v-if="GameStatus == 'Done'">
+      <button
+        class="btn btn-primary text-nowrap img-hover-zoom"
+        v-if="GameStatus == 'Done'"
+      >
         <div class="d-flex align-items-center">
           <div class="">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-copy"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"
+              />
             </svg>
           </div>
           <div class="mx-auto" @click="copyReappearCode">複製重現代碼</div>
@@ -199,27 +229,58 @@
       <slot name="hint"></slot>
     </div>
 
-
-
-  
     <!-- 重現代碼 -->
-    <div class="modal fade" id="reappear" tabindex="-1" aria-labelledby="reappearLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="reappear"
+      tabindex="-1"
+      aria-labelledby="reappearLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="reappearLabel">重現代碼</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body">
             <p>請將csv檔中的重現代碼貼到此處</p>
             <div class="input-group flex-nowrap">
-              <input type="text" class="form-control" placeholder="重現代碼" aria-label="number" aria-describedby="addon-wrapping" v-model="code">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="重現代碼"
+                aria-label="number"
+                aria-describedby="addon-wrapping"
+                v-model="code"
+              />
             </div>
-            <p v-if="!checkformat" style="color: red;">請貼上正確的重現代碼，若確認代碼沒有錯卻無法送出，可能是遊戲已更新，代碼會自動失效</p>
+            <p v-if="!checkformat" style="color: red">
+              請貼上正確的重現代碼，若確認代碼沒有錯卻無法送出，可能是遊戲已更新，代碼會自動失效
+            </p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-            <button type="button" class="btn btn-primary" @click="reappearCode" data-bs-dismiss="modal" :disabled="!checkformat">套用代碼</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              取消
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              @click="reappearCode"
+              data-bs-dismiss="modal"
+              :disabled="!checkformat"
+            >
+              套用代碼
+            </button>
           </div>
         </div>
       </div>
@@ -227,7 +288,7 @@
   </div>
 </template>
 <script>
-import { usegameStore } from '@/store/game';
+import { usegameStore } from "@/store/game";
 
 export default {
   name: "SideBar",
@@ -262,20 +323,19 @@ export default {
       return usegameStore();
     },
     checkformat() {
-      if (this.code == 'origin') return true;
-      if (this.code.split('-').length == this.levelAmount) {
+      if (this.code == "origin") return true;
+      if (this.code.split("-").length == this.levelAmount) {
         return true;
       } else {
         return false;
       }
-    }
+    },
   },
-  created() {
-  },
+  created() {},
   data() {
     return {
       CalculatorSwitch: false,
-      code : "",
+      code: "",
     };
   },
   methods: {
@@ -301,15 +361,18 @@ export default {
       this.$emit("scratch-sheet");
     },
     reappearCode() {
-      this.$emit("reappear-code",this.code);
+      this.$emit("reappear-code", this.code);
     },
     copyReappearCode() {
-      navigator.clipboard.writeText(this.reAppeareCode).then(function() {
-          alert('文字已成功複製');
-      }).catch(function(err) {
-          alert('無法複製文字', err);
-      });
-    }
+      navigator.clipboard
+        .writeText(this.reAppeareCode)
+        .then(function () {
+          alert("文字已成功複製");
+        })
+        .catch(function (err) {
+          alert("無法複製文字", err);
+        });
+    },
   },
 };
 </script>

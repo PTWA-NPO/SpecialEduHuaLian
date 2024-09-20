@@ -246,13 +246,20 @@
                     <p class="h1">ㄨㄚˊ，找不到教學影片~~~</p>
                     <img src="@/assets/images/game_images/elephant.gif" />
                   </div>
-                  <div id="havevideo" v-else>
+                  <div id="havevideo d-flex" v-else>
+                    <img
+                      :src="VideoSrc"
+                      class="img-fluid align-self-center"
+                      style="height: 70vh"
+                      v-if="isGif"
+                    />
                     <video
                       id="introvideo"
                       :src="VideoSrc"
                       controls="controls"
                       class="img-fluid"
                       style="height: 70vh"
+                      v-else
                     ></video>
                   </div>
                 </div>
@@ -421,6 +428,7 @@ export default {
       isPassLevel: [],
       questionOrder : [],
       questionCopy: [],
+      isGif: false
       // SentData2ChildComponent: {},
     };
   },
@@ -515,25 +523,26 @@ export default {
       } catch {}
     },
     InitIntroVideo() {
-      try {
-        // this.VideoSrc = new URL(`../assets/Games/`+this.GameID+`/${this.GameData.introvideo}`, import.meta.url).href;
+      
+      this.introvideo = true;
+      //find is undefined in url
+      let patten = /undefined/;
+      let temp = ImportUrl.GamesGetAssetsFile( this.GameID,this.GameData.introvideo );
+      temp = temp.toString();
+      temp = patten.test(temp)?undefined:temp;
+      if (this.GameData.introvideo != undefined && temp) {
         this.VideoSrc = ImportUrl.GamesGetAssetsFile(
           this.GameID,
           this.GameData.introvideo
         );
-        this.introvideo = true;
-      } catch (error) {
-        this.introvideo = false;
-        // console.log("No Intro Video");
-        console.warn("No Intro Video:", error);
-      }
-      let patten = /\.mp4$/i;
-      if (patten.test(this.VideoSrc)) {
-        this.introvideo = true;
+      } else if (ImportUrl.getDefaultHintAssets(`${this.GameType}.gif`)) {
+        this.VideoSrc = ImportUrl.getDefaultHintAssets(`${this.GameType}.gif`);
+        this.isGif = true;
       } else {
         this.introvideo = false;
-        console.warn("The intro video is not a mp4 file");
+        console.warn("No Intro Video");
       }
+      
     },
     ChangeGameStatus(status) {
       //改變遊戲狀態

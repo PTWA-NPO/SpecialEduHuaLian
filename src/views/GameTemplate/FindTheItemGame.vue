@@ -89,6 +89,7 @@ export default {
                 if (this.gameOver()) {
                     this.$emit('next-question', true);
                 }
+                this.$emit('play-effect', 'CorrectSound');
             }
         },
         checkAnswer(posX, posY) {
@@ -100,6 +101,7 @@ export default {
                     return i
                 }
             }
+
         },
         addCircle(checkNum) {
             const obj = this.GameData.Objs[checkNum];

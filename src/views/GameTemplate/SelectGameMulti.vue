@@ -36,8 +36,8 @@
         </div> 
     </transition>
     <div class="function-btns">
-        <button @click="prevQuestion" class="SubmitAnswer">上一題</button>
-        <button @click="nextQuestion" class="SubmitAnswer">下一題</button>
+        <button @click="prevQuestion" class="SubmitAnswer" v-if="currentQuestionIndex != 0">上一題</button>
+        <button @click="nextQuestion" class="SubmitAnswer" v-if="currentQuestionIndex != this.currentQuestion.Selection.length -1">下一題</button>
         <button @click="CheckAnswer" class="SubmitAnswer">送出答案</button>
     </div>
     <!-- <div class="error-messeage" >
@@ -80,7 +80,6 @@ export default {
     data() {
         return {
             SelectionRecord: [],
-            nowQuestion: 0,
             currentQuestionIndex: 0,
             transitionName: 'slide-right',
             error: undefined,

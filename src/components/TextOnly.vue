@@ -25,7 +25,7 @@ export default {
         if (this.Data.Size != undefined) {
             switch (this.Data.Size) {
                 case 'Tiny':
-                    this.$refs.font.style.fontSize = '1rem';
+                    this.$refs.font.style.fontSize = '1.1rem';
                     break;  
                 case 'Small':
                     this.$refs.font.style.fontSize = '1.5rem';

@@ -1,7 +1,8 @@
 <template>
   <div class="container">
-    <!-- Life bar section -->
-    <!-- <div class="life-bar">
+    <div class="gameAndQuestion">
+      <!-- Life bar section -->
+      <!-- <div class="life-bar">
       <div class="life-container">
         <img v-for="index in totalLives" :key="index" :src="index <= remainingLives ? heartImageUrl : deadHeartImageUrl"
           class="heart-icon" />
@@ -15,37 +16,41 @@
       </div>
     </div> -->
 
-    <!-- Conveyor belt section -->
-    <div class="box ratio-7">
-      <div class="conveyor-belt" :class="{ 'paused': isPaused }" :style="conveyorStyle">
-        <div class="conveyor-item" v-for="(item, index) in currentQuestions" :key="index">
-          <div class="question-container">
-            <component :is="this.GameData.Question[currentQuestions[index]].name" :Data="this.GameData.Question[currentQuestions[index]].Data" :ID="this.id"></component>
-            <!-- <p class="question-text">{{ item.Question }}</p> -->
+      <!-- Conveyor belt section -->
+      <div class="box ratio-7">
+        <div class="conveyor-belt" :class="{ 'paused': isPaused }" :style="conveyorStyle">
+          <div class="conveyor-item" v-for="(item, index) in currentQuestions" :key="index">
+            <div class="question-container">
+              <component :is="this.GameData.Question[currentQuestions[index]].name"
+                :Data="this.GameData.Question[currentQuestions[index]].Data" :ID="this.id"></component>
+              <!-- <p class="question-text">{{ item.Question }}</p> -->
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Spacer between conveyor belt and answer buttons -->
-    <!-- <div class="spacer"></div> -->
-    <!-- Answer buttons or home page -->
-    <div class="box ratio-3" v-if="!showHomePage">
-      <div class="button-container">
-        <button v-for="(selection, index) in this.GameData.Question[currentQuestions[currentQuestionIndex]].Selections" :key="index"
-          :class="['big-button', { 'wrong-answer': wrongAnswerIndex === index }]" @click="handleAnswer(index)">
-          {{ selection }}
-        </button>
+      <!-- Spacer between conveyor belt and answer buttons -->
+      <!-- <div class="spacer"></div> -->
+      <!-- Answer buttons or home page -->
+      <div class="box ratio-3" v-if="!showHomePage">
+        <div class="button-container">
+          <button
+            v-for="(selection, index) in this.GameData.Question[currentQuestions[currentQuestionIndex]].Selections"
+            :key="index" :class="['big-button', { 'wrong-answer': wrongAnswerIndex === index }]"
+            @click="handleAnswer(index)">
+            {{ selection }}
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="box ratio-3" v-if="showHomePage">
-      <div class="button-container">
-        <button class="big-button" @click="startQuiz">開始游戲</button>
+      <div class="box ratio-3" v-if="showHomePage">
+        <div class="button-container">
+          <button class="big-button" @click="startQuiz">開始遊戲</button>
+        </div>
       </div>
+
+      <!-- Hidden audio elements for sound effects and background music -->
+      <audio ref="backgroundMusic" :src="gameplayMusic" loop></audio>
     </div>
-    
-    <!-- Hidden audio elements for sound effects and background music -->
-    <audio ref="backgroundMusic" :src="gameplayMusic" loop></audio>
   </div>
 </template>
 
@@ -169,7 +174,7 @@ export default {
         this.currentQuestionIndex += 1;
         if (this.currentQuestionIndex === this.GameData.Question.length) {
           this.$emit('next-question', true);
-        }else{
+        } else {
           this.$emit('play-effect', 'CorrectSound')
         }
         this.wrongAnswerIndex = null;
@@ -236,6 +241,13 @@ export default {
 
 <style scoped>
 .container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.gameAndQuestion {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -391,7 +403,7 @@ export default {
   width: 100px;
 }
 
-@media(min-height:600px){
+@media(min-height:600px) {
   .question-container {
     height: 80%;
   }

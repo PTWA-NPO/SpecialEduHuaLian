@@ -109,20 +109,22 @@
                   :Data="CorrectIncorrect"
                   v-if="ShowReply"
                 ></EffectWindow>
-                <component
-                  class="GameComponent111"
-                  v-if="GameType != 'SelfDefine'"
-                  v-bind:is="this.GameType"
-                  ref="GameComponent"
-                  :key="this.Nowlevel"
-                  :id="this.GameID"
-                  :GameData="this.GameData.Questions[this.Nowlevel - 1]"
-                  :GameConfig="this.GameConfig"
-                  @add-record="GameDataRecord"
-                  @play-effect="EffectPlayer"
-                  @next-question="NextQuestion"
-                >
-                </component>
+                <transition :name="transitionName" mode="out-in">
+                  <component
+                    class="GameComponent111"
+                    v-if="GameType != 'SelfDefine'"
+                    v-bind:is="this.GameType"
+                    ref="GameComponent"
+                    :key="this.Nowlevel"
+                    :id="this.GameID"
+                    :GameData="this.GameData.Questions[this.Nowlevel - 1]"
+                    :GameConfig="this.GameConfig"
+                    @add-record="GameDataRecord"
+                    @play-effect="EffectPlayer"
+                    @next-question="NextQuestion"
+                  >
+                  </component>
+                </transition>
 
                 <component
                   v-if="GameType == 'SelfDefine'"
@@ -428,7 +430,8 @@ export default {
       isPassLevel: [],
       questionOrder : [],
       questionCopy: [],
-      isGif: false
+      isGif: false,
+      transitionName: "slide-right",
       // SentData2ChildComponent: {},
     };
   },
@@ -602,6 +605,11 @@ export default {
         console.log("The level is out of range");
       } else {
         this.Nowlevel = change2level;
+        if (this.Nowlevel > change2level) {
+          this.transitionName = "slide-left";
+        } else if (this.Nowlevel < change2level) {
+          this.transitionName = "slide-right";
+        }
         this.pauseTimer();
         //FIXME 傳資料進入CSV
         this.resetTimer();
@@ -622,6 +630,7 @@ export default {
       for (var i = this.Nowlevel; i < this.GameData.Questions.length; i++) {
         if (this.isPassLevel[i] == false) {
           this.Nowlevel = i + 1;
+          this.transitionName = 'slide-left';
           notFound = false;
           break;
         }
@@ -630,6 +639,7 @@ export default {
         for (var i = 0; i < this.isPassLevel.length; i++) {
           if (this.isPassLevel[i] == false) {
             this.Nowlevel = i + 1;
+            this.transitionName = 'slide-left';
             isDone = false;
             break;
           }
@@ -648,6 +658,7 @@ export default {
       this.WrongTimes = 0;
       if (this.Nowlevel > 1) {
         this.Nowlevel--;
+        this.transitionName = 'slide-right';
       }
       this.pauseTimer();
       //FIXME 傳資料進入CSV
@@ -1107,5 +1118,32 @@ header {
 
 .Pointable {
   cursor: pointer;
+}
+
+
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: all 0.5s ease;
+//   position: absolute;
+  width: 100%;
+}
+
+.slide-left-enter,
+.slide-right-leave-to {
+  transform: translateX(100%);
+}
+
+.slide-left-leave-to,
+.slide-right-enter {
+  transform: translateX(-100%);
+}
+
+.slide-left-enter-to,
+.slide-left-leave,
+.slide-right-enter-to,
+.slide-right-leave {
+  transform: translateX(0%);
 }
 </style>

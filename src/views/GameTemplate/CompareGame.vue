@@ -66,7 +66,6 @@
     </div>
     <section class="OptionBar">
       <div class="Left">
-        <p class="OptionBarTitle">{{ this.GameData.OptionBarTitle }}</p>
         <draggable
           :list="this.Symbol"
           :sort="false"
@@ -365,9 +364,6 @@ export default {
   .Left {
     width: 60%;
     margin: 0 2rem;
-    .OptionBarTitle {
-      font-size: 1.4rem;
-    }
     .Options {
       display: flex;
       flex-direction: row;

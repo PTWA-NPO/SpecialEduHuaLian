@@ -201,7 +201,6 @@
             tabindex="-1"
             aria-labelledby="exampleModalLabel"
             aria-hidden="true"
-
           >
             <div class="modal-dialog modal-fullscreen">
               <div
@@ -209,7 +208,7 @@
                 style="
                   height: 100vh;
                   width: 100vw;
-                  background-color: rgba(0, 0, 0, 0)!important;
+                  background-color: rgba(0, 0, 0, 0.5);
                 "
               >
                 <scratchSheet
@@ -1029,11 +1028,6 @@ header {
 }
 
 //btn, container, row, col
-
-.modal-backdrop {
-  background-color: transparent !important;
-}
-
 
 .Container {
   display: flex;

@@ -36,9 +36,12 @@
         </div> 
     </transition>
     <div class="function-btns">
-        <button @click="prevQuestion" class="SubmitAnswer" v-if="currentQuestionIndex != 0">上一題</button>
-        <button @click="nextQuestion" class="SubmitAnswer" v-if="currentQuestionIndex != this.currentQuestion.Selection.length -1">下一題</button>
-        <button @click="CheckAnswer" class="SubmitAnswer">送出答案</button>
+        <!-- <button @click="prevQuestion" class="SubmitAnswer" v-if="currentQuestionIndex != 0">上一題</button> -->
+        <!-- <button @click="nextQuestion" class="SubmitAnswer" v-if="currentQuestionIndex != this.currentQuestion.Selection.length -1">下一題</button> -->
+        <!-- <button @click="CheckAnswer" class="SubmitAnswer">送出答案</button> -->
+        
+         <button @click="submitSingleAnswer" class="SubmitAnswer">送出答案</button>
+         <button @click="nextQuestion" class="SubmitAnswer" v-if="nextable">下一題</button>
     </div>
     <!-- <div class="error-messeage" >
         <p>請將所有答案作答完成</p>
@@ -84,6 +87,7 @@ export default {
             transitionName: 'slide-right',
             error: undefined,
             submitAnswerAmount:0,
+            nextable: false,
         }
     },
     created(){
@@ -102,6 +106,25 @@ export default {
         SelectItem(index,selection){
             this.SelectionRecord[index] = selection;
             this.error = undefined;
+        },
+        submitSingleAnswer() {
+            console.log(this.SelectionRecord[this.currentQuestionIndex]);
+            console.log(this.GameData.Questions[this.currentQuestionIndex].Answer); 
+            let isCorrect = true;
+            if (this.SelectionRecord[this.currentQuestionIndex] == this.GameData.Questions[this.currentQuestionIndex].Answer) {
+                this.$emit('play-effect', 'CorrectSound')
+                this.$emit('add-record',[`第 ${this.currentQuestionIndex}題答案 ${this.GameData.Questions[this.currentQuestionIndex].Answer}`, `回答${this.SelectionRecord[this.currentQuestionIndex]}`,"正確"])
+                if (this.currentQuestionIndex < this.GameData.Questions.length - 1) {
+                    this.nextable = true;
+                }
+                else{
+                    this.nextable = false;
+                    this.$emit('next-question');
+                }
+            } else {
+                this.$emit('play-effect', 'WrongSound',)
+                this.$emit('add-record',[`第 ${this.currentQuestionIndex}題答案 ${this.GameData.Questions[this.currentQuestionIndex].Answer}`, `回答${this.SelectionRecord[this.currentQuestionIndex]}`,"錯誤"])
+            }
         },
         CheckAnswer(){
             let isCorrect = true;
@@ -143,6 +166,7 @@ export default {
                 this.transitionName = 'slide-left';
                 this.currentQuestionIndex++;
             }
+            this.nextable = false;
         },
         prevQuestion() {
             if (this.currentQuestionIndex > 0) {

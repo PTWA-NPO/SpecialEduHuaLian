@@ -22,12 +22,6 @@
             <button class="button-pre" @click="previousQuestion">上一題</button>
             <button class="button-nxt" @click="nextQuestion">下一題</button>
           </div>
-          <!-- <p class="game__remaining">剩餘題數：</p>
-        <p class="game__remaining">{{ remainingQuestions }}</p>
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" :style="{ width: progressBarWidth }"
-            aria-valuenow="progressPercentage" aria-valuemin="0" aria-valuemax="100"></div>
-        </div> -->
         </div>
       </div>
     </div>
@@ -107,13 +101,6 @@ export default {
     handleMouseClick() {
       const mousePos = this.$refs.stage.getNode().getPointerPosition();
       const questionNum = this.randomQuestionOrder[this.questionNum];
-      // console.log(mousePos.x, mousePos.y);
-      // this.value[this.questionNum].push(Math.round(mousePos.x), Math.round(mousePos.y));
-      // if(this.clickFirst){
-      //   this.nextQuestion();
-      // }
-      // this.clickFirst = !this.clickFirst;
-
       if (this.checkAnswer(questionNum, mousePos.x, mousePos.y)) {
         this.addCircle(questionNum);
         this.answerCorrectly();
@@ -150,7 +137,6 @@ export default {
     addCircle(questionNum) {
       const obj = this.GameData.Objs[questionNum];
       const radius = Math.sqrt(((obj.xRange[1] - obj.xRange[0]) ** 2) + ((obj.yRange[1] - obj.yRange[0]) ** 2)) / 2;
-
       this.circles.push({
         x: (obj.xRange[0] + obj.xRange[1]) / 2,
         y: (obj.yRange[0] + obj.yRange[1]) / 2,
@@ -161,14 +147,7 @@ export default {
     },
     nextQuestion() {
       this.questionNum++;
-      // this.value[this.questionNum] = [];
       if (this.gameOver()) {
-        // let result = '';
-        // for(let i = 0; i < 11; i++){
-        //   // console.log(this.value);
-        //   result += `{ "Name": "${i}", "xRange": [ ${this.value[i][0]}, ${this.value[i][2]} ], "yRange": [ ${this.value[i][1]}, ${this.value[i][3]} ] },\n`;
-        // }
-        // console.log(result);
         setTimeout(() => {
           this.$emit('next-question', true);
         }, 500);
@@ -177,15 +156,12 @@ export default {
         this.skipAnsweredQuestions();
         this.playNumberSound();
       }
-      // console.log(this.questionNum);
     },
     previousQuestion() {
       this.questionNum--;
       if (this.questionNum < 0) {
         this.questionNum = this.GameData.ObjNum - 1;
       }
-      // console.log(this.questionNum);
-      // this.value[this.questionNum].splice(0,4);
       this.playNumberSound();
     },
     skipAnsweredQuestions() {
@@ -199,8 +175,7 @@ export default {
       }
     },
     gameOver() {
-      // return this.rightAnswerCount >= this.GameData.ObjNum;
-      return this.questionNum >= 11;
+      return this.rightAnswerCount >= this.GameData.ObjNum;
     }
   },
   computed: {

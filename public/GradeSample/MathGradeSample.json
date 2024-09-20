@@ -45,7 +45,7 @@
                         "id": "MA_Pub_12",
                         "Name": "賽車遊戲",
                         "Description": "請數數看總共有多少錢吧?",
-                        "Img": "MA_Pub_10.png"
+                        "Img": "MA_Pub_12.png"
                     }       
                 ]
             }
@@ -65,7 +65,7 @@
                     },
                     {
                         "id": "MA_Pub_08",
-                        "Name": "計算版",
+                        "Name": "計算板",
                         "Description": "請將數字進行加總吧",
                         "Img": "MA_Pub_08.png"
                     },

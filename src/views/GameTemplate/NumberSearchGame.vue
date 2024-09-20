@@ -1,29 +1,33 @@
 <template>
   <div class="game-container">
-    <div class="game">
-      <v-stage ref="stage" :config="stageSize" @click="handleMouseClick" @touchstart="handleMouseClick">
-        <v-layer ref="layer">
-          <v-image :config="imageConfig" />
-          <v-circle v-for="(circle, index) in circles" :key="index" :config="circle" />
-        </v-layer>
-      </v-stage>
-      <div class="game__controls">
-        <p class="game__question">{{ GameData.Text }}</p>
-        <div class="game__actions">
-          <div class="game__sound">
+    <div class="gameAndQuestion">
+      <p class="question">{{ GameData.Text }}</p>
+      <p class="game__remaining">剩餘題數：{{ remainingQuestions }}</p>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" :style="{ width: progressBarWidth }"
+          aria-valuenow="progressPercentage" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div class="game">
+        <v-stage ref="stage" :config="stageSize" @click="handleMouseClick" @touchstart="handleMouseClick">
+          <v-layer ref="layer">
+            <v-image :config="imageConfig" />
+            <v-circle v-for="(circle, index) in circles" :key="index" :config="circle" />
+          </v-layer>
+        </v-stage>
+        <div class="game__controls">
+          <div class="game__actions">
             <button class="game__sound-btn" @click="playNumberSound">
               <img src="@/assets/GamePic/SpeakerIcon.png" alt="Speaker Icon" />
             </button>
-          </div>
-          <div class="game__navigation">
             <button class="button-pre" @click="previousQuestion">上一題</button>
             <button class="button-nxt" @click="nextQuestion">下一題</button>
           </div>
-        </div>
-        <p class="game__remaining">剩餘題數：{{ remainingQuestions }}</p>
+          <!-- <p class="game__remaining">剩餘題數：</p>
+        <p class="game__remaining">{{ remainingQuestions }}</p>
         <div class="progress">
           <div class="progress-bar" role="progressbar" :style="{ width: progressBarWidth }"
             aria-valuenow="progressPercentage" aria-valuemin="0" aria-valuemax="100"></div>
+        </div> -->
         </div>
       </div>
     </div>
@@ -42,17 +46,19 @@ export default {
       correctlyAnsweredQuestions: [],
       randomQuestionOrder: [],
       stageSize: {
-        width: 600,
-        height: 400
+        width: 800,
+        height: 600
       },
       imageConfig: {
         x: 0,
         y: 0,
-        width: 600,
-        height: 400,
+        width: 800,
+        height: 600,
         image: null
       },
-      circles: []
+      circles: [],
+      clickFirst: false,
+      value: []
     };
   },
   props: {
@@ -75,19 +81,18 @@ export default {
     image.onload = () => {
       const aspectRatio = image.width / image.height;
       if (this.stageSize.width / this.stageSize.height > aspectRatio) {
-        // 如果外框寬高比比圖片的寬高比大，調整圖片高度
         this.imageConfig.height = this.stageSize.height;
         this.imageConfig.width = this.stageSize.height * aspectRatio;
       } else {
-        // 如果外框寬高比比圖片的寬高比小，調整圖片寬度
         this.imageConfig.width = this.stageSize.width;
         this.imageConfig.height = this.stageSize.width / aspectRatio;
-      } 
+      }
       this.imageConfig.image = image;
     };
 
     this.randomQuestionOrder = this.generateRandomOrder(this.GameData.ObjNum);
     this.playNumberSound()
+    this.value[0] = [];
   },
   methods: {
     playNumberSound() {
@@ -97,17 +102,24 @@ export default {
       numSound.oncanplaythrough = function () {
         numSound.play();
       };
+      console.log(number);
     },
     handleMouseClick() {
       const mousePos = this.$refs.stage.getNode().getPointerPosition();
       const questionNum = this.randomQuestionOrder[this.questionNum];
-      console.log(mousePos.x, mousePos.y)
+      // console.log(mousePos.x, mousePos.y);
+      // this.value[this.questionNum].push(Math.round(mousePos.x), Math.round(mousePos.y));
+      // if(this.clickFirst){
+      //   this.nextQuestion();
+      // }
+      // this.clickFirst = !this.clickFirst;
+
       if (this.checkAnswer(questionNum, mousePos.x, mousePos.y)) {
         this.addCircle(questionNum);
         this.answerCorrectly();
         setTimeout(() => {
           this.nextQuestion();
-        }, 500);
+        }, 1000);
       } else {
         this.$emit('play-effect', 'WrongSound');
       }
@@ -149,20 +161,31 @@ export default {
     },
     nextQuestion() {
       this.questionNum++;
+      // this.value[this.questionNum] = [];
       if (this.gameOver()) {
+        // let result = '';
+        // for(let i = 0; i < 11; i++){
+        //   // console.log(this.value);
+        //   result += `{ "Name": "${i}", "xRange": [ ${this.value[i][0]}, ${this.value[i][2]} ], "yRange": [ ${this.value[i][1]}, ${this.value[i][3]} ] },\n`;
+        // }
+        // console.log(result);
         setTimeout(() => {
           this.$emit('next-question', true);
         }, 500);
-      } else {
+      }
+      else {
         this.skipAnsweredQuestions();
         this.playNumberSound();
       }
+      // console.log(this.questionNum);
     },
     previousQuestion() {
       this.questionNum--;
       if (this.questionNum < 0) {
         this.questionNum = this.GameData.ObjNum - 1;
       }
+      // console.log(this.questionNum);
+      // this.value[this.questionNum].splice(0,4);
       this.playNumberSound();
     },
     skipAnsweredQuestions() {
@@ -176,7 +199,8 @@ export default {
       }
     },
     gameOver() {
-      return this.rightAnswerCount >= this.GameData.ObjNum;
+      // return this.rightAnswerCount >= this.GameData.ObjNum;
+      return this.questionNum >= 11;
     }
   },
   computed: {
@@ -189,7 +213,7 @@ export default {
     remainingQuestions() {
       return this.GameData.ObjNum - this.rightAnswerCount;
     }
-  }
+  },
 };
 </script>
 
@@ -197,6 +221,8 @@ export default {
 .game-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .game {
@@ -209,19 +235,23 @@ export default {
 .game__controls {
   display: flex;
   flex-direction: column;
-  // padding: 1em;
-  margin-top: 1rem;
+  // margin-top: 1rem;
   align-items: flex-start;
+  gap: 0.5rem;
 }
 
-.game__question {
+.question {
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
   text-align: center;
-  font-size: 1.7rem;
-  width: 100%;
+  border: black 2px solid;
+  border-radius: 15px;
+  padding: 0.2rem;
 }
 
 .game__actions {
   display: flex;
+  flex-direction: column;
   width: 100%;
   gap: 1rem;
 }
@@ -242,9 +272,7 @@ export default {
 
 .game__navigation {
   display: flex;
-  width: 60%;
   flex-direction: column;
-  gap: 0.5rem;
 }
 
 .game__actions button {
@@ -256,8 +284,8 @@ export default {
 }
 
 .game__remaining {
-  font-size: 1.7rem;
-  margin-top: 1rem;
+  font-size: 1.3rem;
+  margin: 0;
 }
 
 .progress {
@@ -265,6 +293,7 @@ export default {
   background-color: #f3f3f3;
   border-radius: 5px;
   overflow: hidden;
+  margin-bottom: 0.5rem;
 }
 
 .game button {

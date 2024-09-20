@@ -1,13 +1,7 @@
 <template>
     <div class="container">
-        <p class="h1">{{ this.GameData.Text }}</p>
-        <div class="Game">
-            <v-stage ref="stage" :config="stageSize" @click="handleMouseClick" @touchstart="handleMouseClick">
-                <v-layer ref="layer">
-                    <v-image :config="imageConfig" />
-                    <v-circle v-for="(circle, index) in circles" :key="index" :config="circle" />
-                </v-layer>
-            </v-stage>
+        <div class="gameAndQuestion">
+            <p class="h1">{{ this.GameData.Text }}</p>
             <div class="ObjList">
                 <p class="h4">尚未被找到:</p>
                 <div class="Objects">
@@ -16,6 +10,14 @@
                         {{ button.Name }}
                     </button>
                 </div>
+            </div>
+            <div class="Game">
+                <v-stage ref="stage" :config="stageSize" @click="handleMouseClick" @touchstart="handleMouseClick">
+                    <v-layer ref="layer">
+                        <v-image :config="imageConfig" />
+                        <v-circle v-for="(circle, index) in circles" :key="index" :config="circle" />
+                    </v-layer>
+                </v-stage>
             </div>
         </div>
     </div>
@@ -31,14 +33,14 @@ export default {
             correctlyAnsweredQuestions: [],
             randomQuestionOrder: [],
             stageSize: {
-                width: 600,
-                height: 400
+                width: 800,
+                height: 600
             },
             imageConfig: {
                 x: 0,
                 y: 0,
-                width: 600,
-                height: 400,
+                width: 800,
+                height: 600,
                 image: null
             },
             circles: [],
@@ -84,7 +86,7 @@ export default {
             if (!this.answered[answer]) {
                 this.answered[answer] = true;
                 this.addCircle(answer);
-                if (this.gameOver()){
+                if (this.gameOver()) {
                     this.$emit('next-question', true);
                 }
             }
@@ -112,12 +114,12 @@ export default {
         },
         gameOver() {
             let rightAnswerCount = 0;
-            while(this.answered[rightAnswerCount]){
+            while (this.answered[rightAnswerCount]) {
                 rightAnswerCount++;
             }
-            if(rightAnswerCount >= this.GameData.Objs.length){
+            if (rightAnswerCount >= this.GameData.Objs.length) {
                 return true
-            }else{
+            } else {
                 return false
             }
         }
@@ -126,8 +128,18 @@ export default {
 </script>
 
 <style scoped>
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .h1 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    border: black 2px solid;
+    border-radius: 15px;
+    padding: 0.5rem;
+    text-align: center;
 }
 
 .Game {
@@ -135,60 +147,35 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     gap: 0.5rem;
+}
 
-    .ObjList {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1em;
-        justify-content: center;
-        align-items: center;
+.ObjList {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    align-items: center;
+    align-self: center;
+}
 
-        p {
-            align-self: start;
-        }
+.ObjList p {
+    align-self: center;
+    margin: 0;
+    text-align: center;
+}
 
-        .Objects {
-            display: flex;
-            justify-content: center;
+.Objects {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+}
 
-            .Object {
-                background-color: #ffb703;
-                border-radius: 12px;
-                border: none;
-            }
-
-        }
-
-        @media screen and (min-width: 992px) {
-            .Objects {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-
-            .Object {
-                width: 27%;
-                height: 3rem;
-            }
-        }
-
-        @media screen and (max-width: 992px) {
-            .Objects {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                gap: 1rem;
-            }
-
-            .Object {
-                width: 100%;
-                height: 3rem;
-            }
-
-        }
-    }
+.Object {
+    background-color: #ffb703;
+    border-radius: 12px;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1.5rem;
 }
 
 .activebutton {

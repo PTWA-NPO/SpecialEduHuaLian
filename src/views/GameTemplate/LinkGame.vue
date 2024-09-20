@@ -25,7 +25,7 @@
                 "
                 v-for="(Object, index) in DotLocation"
                 :key="index"
-                :config="{ x: Object.X, y: Object.Y, radius: 8, fill: 'black' }"
+                :config="{ x: Object.X, y: Object.Y, radius: 10, fill: 'black' }"
               ></v-circle>
             </v-layer>
             <v-layer ref="LineLayer">
@@ -69,14 +69,14 @@
           @click="ClearAllLine"
           v-if="this.GameConfig.CheckingMode == 'OnSubmit'"
         >
-          清除所有線
+          清除所有的線
         </button>
-        <button
+        <!-- <button
           @click="PopLastLine"
           v-if="this.GameConfig.CheckingMode == 'OnSubmit'"
         >
           刪除最後一條線
-        </button>
+        </button> -->
       </div>
     </div>
   </template>
@@ -159,7 +159,7 @@
         ComponentConfig: [],
         ComponentPositionConfig: {},
         DotLocation: [],
-        LineWidth: 2,
+        LineWidth: 4,
         IndexInfo: null,
         MiniGap: 20,
         Lines: [],
@@ -360,7 +360,7 @@
         return false;
       },
       MarkWrongLine(lineIndex) {
-        this.Lines[lineIndex].stroke = "green";
+        this.Lines[lineIndex].stroke = "red";
         this.$refs.LineLayer.getNode().draw();
       },
       ClearAllLine() {
@@ -445,13 +445,14 @@
         this.configStage.width = KonvaBorder.width;
         this.configStage.height = KonvaBorder.height;
   
-        // Setting Colum Gap Width and Object Width
+        // Setting Column Gap Width and Object Width
         let Column = this.GameData.Question.RowData.length;
-        // Object Width Occupied 2/5 and Blank Width Occupied 3/5
+
+        // Object Width Occupied 3/5 and Blank Width Occupied 2/5
         this.ComponentPositionConfig.ObjectWidth =
-          (KonvaBorder.width / (Column * 2 + (Column - 1) * 3)) * 2;
+        (KonvaBorder.width / (Column * 2.5 + (Column - 1) * 2.5)) * 2.5; 
         this.ComponentPositionConfig.BlankWidth =
-          (KonvaBorder.width / (Column * 2 + (Column - 1) * 3)) * 3;
+          (KonvaBorder.width / (Column * 2.5 + (Column - 1) * 2.5)) * 2.5;
   
         //Config each Object Position
         let NowX = 0;
@@ -584,9 +585,9 @@
   }
   button {
     height: 3rem;
-    width: 10rem;
     border-radius: 15px;
     background-color: #4caf50;
+    font-size: 2rem;
   }
   :deep(.NumberBoard) {
     font-size: 0.6rem !important;

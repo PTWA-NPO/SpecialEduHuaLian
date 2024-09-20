@@ -135,11 +135,12 @@ export default {
 }
 
 .h1 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
     border: black 2px solid;
     border-radius: 15px;
-    padding: 0.5rem;
+    padding: 0.3rem;
     text-align: center;
+    font-size: 1.5rem;
 }
 
 .Game {
@@ -153,7 +154,7 @@ export default {
     display: flex;
     gap: 0.8rem;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
     align-items: center;
     align-self: center;
 }
@@ -162,6 +163,7 @@ export default {
     align-self: center;
     margin: 0;
     text-align: center;
+    font-size: 1.2rem;
 }
 
 .Objects {
@@ -172,10 +174,12 @@ export default {
 
 .Object {
     background-color: #ffb703;
-    border-radius: 12px;
+    border-radius: 8px;
     border: none;
-    padding: 0.5rem;
-    font-size: 1.5rem;
+    padding: 0.4rem;
+    font-size: 1rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
 }
 
 .activebutton {

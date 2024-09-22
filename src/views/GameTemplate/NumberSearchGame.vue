@@ -22,12 +22,6 @@
             <button class="button-pre" @click="previousQuestion">上一題</button>
             <button class="button-nxt" @click="nextQuestion">下一題</button>
           </div>
-          <!-- <p class="game__remaining">剩餘題數：</p>
-        <p class="game__remaining">{{ remainingQuestions }}</p>
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" :style="{ width: progressBarWidth }"
-            aria-valuenow="progressPercentage" aria-valuemin="0" aria-valuemax="100"></div>
-        </div> -->
         </div>
       </div>
     </div>
@@ -35,10 +29,10 @@
 </template>
 
 <script>
-import { getGameAssets } from '@/utilitys/get_assets.js';
-import { getSystemAssets } from '@/utilitys/get_assets.js';
+import { getGameAssets } from "@/utilitys/get_assets.js";
+import { getSystemAssets } from "@/utilitys/get_assets.js";
 export default {
-  name: 'NumberSerchGame',
+  name: "NumberSerchGame",
   data() {
     return {
       questionNum: 0,
@@ -64,16 +58,16 @@ export default {
   props: {
     GameData: {
       type: Object,
-      required: true
+      required: true,
     },
     GameConfig: {
       type: Object,
-      required: true
+      required: true,
     },
     id: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   created() {
     const image = new window.Image();
@@ -87,6 +81,7 @@ export default {
         this.imageConfig.width = this.stageSize.width;
         this.imageConfig.height = this.stageSize.width / aspectRatio;
       }
+      }
       this.imageConfig.image = image;
     };
 
@@ -98,7 +93,7 @@ export default {
     playNumberSound() {
       const number = this.randomQuestionOrder[this.questionNum];
       var numSound = new Audio();
-      numSound.src = getSystemAssets(`${number}.mp3`, 'read-numbers');
+      numSound.src = getSystemAssets(`${number}.mp3`, "read-numbers");
       numSound.oncanplaythrough = function () {
         numSound.play();
       };
@@ -107,21 +102,19 @@ export default {
     handleMouseClick() {
       const mousePos = this.$refs.stage.getNode().getPointerPosition();
       const questionNum = this.randomQuestionOrder[this.questionNum];
-      // console.log(mousePos.x, mousePos.y);
-      // this.value[this.questionNum].push(Math.round(mousePos.x), Math.round(mousePos.y));
-      // if(this.clickFirst){
-      //   this.nextQuestion();
-      // }
-      // this.clickFirst = !this.clickFirst;
-
       if (this.checkAnswer(questionNum, mousePos.x, mousePos.y)) {
         this.addCircle(questionNum);
-        this.answerCorrectly();
+        this.answerCorrectly(questionNum);
         setTimeout(() => {
           this.nextQuestion();
         }, 1000);
       } else {
-        this.$emit('play-effect', 'WrongSound');
+        this.$emit("play-effect", "WrongSound");
+        this.$emit("add-record", [
+          questionNum,
+          this.getWrongAnswer(mousePos.x, mousePos.y),
+          "錯誤",
+        ]);
       }
     },
     generateRandomOrder(total) {
@@ -138,59 +131,72 @@ export default {
       const obj = this.GameData.Objs[questionNum];
       const tolerance = this.GameData.tolerance;
       return (
-        posX >= obj.xRange[0] - tolerance && posX <= obj.xRange[1] + tolerance &&
-        posY >= obj.yRange[0] - tolerance && posY <= obj.yRange[1] + tolerance
+        posX >= obj.xRange[0] - tolerance &&
+        posX <= obj.xRange[1] + tolerance &&
+        posY >= obj.yRange[0] - tolerance &&
+        posY <= obj.yRange[1] + tolerance
       );
     },
-    answerCorrectly() {
+    answerCorrectly(questionNum) {
       this.rightAnswerCount++;
       this.correctlyAnsweredQuestions[this.questionNum] = 1;
-      this.$emit('play-effect', 'CorrectSound');
+      this.$emit("play-effect", "CorrectSound");
+      this.$emit("add-record", [questionNum, questionNum, "正確"]);
     },
     addCircle(questionNum) {
       const obj = this.GameData.Objs[questionNum];
-      const radius = Math.sqrt(((obj.xRange[1] - obj.xRange[0]) ** 2) + ((obj.yRange[1] - obj.yRange[0]) ** 2)) / 2;
+      const radius =
+        Math.sqrt(
+          (obj.xRange[1] - obj.xRange[0]) ** 2 +
+            (obj.yRange[1] - obj.yRange[0]) ** 2
+        ) / 2;
 
       this.circles.push({
         x: (obj.xRange[0] + obj.xRange[1]) / 2,
         y: (obj.yRange[0] + obj.yRange[1]) / 2,
         radius: radius,
-        stroke: 'red',
-        strokeWidth: 2
+        stroke: "red",
+        strokeWidth: 2,
       });
+    },
+    getWrongAnswer(x, y) {
+      const tolerance = this.GameData.tolerance;
+      for (var i = 0; i < this.GameData.ObjNum; ++i) {
+        if (
+          x >= this.GameData.Objs[i].xRange[0] - tolerance &&
+          x <= this.GameData.Objs[i].xRange[1] + tolerance &&
+          y >= this.GameData.Objs[i].yRange[0] - tolerance &&
+          y <= this.GameData.Objs[i].yRange[1] + tolerance
+        )
+          return this.GameData.Objs[i].Name;
+      }
+      return "空白處";
     },
     nextQuestion() {
       this.questionNum++;
-      // this.value[this.questionNum] = [];
       if (this.gameOver()) {
-        // let result = '';
-        // for(let i = 0; i < 11; i++){
-        //   // console.log(this.value);
-        //   result += `{ "Name": "${i}", "xRange": [ ${this.value[i][0]}, ${this.value[i][2]} ], "yRange": [ ${this.value[i][1]}, ${this.value[i][3]} ] },\n`;
-        // }
-        // console.log(result);
         setTimeout(() => {
-          this.$emit('next-question', true);
+          this.$emit("next-question", true);
         }, 500);
       }
       else {
         this.skipAnsweredQuestions();
         this.playNumberSound();
       }
-      // console.log(this.questionNum);
     },
     previousQuestion() {
       this.questionNum--;
       if (this.questionNum < 0) {
         this.questionNum = this.GameData.ObjNum - 1;
       }
-      // console.log(this.questionNum);
-      // this.value[this.questionNum].splice(0,4);
       this.playNumberSound();
     },
     skipAnsweredQuestions() {
       const totalQuestions = this.GameData.ObjNum;
-      if (this.correctlyAnsweredQuestions[this.questionNum] || this.questionNum >= totalQuestions) {
+      if (
+        this.correctlyAnsweredQuestions[this.questionNum] ||
+        this.questionNum >= totalQuestions
+      ) {
         for (let i = 0; i < totalQuestions; i++) {
           if (!this.correctlyAnsweredQuestions[i]) {
             this.questionNum = i;
@@ -199,9 +205,8 @@ export default {
       }
     },
     gameOver() {
-      // return this.rightAnswerCount >= this.GameData.ObjNum;
-      return this.questionNum >= 11;
-    }
+      return this.rightAnswerCount >= this.GameData.ObjNum;
+    },
   },
   computed: {
     progressPercentage() {

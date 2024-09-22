@@ -270,7 +270,7 @@ export default {
       window.addEventListener("keyup", this.keyUp);
       this.game = window.setInterval(this.update, 20);
     },
-
+    
     keyDown(e) {
       //W = 38/87; A = 37/65; S = 40/83; D = 39/68
       //console.log(e.keyCode);

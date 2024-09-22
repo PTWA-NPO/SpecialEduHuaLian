@@ -1,7 +1,11 @@
 <template>
   <div class="quetioncontainer">
     <div class="quation__picture">
-      <component :is="this.GameData.name" :Data="this.GameData.Data" :ID="this.id"></component>
+      <component
+        :is="this.GameData.name"
+        :Data="this.GameData.Data"
+        :ID="this.id"
+      ></component>
     </div>
     <div class="quation__text">
       <h2>{{ GameData.Question }}</h2>
@@ -9,7 +13,6 @@
   </div>
   <div class="gameContainer">
     <div id="canvasContainer">
-
       <v-stage :config="configKonva">
         <v-layer>
           <v-rect :config="configLane"></v-rect>
@@ -20,8 +23,16 @@
         </v-layer>
 
         <v-layer>
-          <passage v-for="i in map" :Y="i[1]" :w="laneWidth" :l="configKonva.width" :option="GameData.Options[i[0]]"
-            :speed="speed" @end="end" @onClick="moveOnClick">
+          <passage
+            v-for="i in map"
+            :Y="i[1]"
+            :w="laneWidth"
+            :l="configKonva.width"
+            :option="GameData.Options[i[0]]"
+            :speed="speed"
+            @end="end"
+            @onClick="moveOnClick"
+          >
           </passage>
         </v-layer>
       </v-stage>
@@ -40,17 +51,15 @@
 import { GamesGetAssetsFile } from "@/utilitys/get_assets.js";
 import { Container } from "konva/lib/Container";
 import { defineAsyncComponent } from "vue";
-import { getComponents } from '@/utilitys/get-components.js';
-
+import { getComponents } from "@/utilitys/get-components.js";
 
 const carImg = document.createElement("img");
 carImg.src = GamesGetAssetsFile("MA_Pub_12", "RacingCar.png");
 
 export default {
   components: {
-    //lane: defineAsyncComponent(() => import("@/components/lane.vue")),
     passage: defineAsyncComponent(() => import("@/components/passage.vue")),
-    ImageContainer: getComponents('ImageContainer')
+    ImageContainer: getComponents("ImageContainer"),
   },
   data() {
     return {
@@ -101,9 +110,11 @@ export default {
     },
     id: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
+
+  emits: ["play-effect", "add-record", "next-question"],
 
   beforeMount() {
     var gameWidth = document.getElementById("GameContainer").clientWidth;
@@ -117,7 +128,7 @@ export default {
     this.ans = this.GameData.Answer;
     //console.log(this.GameData.Options.length);
 
-    window.addEventListener("keydown", this.input);
+    window.addEventListener("keydown", this.input);    
     this.laneWidth = Math.floor(this.configKonva.height / this.options);
     for (var i = 1; i < this.options; i++) {
       //console.log(i);
@@ -178,25 +189,21 @@ export default {
           //this.configTemp.text = "SUCCESS";
           this.$emit("play-effect", "CorrectSound");
           this.$emit("add-record", [
-            this.GameData.Answer,
-            this.configCar.key,
+            this.GameData.Options[this.GameData.Answer],
+            this.GameData.Options[this.configCar.key],
             "正確",
           ]);
           this.$emit("next-question");
-          console.log("check answer : True");
         } else {
           this.$emit("play-effect", "WrongSound");
           this.$emit("add-record", [
-            this.GameData.Answer,
-            this.configCar.key,
+            this.GameData.Options[this.GameData.Answer],
+            this.GameData.Options[this.configCar.key],
             "錯誤",
           ]);
           setTimeout(this.replay, 1000);
-          console.log("check answer : False");
         }
-        //this.configTemp.visible = true;
       }
-      //alert("end");
     },
 
     replay() {
@@ -248,7 +255,7 @@ export default {
   align-items: center;
 }
 
-.quation__text{
+.quation__text {
   align-items: center;
   align-self: center;
 }

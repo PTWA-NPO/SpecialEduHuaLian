@@ -231,14 +231,14 @@ export default {
         this.$emit("play-effect", "WrongSound");
         this.$emit("add-record", [
           this.GameData.Answer[0],
-          this.Answers[0],
+          this.Answers[0][0].tag,
           "錯誤",
         ]);
       } else {
         this.$emit("play-effect", "CorrectSound");
         this.$emit("add-record", [
           this.GameData.Answer[0],
-          this.Answers[0],
+          this.Answers[0][0].tag,
           "正確",
         ]);
         this.$emit("next-question");

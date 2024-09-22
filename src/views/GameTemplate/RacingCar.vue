@@ -128,7 +128,7 @@ export default {
     this.ans = this.GameData.Answer;
     //console.log(this.GameData.Options.length);
 
-    window.addEventListener("keydown", this.input);
+    window.addEventListener("keydown", this.input);    
     this.laneWidth = Math.floor(this.configKonva.height / this.options);
     for (var i = 1; i < this.options; i++) {
       //console.log(i);

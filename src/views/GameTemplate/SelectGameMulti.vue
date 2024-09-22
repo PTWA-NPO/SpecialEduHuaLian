@@ -50,9 +50,6 @@
 
 <script>
 import { getComponents } from '@/utilitys/get_components';
-import { now } from '@vueuse/core/index.cjs';
-import { getComponents } from "@/utilitys/get_components";
-
 export default {
     name: 'SelectGameMulti',
     components: {

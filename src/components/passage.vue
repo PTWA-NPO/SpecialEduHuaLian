@@ -6,7 +6,7 @@
 <script>
 import { GamesGetAssetsFile } from "@/utilitys/get_assets.js";
 const passageImg = document.createElement("img");
-passageImg.src = GamesGetAssetsFile("MA_Pub_12", "Passage.png");//需要改成變數
+passageImg.src = GamesGetAssetsFile("MA_Pub_12", "Passage.png"); //需要改成變數
 
 export default {
   data() {
@@ -35,6 +35,8 @@ export default {
   },
 
   props: ["Y", "w", "l", "option", "speed"],
+
+  emits: ["end", "OnClick"],
 
   mounted() {
     this.configPassage.y = this.Y;

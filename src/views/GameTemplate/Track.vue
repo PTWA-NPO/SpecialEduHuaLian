@@ -16,6 +16,29 @@
       </div>
     </div> -->
 
+    <!-- Conveyor belt section -->
+    <div class="box ratio-7">
+      <div
+        class="conveyor-belt"
+        :class="{ paused: isPaused }"
+        :style="conveyorStyle"
+      >
+        <div
+          class="conveyor-item"
+          v-for="(item, index) in currentQuestions"
+          :key="index"
+        >
+          <div class="question-container">
+            <component
+              :is="this.GameData.Question[currentQuestions[index]].name"
+              :Data="this.GameData.Question[currentQuestions[index]].Data"
+              :ID="this.id"
+            ></component>
+            <!-- <p class="question-text">{{ item.Question }}</p> -->
+          </div>
+        </div>
+      </div>
+    </div>
       <!-- Conveyor belt section -->
       <div class="box ratio-7">
         <div class="conveyor-belt" :class="{ 'paused': isPaused }" :style="conveyorStyle">
@@ -29,6 +52,34 @@
         </div>
       </div>
 
+    <!-- Spacer between conveyor belt and answer buttons -->
+    <!-- <div class="spacer"></div> -->
+    <!-- Answer buttons or home page -->
+    <div class="box ratio-3" v-if="!showHomePage">
+      <div class="button-container">
+        <button
+          v-for="(selection, index) in this.GameData.Question[
+            currentQuestions[currentQuestionIndex]
+          ].Selections"
+          :key="index"
+          :class="[
+            'big-button',
+            { 'wrong-answer': wrongAnswerIndex === index },
+          ]"
+          @click="handleAnswer(index)"
+        >
+          {{ selection }}
+        </button>
+      </div>
+    </div>
+    <div class="box ratio-3" v-if="showHomePage">
+      <div class="button-container">
+        <button class="big-button" @click="startQuiz">開始游戲</button>
+      </div>
+    </div>
+
+    <!-- Hidden audio elements for sound effects and background music -->
+    <audio ref="backgroundMusic" :src="gameplayMusic" loop></audio>
       <!-- Spacer between conveyor belt and answer buttons -->
       <!-- <div class="spacer"></div> -->
       <!-- Answer buttons or home page -->
@@ -55,17 +106,17 @@
 </template>
 
 <script>
-import heartImageUrl from '@/assets/images/pics/heart.png';
-import deadHeartImageUrl from '@/assets/images/pics/dead_heart.png';
-import muteIconUrl from '@/assets/images/pics/mute.png';
-import unmuteIconUrl from '@/assets/images/pics/unmute.png';
-import gameplayMusic from '@/assets/sounds/game_sounds/gameplay-music.mp3';
-import clickSound from '@/assets/sounds/game_sounds/click-sound.mp3';
-import wrongSound from '@/assets/sounds/game_sounds/wrong_sound_effect.mp3';
-import { getComponents } from '@/utilitys/get-components.js';
+import heartImageUrl from "@/assets/images/pics/heart.png";
+import deadHeartImageUrl from "@/assets/images/pics/dead_heart.png";
+import muteIconUrl from "@/assets/images/pics/mute.png";
+import unmuteIconUrl from "@/assets/images/pics/unmute.png";
+import gameplayMusic from "@/assets/sounds/game_sounds/gameplay-music.mp3";
+import clickSound from "@/assets/sounds/game_sounds/click-sound.mp3";
+import wrongSound from "@/assets/sounds/game_sounds/wrong_sound_effect.mp3";
+import { getComponents } from "@/utilitys/get-components.js";
 
 export default {
-  name: 'QuizComponent',
+  name: "QuizComponent",
   data() {
     return {
       heartImageUrl,
@@ -124,22 +175,22 @@ export default {
       // },
       currentQuestions: [], //題目陣列位置
       currentQuestionIndex: 0, //目前的題目
-      isPaused: true
+      isPaused: true,
     };
   },
   props: {
     GameData: {
       type: Object,
-      required: true
+      required: true,
     },
     GameConfig: {
       type: Object,
-      required: true
+      required: true,
     },
     id: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     conveyorStyle() {
@@ -150,40 +201,63 @@ export default {
       return {
         width: `${widthPercentage}%`,
         transform: `translateX(-${translateX}%)`,
-        transition: 'transform 1.5s linear',
-        whiteSpace: 'nowrap'
+        transition: "transform 1.5s linear",
+        whiteSpace: "nowrap",
       };
-    }
+    },
   },
   methods: {
     startQuiz() {
-      this.playBackgroundMusic()
+      this.playBackgroundMusic();
       this.playSound(this.clickSound, this.clickSoundVolume);
       this.currentQuestionIndex = 0;
       this.isPaused = false;
       this.wrongAnswerIndex = null;
-      this.currentQuestions = this.generateRandomOrder(this.GameData.Question.length);
+      this.currentQuestions = this.generateRandomOrder(
+        this.GameData.Question.length
+      );
       setTimeout(() => {
         this.pauseConveyor();
         this.showHomePage = false;
-      },);
+      });
     },
     handleAnswer(selectedIndex) {
+      var ansIndex =
+        this.GameData.Question[this.currentQuestions[this.currentQuestionIndex]]
+          .AnswerIndex;
       this.isPaused = false;
-      if (selectedIndex === this.GameData.Question[this.currentQuestions[this.currentQuestionIndex]].AnswerIndex) {
+      if (selectedIndex === ansIndex) {
+        this.$emit("add-record", [
+          this.GameData.Question[
+            this.currentQuestions[this.currentQuestionIndex]
+          ].Selections[ansIndex],
+          this.GameData.Question[
+            this.currentQuestions[this.currentQuestionIndex]
+          ].Selections[selectedIndex],
+          "正確",
+        ]);
         this.currentQuestionIndex += 1;
         if (this.currentQuestionIndex === this.GameData.Question.length) {
-          this.$emit('next-question', true);
+          this.$emit("next-question", true);
         } else {
-          this.$emit('play-effect', 'CorrectSound')
+          this.$emit("play-effect", "CorrectSound");
         }
         this.wrongAnswerIndex = null;
         // this.currentQuestionIndex = (this.currentQuestionIndex + 1) % this.currentQuestions.length;
       } else {
+        this.$emit("add-record", [
+          this.GameData.Question[
+            this.currentQuestions[this.currentQuestionIndex]
+          ].Selections[ansIndex],
+          this.GameData.Question[
+            this.currentQuestions[this.currentQuestionIndex]
+          ].Selections[selectedIndex],
+          "錯誤",
+        ]);
         this.remainingLives -= 1;
         this.wrongAnswerIndex = selectedIndex;
-        this.$emit('play-effect', 'WrongSound',)
-        // this.playSound(this.wrongSound, this.wrongSoundVolume); 
+        this.$emit("play-effect", "WrongSound");
+        // this.playSound(this.wrongSound, this.wrongSoundVolume);
       }
       setTimeout(() => {
         this.pauseConveyor();
@@ -230,12 +304,12 @@ export default {
         }
       }
       return order;
-    }
+    },
   },
   components: {
-    TextOnly: getComponents('TextOnly'),
-    ImageContainer: getComponents('ImageContainer')
-  }
+    TextOnly: getComponents("TextOnly"),
+    ImageContainer: getComponents("ImageContainer"),
+  },
 };
 </script>
 
@@ -306,7 +380,7 @@ export default {
 .conveyor-item {
   width: calc(100% / 3);
   height: 100%;
-  background-image: url('@/assets/images/pics/track2.png');
+  background-image: url("@/assets/images/pics/track2.png");
   background-size: cover;
   display: flex;
   align-items: center;
@@ -348,7 +422,7 @@ export default {
   flex: 2;
   margin: 10px;
   font-size: calc(2rem + 1vw);
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 5px;
@@ -403,7 +477,7 @@ export default {
   width: 100px;
 }
 
-@media(min-height:600px) {
+@media (min-height: 600px) {
   .question-container {
     height: 80%;
   }

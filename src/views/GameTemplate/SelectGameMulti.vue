@@ -1,5 +1,5 @@
 <template>
-<div class="Outter">
+  <div class="Outter">
     <div class="TopContainer" v-if="GameData.TopContainer != undefined">
         <component :is="GameData.TopContainer.Name" :Data="GameData.TopContainer.Data" :ID="this.id"></component>
     </div>    
@@ -51,6 +51,7 @@
 <script>
 import { getComponents } from '@/utilitys/get_components';
 import { now } from '@vueuse/core/index.cjs';
+import { getComponents } from "@/utilitys/get_components";
 
 export default {
     name: 'SelectGameMulti',

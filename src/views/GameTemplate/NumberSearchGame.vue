@@ -32,7 +32,7 @@
 import { getGameAssets } from "@/utilitys/get_assets.js";
 import { getSystemAssets } from "@/utilitys/get_assets.js";
 export default {
-  name: "NumberSerchGame",
+  name: "NumberSearchGame",
   data() {
     return {
       questionNum: 0,
@@ -82,11 +82,9 @@ export default {
         this.imageConfig.height = this.stageSize.width / aspectRatio;
       }
       }
-      this.imageConfig.image = image;
-    };
-
+    this.imageConfig.image = image;
     this.randomQuestionOrder = this.generateRandomOrder(this.GameData.ObjNum);
-    this.playNumberSound()
+    this.playNumberSound();
     this.value[0] = [];
   },
   methods: {

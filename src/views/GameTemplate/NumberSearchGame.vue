@@ -81,7 +81,6 @@ export default {
         this.imageConfig.width = this.stageSize.width;
         this.imageConfig.height = this.stageSize.width / aspectRatio;
       }
-      }
       this.imageConfig.image = image;
     };
 

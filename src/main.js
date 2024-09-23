@@ -7,7 +7,6 @@ import quasarLang from 'quasar/lang/zh-TW';
 import { createPinia } from 'pinia'
 
 
-
 // Import icon libraries
 import '@quasar/extras/material-icons/material-icons.css'
 

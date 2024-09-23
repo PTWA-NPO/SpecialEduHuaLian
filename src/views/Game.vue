@@ -373,6 +373,7 @@ import EffectWindow from "@/components/EffectWindow.vue";
 // import CopyItem from "./GameTemplate/CopyItem.vue";
 import gameStore from '@/stores/game';
 import { mapWritableState } from "pinia";
+import { soundManager } from '@/utilitys/SoundManager';
 
 export default {
   data() {
@@ -464,6 +465,9 @@ export default {
       }
     })();
       console.log(this.gameCode);
+    soundManager.registerSound('Correct', `${ImportUrl.getSystemEffectAssets("CorrectAnswer.mp3")}`);
+    soundManager.registerSound('Wrong', `${ImportUrl.getSystemEffectAssets("WrongAnswer.mp3")}`);
+    soundManager.registerSound('harray', `${ImportUrl.getSystemEffectAssets("harray.mp3")}`);
   },
   mounted() {
     this.FullScreen();
@@ -693,42 +697,47 @@ export default {
       let EffectWindow = document.getElementById("CorrectIncorrect");
       switch (type) {
         case "CorrectSound":
-          var sound = new Audio();
-          sound.src = ImportUrl.GetSystemEffectAssetsFile("CorrectAnswer.mp3");
+          // var sound = new Audio();
+          // sound.src = ImportUrl.GetSystemEffectAssetsFile("CorrectAnswer.mp3");
           // console.log(sound.src);
+
           this.EffectPlayer("CorrectAnimation");
-          sound.oncanplaythrough = function () {
-            sound.play();
-          };
+          soundManager.playSound(`Correct`, false);
+          // sound.oncanplaythrough = function () {
+          //   sound.play();
+          // };
           break;
         case "WrongSound":
           this.WrongTimes++;
-          var sound = new Audio();
-          sound.src = ImportUrl.GetSystemEffectAssetsFile("WrongAnswer.mp3");
+          // var sound = new Audio();
+          // sound.src = ImportUrl.GetSystemEffectAssetsFile("WrongAnswer.mp3");
           this.EffectPlayer("IncorrectAnimation");
-          sound.oncanplaythrough = function () {
-            sound.play();
-          };
+          soundManager.playSound(`Wrong`, false);
+          // sound.oncanplaythrough = function () {
+          //   sound.play();
+          // };
           break;
         case "FireWorkAnimation":
           this.EffectWindow = true;
           // this.EffectSrc = new URL(`../assets/Effects/Firework.gif`, import.meta.url).href;
-          var sound = new Audio();
+          // var sound = new Audio();
           sound.src = ImportUrl.GetSystemEffectAssetsFile("harray.mp3");
-          sound.oncanplaythrough = function () {
-            sound.play();
-          };
+          soundManager.playSound(`harray`, false);
+          // sound.oncanplaythrough = function () {
+          //   sound.play();
+          // };
           setInterval(() => {
             this.EffectWindow = false;
           }, 3000);
           break;
         case "HarraySound":
-          var sound = new Audio();
+          // var sound = new Audio();
           // sound.src = ImportUrl.GetSystemAssetsFile("harray.mp3","effects");
           sound.src = ImportUrl.GetSystemEffectAssetsFile("harray.mp3");
-          sound.oncanplaythrough = function () {
-            sound.play();
-          };
+          soundManager.playSound(`harray`, false);
+          // sound.oncanplaythrough = function () {
+          //   sound.play();
+          // };
           break;
         case "CorrectAnimation":
           this.CorrectIncorrect.Status = "Correct";

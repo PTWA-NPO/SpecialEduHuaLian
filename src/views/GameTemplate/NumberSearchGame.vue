@@ -31,7 +31,7 @@
 <script>
 import { getGameAssets } from "@/utilitys/get_assets.js";
 import { getSystemAssets } from "@/utilitys/get_assets.js";
-import { soundManager } from '@/utilitys/SoundManager';
+import { soundManager } from '@/utilitys/sound-manager.js';
 export default {
   name: "NumberSerchGame",
   data() {
@@ -97,7 +97,7 @@ export default {
   methods: {
     playNumberSound() {
       const number = this.randomQuestionOrder[this.questionNum];
-      soundManager.playSound(`${number}`, false);
+      soundManager.playSound(`${number}`, false, false);
       // var numSound = new Audio();
       // numSound.src = getSystemAssets(`${number}.mp3`, "read-numbers");
       // numSound.oncanplaythrough = function () {

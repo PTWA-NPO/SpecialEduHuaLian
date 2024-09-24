@@ -373,7 +373,7 @@ import EffectWindow from "@/components/EffectWindow.vue";
 // import CopyItem from "./GameTemplate/CopyItem.vue";
 import gameStore from '@/stores/game';
 import { mapWritableState } from "pinia";
-import { soundManager } from '@/utilitys/SoundManager';
+import { soundManager } from '@/utilitys/sound-manager.js';
 
 export default {
   data() {
@@ -465,9 +465,9 @@ export default {
       }
     })();
       console.log(this.gameCode);
-    soundManager.registerSound('Correct', `${ImportUrl.getSystemEffectAssets("CorrectAnswer.mp3")}`);
-    soundManager.registerSound('Wrong', `${ImportUrl.getSystemEffectAssets("WrongAnswer.mp3")}`);
-    soundManager.registerSound('harray', `${ImportUrl.getSystemEffectAssets("harray.mp3")}`);
+    soundManager.registerSound('Correct', `${ImportUrl.getSystemEffectAssets("CorrectAnswer.mp3")}`,false);
+    soundManager.registerSound('Wrong', `${ImportUrl.getSystemEffectAssets("WrongAnswer.mp3")}`,false);
+    soundManager.registerSound('harray', `${ImportUrl.getSystemEffectAssets("harray.mp3")}`,false);
   },
   mounted() {
     this.FullScreen();

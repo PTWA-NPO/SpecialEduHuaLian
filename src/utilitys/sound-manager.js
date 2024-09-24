@@ -54,6 +54,14 @@ class SoundManager {
             this.processQueue(); // 播放下一個音效
         });
     }
+
+    stopAllSounds() {
+        for (const name in this.sounds) {
+          const sound = this.sounds[name];
+          sound.loop(false);  // 確保將 loop 設置為 false
+          sound.stop();       // 停止播放
+        }
+    }
 }
 
 export const soundManager = new SoundManager();

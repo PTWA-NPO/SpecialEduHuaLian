@@ -632,6 +632,7 @@ export default {
       }
       if(isDone){
         this.GameStatus = "Done";
+        soundManager.stopAllSounds();
         this.EffectPlayer("FireWorkAnimation");
         this.finaltime = this.totaltime;
       }
@@ -886,6 +887,7 @@ export default {
       } catch {}
     },
     PreviousPage() {
+      soundManager.stopAllSounds();
       this.ExitFullScreen();
       this.$router.replace({ path: `/GameSelect/${this.$route.params.Grade}`})
     },

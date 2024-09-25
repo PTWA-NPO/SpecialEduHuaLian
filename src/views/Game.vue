@@ -478,7 +478,7 @@ export default {
       console.log(this.gameCode);
       soundManager.registerSound('Correct', `${ImportUrl.getSystemEffectAssets("CorrectAnswer.mp3")}`,false);
       soundManager.registerSound('Wrong', `${ImportUrl.getSystemEffectAssets("WrongAnswer.mp3")}`,false);
-      soundManager.registerSound('harray', `${ImportUrl.getSystemEffectAssets("harray.mp3")}`,false);
+      soundManager.registerSound('FireWorkAnimation', `${ImportUrl.getSystemEffectAssets("harray.mp3")}`,false);
   },
   mounted() {
     this.FullScreen();
@@ -713,9 +713,7 @@ export default {
       }
     },
     EffectPlayer(type) {
-      //播放音效
-      // console.log("Play Effect, type: "+type);
-      let EffectWindow = document.getElementById("CorrectIncorrect");
+      //播放音效    
       switch (type) {
         case "CorrectSound":
           // var sound = new Audio();
@@ -740,19 +738,21 @@ export default {
           break;
         case "FireWorkAnimation":
           this.EffectWindow = true;
-          this.EffectSrc = new URL(`../assets/Effects/Firework.gif`, import.meta.url).href;
-          var sound = new Audio();
-          sound.src = ImportUrl.GetSystemEffectAssetsFile("harray.mp3");
-          // soundManager.playSound(`harray`, false);
-          sound.oncanplaythrough = function () {
-            sound.play();
-          };
-          setInterval(() => {
+          // this.EffectSrc = new URL(`../assets/Effects/Firework.gif`, import.meta.url).href;
+          // var sound = new Audio();
+          // sound.src = ImportUrl.GetSystemEffectAssetsFile("harray.mp3");
+          soundManager.playSound(`FireWorkAnimation`, false);
+          // sound.oncanplaythrough = function () {
+          //   sound.play();
+          // };
+          setTimeout(() => {
             this.EffectWindow = false;
           }, 3000);
           break;
-        case "HarraySound":
-          var sound = new Audio();
+        case "HarraySound": //Wait for remove
+          this.EffectPlayer("FireWorkAnimation");
+          console.warn("HarraySound is Deprecated, Please use FireWorkAnimation instead");
+          // var sound = new Audio();
           // sound.src = ImportUrl.GetSystemAssetsFile("harray.mp3","effects");
           // sound.src = ImportUrl.GetSystemEffectAssetsFile("harray.mp3");
           // soundManager.playSound(`harray`, false);

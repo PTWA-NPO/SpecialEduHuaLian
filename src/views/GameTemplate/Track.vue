@@ -45,7 +45,7 @@
       </div>
       <div class="box ratio-3" v-if="showHomePage">
         <div class="button-container">
-          <button class="big-button" @click="startQuiz">開始游戲</button>
+          <button class="big-button" @click="startQuiz">開始遊戲</button>
         </div>
       </div>
     </div>

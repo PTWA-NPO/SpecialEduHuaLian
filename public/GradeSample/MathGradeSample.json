@@ -7,8 +7,8 @@
                 "Games": [
                     {
                         "id": "MA_Pub_01",
-                        "Name": "數數看",
-                        "Description": "請數數看有多少小動物躲在圖片中吧",
+                        "Name": "算算看",
+                        "Description": "請算算看有多少小動物躲在圖片中吧",
                         "Img": "MA_Pub_01.png"
                     },
                     {

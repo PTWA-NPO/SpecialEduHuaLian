@@ -11,12 +11,12 @@ class SoundManager {
     }
 
     // 註冊音效並預載入
-    registerSound(name, src, isLarge = false) {
+    registerSound(name, src, isStream = false) {
         if (!this.sounds[name]) {
             this.sounds[name] = new Howl({
                 src: [src],
                 preload: true, // 預載入音效
-                html5: isLarge  // 對大型音檔啟用流式播放
+                html5: isStream  // 對大型音檔啟用流式播放
             });
         }
     }

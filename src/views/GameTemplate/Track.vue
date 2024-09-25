@@ -16,56 +16,38 @@
       </div>
     </div> -->
 
-    <!-- Conveyor belt section -->
-    <div class="box ratio-7">
-      <div
-        class="conveyor-belt"
-        :class="{ paused: isPaused }"
-        :style="conveyorStyle"
-      >
-        <div
-          class="conveyor-item"
-          v-for="(item, index) in currentQuestions"
-          :key="index"
-        >
-          <div class="question-container">
-            <component
-              :is="this.GameData.Question[currentQuestions[index]].name"
-              :Data="this.GameData.Question[currentQuestions[index]].Data"
-              :ID="this.id"
-            ></component>
-            <!-- <p class="question-text">{{ item.Question }}</p> -->
+      <!-- Conveyor belt section -->
+      <div class="box ratio-7">
+        <div class="conveyor-belt" :class="{ paused: isPaused }" :style="conveyorStyle">
+          <div class="conveyor-item" v-for="(item, index) in currentQuestions" :key="index">
+            <div class="question-container">
+              <component :is="this.GameData.Question[currentQuestions[index]].name"
+                :Data="this.GameData.Question[currentQuestions[index]].Data" :ID="this.id"></component>
+              <!-- <p class="question-text">{{ item.Question }}</p> -->
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Spacer between conveyor belt and answer buttons -->
-    <!-- <div class="spacer"></div> -->
-    <!-- Answer buttons or home page -->
-    <div class="box ratio-3" v-if="!showHomePage">
-      <div class="button-container">
-        <button
-          v-for="(selection, index) in this.GameData.Question[
+      <!-- Spacer between conveyor belt and answer buttons -->
+      <!-- <div class="spacer"></div> -->
+      <!-- Answer buttons or home page -->
+      <div class="box ratio-3" v-if="!showHomePage">
+        <div class="button-container">
+          <button v-for="(selection, index) in this.GameData.Question[
             currentQuestions[currentQuestionIndex]
-          ].Selections"
-          :key="index"
-          :class="[
+          ].Selections" :key="index" :class="[
             'big-button',
             { 'wrong-answer': wrongAnswerIndex === index },
-          ]"
-          @click="handleAnswer(index)"
-        >
-          {{ selection }}
-        </button>
+          ]" @click="handleAnswer(index)">
+            {{ selection }}
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="box ratio-3" v-if="showHomePage">
-      <div class="button-container">
-        <button class="big-button" @click="startQuiz">開始游戲</button>
+      <div class="box ratio-3" v-if="showHomePage">
+        <div class="button-container">
+          <button class="big-button" @click="startQuiz">開始遊戲</button>
+        </div>
       </div>
-    </div>
-    <!-- Hidden audio elements for sound effects and background music -->
-    <audio ref="backgroundMusic" :src="gameplayMusic" loop></audio>
     </div>
   </div>
 </template>
@@ -79,6 +61,7 @@ import gameplayMusic from "@/assets/sounds/game_sounds/gameplay-music.mp3";
 import clickSound from "@/assets/sounds/game_sounds/click-sound.mp3";
 import wrongSound from "@/assets/sounds/game_sounds/wrong_sound_effect.mp3";
 import { getComponents } from "@/utilitys/get-components.js";
+import { soundManager } from '@/utilitys/sound-manager.js';
 
 export default {
   name: "QuizComponent",
@@ -174,7 +157,7 @@ export default {
   methods: {
     startQuiz() {
       this.playBackgroundMusic();
-      this.playSound(this.clickSound, this.clickSoundVolume);
+      this.playCkickSound();
       this.currentQuestionIndex = 0;
       this.isPaused = false;
       this.wrongAnswerIndex = null;
@@ -231,19 +214,11 @@ export default {
     pauseConveyor() {
       this.isPaused = true;
     },
-    playSound(soundUrl, volume) {
-      const audio = new Audio(soundUrl);
-      audio.volume = volume;
-      audio.play();
+    playCkickSound() {
+      soundManager.playSound('trackClickSound', true,false);
     },
     playBackgroundMusic() {
-      const backgroundMusic = this.$refs.backgroundMusic;
-      backgroundMusic.volume = this.isMuted ? 0 : 0.15;
-      if (this.isMuted) {
-        backgroundMusic.pause();
-      } else {
-        backgroundMusic.play();
-      }
+      soundManager.playSound('trackBackgroundMusic', true,true);
     },
     toggleMute() {
       this.isMuted = !this.isMuted;
@@ -275,6 +250,10 @@ export default {
     TextOnly: getComponents("TextOnly"),
     ImageContainer: getComponents("ImageContainer"),
   },
+  created() {
+    soundManager.registerSound('trackBackgroundMusic', `${gameplayMusic}`, true);
+    soundManager.registerSound('trackClickSound', `${clickSound}`, true);
+  }
 };
 </script>
 

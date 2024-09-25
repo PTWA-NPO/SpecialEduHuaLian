@@ -228,7 +228,7 @@
       </button>
       <slot name="hint"></slot>
     </div>
-
+    
     <!-- 重現代碼 -->
     <div
       class="modal fade"
@@ -360,15 +360,30 @@ export default {
       this.$emit("reappear-code");
     },
     copyReappearCode() {
-      navigator.clipboard
-        .writeText(this.reAppeareCode)
-        .then(function () {
-          alert("文字已成功複製");
-        })
-        .catch(function (err) {
-          alert("無法複製文字", err);
-        });
-    },
+      // 建立一個隱藏的textarea
+      const textarea = document.createElement("textarea");
+      textarea.value = this.gameCode;
+
+      // 防止顯示在頁面上
+      textarea.style.position = "fixed";
+      textarea.style.top = "-9999px";
+
+      document.body.appendChild(textarea);
+
+      // 選取textarea中的文字
+      textarea.select();
+      textarea.setSelectionRange(0, 99999); // 對於行動裝置的兼容
+
+      // 嘗試複製選取的文字
+      try {
+        document.execCommand("copy");
+        alert("文字已成功複製");
+      } catch (err) {
+        alert("無法複製文字", err);
+      }
+      // 移除textarea
+      document.body.removeChild(textarea);
+    }
   },
 };
 </script>

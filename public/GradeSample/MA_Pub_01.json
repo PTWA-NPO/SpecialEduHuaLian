@@ -145,7 +145,7 @@
                 {
                     "Question": "海豹?$question$隻",
                     "Selection": [{"Text": "5", "Size": "Small"},{"Text": "7", "Size": "Small"},{"Text": "4", "Size": "Small"}],
-                    "Answer": 0
+                    "Answer": 2
                 }                
             ]
         },

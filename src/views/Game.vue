@@ -476,9 +476,9 @@ export default {
       }
     })();
       console.log(this.gameCode);
-    soundManager.registerSound('Correct', `${ImportUrl.getSystemEffectAssets("CorrectAnswer.mp3")}`,false);
-    soundManager.registerSound('Wrong', `${ImportUrl.getSystemEffectAssets("WrongAnswer.mp3")}`,false);
-    soundManager.registerSound('harray', `${ImportUrl.getSystemEffectAssets("harray.mp3")}`,false);
+      soundManager.registerSound('Correct', `${ImportUrl.getSystemEffectAssets("CorrectAnswer.mp3")}`,false);
+      soundManager.registerSound('Wrong', `${ImportUrl.getSystemEffectAssets("WrongAnswer.mp3")}`,false);
+      soundManager.registerSound('harray', `${ImportUrl.getSystemEffectAssets("harray.mp3")}`,false);
   },
   mounted() {
     this.FullScreen();
@@ -571,7 +571,7 @@ export default {
           this.Subject,
           data,
           this.finaltime,
-          this.questionOrder,
+          this.gameCode
         );
         Arr2CSV.DownloadCSV(download, this.Name);
       } else {
@@ -582,7 +582,7 @@ export default {
           this.Subject,
           data,
           this.finaltime,
-          this.questionOrder,
+          this.gameCode,
           this.header,
         );
         Arr2CSV.DownloadCSV(download, this.Name);
@@ -740,22 +740,22 @@ export default {
           break;
         case "FireWorkAnimation":
           this.EffectWindow = true;
-          // this.EffectSrc = new URL(`../assets/Effects/Firework.gif`, import.meta.url).href;
-          // var sound = new Audio();
+          this.EffectSrc = new URL(`../assets/Effects/Firework.gif`, import.meta.url).href;
+          var sound = new Audio();
           sound.src = ImportUrl.GetSystemEffectAssetsFile("harray.mp3");
-          soundManager.playSound(`harray`, false);
-          // sound.oncanplaythrough = function () {
-          //   sound.play();
-          // };
+          // soundManager.playSound(`harray`, false);
+          sound.oncanplaythrough = function () {
+            sound.play();
+          };
           setInterval(() => {
             this.EffectWindow = false;
           }, 3000);
           break;
         case "HarraySound":
-          // var sound = new Audio();
+          var sound = new Audio();
           // sound.src = ImportUrl.GetSystemAssetsFile("harray.mp3","effects");
-          sound.src = ImportUrl.GetSystemEffectAssetsFile("harray.mp3");
-          soundManager.playSound(`harray`, false);
+          // sound.src = ImportUrl.GetSystemEffectAssetsFile("harray.mp3");
+          // soundManager.playSound(`harray`, false);
           // sound.oncanplaythrough = function () {
           //   sound.play();
           // };

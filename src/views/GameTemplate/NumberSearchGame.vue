@@ -31,6 +31,7 @@
 <script>
 import { getGameAssets } from "@/utilitys/get_assets.js";
 import { getSystemAssets } from "@/utilitys/get_assets.js";
+import { soundManager } from '@/utilitys/sound-manager.js';
 export default {
   name: "NumberSearchGame",
   data() {
@@ -81,21 +82,28 @@ export default {
         this.imageConfig.width = this.stageSize.width;
         this.imageConfig.height = this.stageSize.width / aspectRatio;
       }
-      }
-    this.imageConfig.image = image;
+      this.imageConfig.image = image;
+    };
+
     this.randomQuestionOrder = this.generateRandomOrder(this.GameData.ObjNum);
-    this.playNumberSound();
+
+    for (let i = 0; i < 11; i++) {
+      const numberSound = getSystemAssets(`${i}.mp3`, "read-numbers");
+      soundManager.registerSound(`${i}`, numberSound);
+    }
+    this.playNumberSound()
     this.value[0] = [];
   },
   methods: {
     playNumberSound() {
       const number = this.randomQuestionOrder[this.questionNum];
-      var numSound = new Audio();
-      numSound.src = getSystemAssets(`${number}.mp3`, "read-numbers");
-      numSound.oncanplaythrough = function () {
-        numSound.play();
-      };
-      console.log(number);
+      soundManager.playSound(`${number}`, false, false);
+      // var numSound = new Audio();
+      // numSound.src = getSystemAssets(`${number}.mp3`, "read-numbers");
+      // numSound.oncanplaythrough = function () {
+      //   numSound.play();
+      // };
+      // console.log(number);
     },
     handleMouseClick() {
       const mousePos = this.$refs.stage.getNode().getPointerPosition();
@@ -103,9 +111,7 @@ export default {
       if (this.checkAnswer(questionNum, mousePos.x, mousePos.y)) {
         this.addCircle(questionNum);
         this.answerCorrectly(questionNum);
-        setTimeout(() => {
-          this.nextQuestion();
-        }, 1000);
+        this.nextQuestion();
       } else {
         this.$emit("play-effect", "WrongSound");
         this.$emit("add-record", [
@@ -138,6 +144,7 @@ export default {
     answerCorrectly(questionNum) {
       this.rightAnswerCount++;
       this.correctlyAnsweredQuestions[this.questionNum] = 1;
+      // soundManager.playSound('correct', true);
       this.$emit("play-effect", "CorrectSound");
       this.$emit("add-record", [questionNum, questionNum, "正確"]);
     },
@@ -146,7 +153,7 @@ export default {
       const radius =
         Math.sqrt(
           (obj.xRange[1] - obj.xRange[0]) ** 2 +
-            (obj.yRange[1] - obj.yRange[0]) ** 2
+          (obj.yRange[1] - obj.yRange[0]) ** 2
         ) / 2;
 
       this.circles.push({

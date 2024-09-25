@@ -742,7 +742,7 @@ export default {
           this.EffectWindow = true;
           // this.EffectSrc = new URL(`../assets/Effects/Firework.gif`, import.meta.url).href;
           // var sound = new Audio();
-          sound.src = ImportUrl.GetSystemEffectAssetsFile("harray.mp3");
+          // sound.src = ImportUrl.GetSystemEffectAssetsFile("harray.mp3");
           soundManager.playSound(`harray`, false);
           // sound.oncanplaythrough = function () {
           //   sound.play();
@@ -754,7 +754,7 @@ export default {
         case "HarraySound":
           // var sound = new Audio();
           // sound.src = ImportUrl.GetSystemAssetsFile("harray.mp3","effects");
-          sound.src = ImportUrl.GetSystemEffectAssetsFile("harray.mp3");
+          // sound.src = ImportUrl.GetSystemEffectAssetsFile("harray.mp3");
           soundManager.playSound(`harray`, false);
           // sound.oncanplaythrough = function () {
           //   sound.play();

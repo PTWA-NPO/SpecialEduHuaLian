@@ -48,6 +48,17 @@
                         "Img": "MA_Pub_12.png"
                     }       
                 ]
+            },
+            {
+                "Title": "兩位數的相加",
+                "Games": [
+                    {
+                        "id": "MA_Pub_13",
+                        "Name": "計算板",
+                        "Description": "請將數字進行加總吧",
+                        "Img": "MA_Pub_13.png"
+                    }
+                ]
             }
         ]
     },

@@ -738,27 +738,27 @@ export default {
           break;
         case "FireWorkAnimation":
           this.EffectWindow = true;
-          // this.EffectSrc = new URL(`../assets/Effects/Firework.gif`, import.meta.url).href;
-          // var sound = new Audio();
-          // sound.src = ImportUrl.GetSystemEffectAssetsFile("harray.mp3");
+          this.EffectSrc = new URL(`../assets/Effects/Firework.gif`, import.meta.url).href;
+          var sound = new Audio();
+          sound.src = ImportUrl.GetSystemEffectAssetsFile("harray.mp3");
           soundManager.playSound(`FireWorkAnimation`, false);
-          // sound.oncanplaythrough = function () {
-          //   sound.play();
-          // };
+          sound.oncanplaythrough = function () {
+            sound.play();
+          };
           setTimeout(() => {
             this.EffectWindow = false;
           }, 3000);
           break;
         case "HarraySound": //Wait for remove
-          this.EffectPlayer("FireWorkAnimation");
+          // this.EffectPlayer("FireWorkAnimation");
           console.warn("HarraySound is Deprecated, Please use FireWorkAnimation instead");
-          // var sound = new Audio();
-          // sound.src = ImportUrl.GetSystemAssetsFile("harray.mp3","effects");
-          // sound.src = ImportUrl.GetSystemEffectAssetsFile("harray.mp3");
-          // soundManager.playSound(`harray`, false);
-          // sound.oncanplaythrough = function () {
-          //   sound.play();
-          // };
+          var sound = new Audio();
+          sound.src = ImportUrl.GetSystemAssetsFile("harray.mp3","effects");
+          sound.src = ImportUrl.GetSystemEffectAssetsFile("harray.mp3");
+          soundManager.playSound(`harray`, false);
+          sound.oncanplaythrough = function () {
+            sound.play();
+          };
           break;
         case "CorrectAnimation":
           this.CorrectIncorrect.Status = "Correct";

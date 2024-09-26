@@ -263,6 +263,29 @@
             <p v-if="!checkformat" style="color: red">
               請貼上正確的重現代碼，若確認代碼沒有錯卻無法送出，可能是遊戲已更新，代碼會自動失效
             </p>
+            {{ this.gameCode }}
+            <button
+              class="btn btn-primary text-nowrap img-hover-zoom"
+            >
+              <div class="d-flex align-items-center">
+                <div class="">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-copy"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"
+                    />
+                  </svg>
+                </div>
+                <div class="mx-auto" @click="copyReappearCode">複製重現代碼</div>
+              </div>
+            </button>
           </div>
           <div class="modal-footer">
             <button
@@ -360,29 +383,40 @@ export default {
       this.$emit("reappear-code");
     },
     copyReappearCode() {
-      // 建立一個隱藏的textarea
-      const textarea = document.createElement("textarea");
-      textarea.value = this.gameCode;
+      // 檢查瀏覽器是否支援 Clipboard API
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(this.gameCode)
+          .then(() => {
+            alert("文字已成功複製");
+          })
+          .catch(err => {
+            alert("無法複製文字", err);
+          });
+      } else {
+        // 如果不支援 Clipboard API，則使用舊的方法
+        const textarea = document.createElement("textarea");
+        textarea.value = this.gameCode;
 
-      // 防止顯示在頁面上
-      textarea.style.position = "fixed";
-      textarea.style.top = "-9999px";
+        // 防止顯示在頁面上
+        textarea.style.position = "fixed";
+        textarea.style.top = "-9999px";
 
-      document.body.appendChild(textarea);
+        document.body.appendChild(textarea);
 
-      // 選取textarea中的文字
-      textarea.select();
-      textarea.setSelectionRange(0, 99999); // 對於行動裝置的兼容
+        // 選取textarea中的文字
+        textarea.select();
+        textarea.setSelectionRange(0, 99999); // 對於行動裝置的兼容
 
-      // 嘗試複製選取的文字
-      try {
-        document.execCommand("copy");
-        alert("文字已成功複製");
-      } catch (err) {
-        alert("無法複製文字", err);
+        // 嘗試複製選取的文字
+        try {
+          document.execCommand("copy");
+          alert("文字已成功複製");
+        } catch (err) {
+          alert("無法複製文字", err);
+        }
+        // 移除textarea
+        document.body.removeChild(textarea);
       }
-      // 移除textarea
-      document.body.removeChild(textarea);
     }
   },
 };
